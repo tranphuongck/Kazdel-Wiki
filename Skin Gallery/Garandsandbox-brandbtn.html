@@ -1,0 +1,453 @@
+<!-- Modified from original file from prts.wiki -->
+
+<includeonly><html>
+<head>
+    <script>
+        function brandorder(){
+            document.getElementById("switchbluebg").style.left="100px";
+            document.getElementById("timeorder").style.color="#313131";
+            document.getElementById("brandorder").style.color="white";
+            document.getElementsByClassName("halfimgcontainer")[0].style.transform="translateX(-110%)";
+            setTimeout(function(){
+            document.getElementsByClassName("halfimgcontainer")[0].style.display="none";
+            document.getElementsByClassName("brandbtncontainer")[0].style.display="flex";
+            }, 300);
+            setTimeout(function(){document.getElementsByClassName("brandbtncontainer")[0].style.transform="translateX(0)";},310);
+        }
+        function timeorder(){
+            document.getElementById("switchbluebg").style.left="0px";
+            document.getElementById("timeorder").style.color="white";
+            document.getElementById("brandorder").style.color="#313131";
+            document.getElementsByClassName("brandbtncontainer")[0].style.transform="translateX(110%)";
+            setTimeout(function(){
+            document.getElementsByClassName("brandbtncontainer")[0].style.display="none";
+            document.getElementsByClassName("halfimgcontainer")[0].style.display="block";
+            }, 300);
+            setTimeout(function(){document.getElementsByClassName("halfimgcontainer")[0].style.transform="translateX(0)";},310);
+        }
+    </script>
+    <style>
+    :root{
+            --size1:10px;
+            --size2:5px;
+            --color1:rgba(0,0,0,.2);
+        }
+        .skinwrapper{
+            width: 120px;
+            height:276px;
+            background-color: white;
+            position: relative;
+            margin: 0px;
+            font-size: 0px;
+            display: inline-block;
+            filter:drop-shadow(0px 5px 5px rgba(0,0,0,.5));
+            cursor:pointer;
+        }
+        .charimgwrapper{
+            position: absolute;
+            bottom: 36px;
+            left: 0px;
+            width: 120px;
+            z-index: 1;
+            overflow: hidden;
+        }
+        .charimg{
+        position:relative;
+        z-index:1;
+        }
+        .skintag{
+            width:66px;
+            height:20px;
+            background-color: #0224ff;
+            position: absolute;
+            top:5px;
+            right:-7px;
+            color: white;
+            font-size: 12px;
+            line-height: 20px;
+            text-align: center;
+            box-sizing: border-box;
+            z-index: 2;
+        }
+        .skintagbg{
+            width:30px;
+            height:20px;
+            position: absolute;
+            top: 5px;
+            right:-7px;
+            transform-origin: bottom right;
+            transform: rotate(-45deg);
+            background-color:#1f1f8a;
+            z-index:-1;
+        }
+        .charnameEn{
+            position: absolute;
+            top:244px;
+            left: 4px;
+            color:#5b5b5b;
+            font-weight: bold;
+            font-size: 13px;
+            line-height: 12px;
+        }
+        .skinname{
+            position: absolute;
+            bottom:4px;
+            left: 4px;
+            color:#5b5b5b;
+            font-size: 10px;
+            line-height: 12px;
+        }
+        .skinlogowrapper{
+            position: absolute;
+            top: 0px;
+            width: 120px;
+            height: 240px;
+            overflow: hidden;
+            z-index: 0;
+        }
+        .skinlogo{
+            filter: invert();
+            opacity: .81;
+            position: relative;
+        }
+        .circlepoint{
+            position: absolute;
+            right:-50px;
+            bottom:-33px;
+            width: 200px;
+            height: 100px;
+            background-image: 
+                radial-gradient(var(--color1) 6%, transparent 7%), 
+                radial-gradient(var(--color1) 12%, transparent 13%), 
+                radial-gradient(var(--color1) 16%, transparent 17%), 
+                radial-gradient(var(--color1) 20%, transparent 21%), 
+                radial-gradient(var(--color1) 25%, transparent 26%), 
+                radial-gradient(var(--color1) 26%, transparent 27%), 
+                radial-gradient(var(--color1) 30%, transparent 31%), 
+                radial-gradient(var(--color1) 32%, transparent 33%), 
+                radial-gradient(var(--color1) 35%, transparent 36%), 
+                radial-gradient(var(--color1) 32%, transparent 33%), 
+                radial-gradient(var(--color1) 35%, transparent 36%), 
+                radial-gradient(var(--color1) 32%, transparent 33%), 
+                radial-gradient(var(--color1) 35%, transparent 36%), 
+                radial-gradient(var(--color1) 32%, transparent 33%), 
+                radial-gradient(var(--color1) 35%, transparent 36%),
+                radial-gradient(var(--color1) 32%, transparent 33%);
+            background-size: var(--size1) var(--size1);
+            background-position: 
+                0 0,var(--size2) 5px,
+                0 10px,var(--size2) 15px,
+                0 20px,var(--size2) 25px,
+                0 30px,var(--size2) 35px,
+                0 40px,var(--size2) 45px,
+                0 50px,var(--size2) 55px,
+                0 60px,var(--size2) 65px,
+                0 70px,var(--size2) 75px,
+                0 80px,var(--size2) 85px,
+                0 90px,var(--size2) 95px,
+                0 100px,var(--size2) 105px;
+            background-repeat: repeat-x;
+            transform: rotate(-15deg);
+            z-index: 0;
+        }
+        .logo-epoque{
+            position: absolute;
+            top:50px;
+            left: -10px;
+            width: 120px;
+        }
+        .logo-boc{
+            position:absolute;
+            top:8px;
+            left:-10px;
+            width: 75px;
+        }
+        .logo-crossover{
+            position: absolute;
+            top: 27px;
+            left: -28px;
+            width: 120px;
+        }
+        .logo-sale{
+            position:absolute;
+            top: 35px;
+            left: -22px;
+            width: 100px;
+        }
+        .logo-nian{
+            position: absolute;
+            top: 7px;
+            left: -10px;
+            width: 75px;
+        }
+        .logo-whirlwind{
+            position: absolute;
+            top: 10px;
+            left: -10px;
+            width: 80px;
+        }
+        .logo-summer{
+            position: absolute;
+            top: 10px;
+            left: -8px;
+            width: 80px;
+        }
+        .logo-marthe{
+            position: absolute;
+            top: 33px;
+            left: -28px;
+            width:120px;
+        }
+        .logo-witch{
+            position: absolute;
+            top: 33px;
+            left: -26px;
+            width:120px;
+        }
+        .logo-winter{
+            position: absolute;
+            top: 15px;
+            left: -26px;
+            width:120px;
+        }
+        .logo-xmas{
+            position: absolute;
+            top: 10px;
+            left: -16px;
+            width:100px;
+        }
+        .logo-wild{
+            position: absolute;
+            top: 8px;
+            left: -16px;
+            width:100px;
+        }
+        .logo-sweep{
+            position:absolute;
+            top: 50px;
+            left: -23px;
+            width:120px;
+        }
+        .logo-kitchen{
+                position: absolute;
+    top: 32px;
+    left: -30px;
+    width: 120px;
+        }
+        .whitebg{
+        position:absolute;
+        top:0px;
+        left:0px;
+        background-color:white;
+        width:120px;
+        height:240px;
+        z-index:0;
+        }
+        .charskinbtn-container{
+        width:120px;
+        height:276px;
+        display:inline-block;
+        margin:8px;
+        font-size:0px;
+        vertical-align: top;
+        }
+        .charskinbtn-container:hover{
+        --color1:rgba(255,255,255,.2);
+        }
+        .charskinbtn-container:hover .skinwrapper{
+        background-color:#313131;
+        }
+        .charskinbtn-container:hover .whitebg{
+        background-color:#313131;
+        }
+        .charskinbtn-container:hover .skinlogo{
+            filter: invert(0);
+    opacity:1;
+        }
+        .charskinbtn-container:hover .charnameEn{
+        color:white;
+        }
+        .charskinbtn-container:hover .skinname{
+        color:white;
+        }
+        .brandbtn{
+            position:relative;
+            filter: drop-shadow(0px 2px 3px rgba(0,0,0,.5));
+            background-color: white;
+            width:150px;
+            height: 170px;
+            cursor: pointer;
+            transition:all .15s ease-out ;
+            display: inline-block;
+                vertical-align: top;
+            margin: 5px;
+            -moz-user-select:none; /*火狐*/
+            -webkit-user-select:none; /*webkit浏览器*/
+            -ms-user-select:none; /*IE10*/
+            -khtml-user-select:none; /*早期浏览器*/
+            user-select:none;
+        }
+        .brandimg{
+            position:absolute;
+            top:0px;
+            left: 0px;
+            width: 150px;
+            height: 150px;
+            filter: invert(.8);
+        }
+        .brandbtn:hover{
+        background-color:rgb(51, 151, 219);
+        }
+        .brandbtn:hover .brandimg{
+        filter: invert(0);
+        }
+        .brandtitle{
+            position: absolute;
+            bottom: 0px;
+            background-color: #313131;
+            width: 150px;
+            height: 20px;
+            text-align: center;
+            color: white;
+            font-size: 14px;
+            line-height: 20px;
+            letter-spacing:1px;
+        }
+        .skinbrandimgwrapper{
+            position: relative;
+            width: 150px;
+            height: 150px;
+        }
+        .skinbrandimg{
+            position: absolute;
+            top:50%;
+            left:50%;
+            transform: translate(-50%,-50%);
+        }
+        .skinswitchwrapper{
+            position: relative;
+            width:200px;
+            height:30px;
+            background-color: #c3c3c3;
+            border-radius: 15px;
+            filter: drop-shadow(0px 5px 5px rgba(0,0,0,.2));
+-moz-user-select: none;
+    -webkit-user-select: none;
+    -ms-user-select: none;
+    -khtml-user-select: none;
+    user-select: none;
+        }
+        .timeorder{
+            position: absolute;
+            width:100px;
+            height: 30px;
+            color:white;
+            background-color: transparent;
+            border-radius: 15px;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 30px;
+            text-align: center;
+            z-index: 1;
+            cursor: pointer;
+            transition:all .3s ease-in-out;
+        }
+        .brandorder{
+            position: absolute;
+            right: 0px;
+            width:100px;
+            height: 30px;
+            color:#313131;
+            background-color:transparent;
+            border-radius: 15px;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 30px;
+            text-align: center;
+            z-index: 1;
+            cursor: pointer;
+            transition:all .3s ease-in-out;
+        }
+        .switchbluebg{
+            position: absolute;
+            left: 0px;
+            width:100px;
+            height: 30px;
+            color:white;
+            background-color: #0024ff;
+            border-radius: 15px;
+            font-size: 14px;
+            font-weight: bold;
+            line-height: 30px;
+            text-align: center;
+            z-index: 0;
+            transition:all .3s ease-in-out;
+        }
+        .brandbtn-wrapper{
+width:100%;
+max-width:1190px;
+transform-origin: left top;
+        }
+.brandbtncontainer{
+width:100%;
+transition:all .3s ease-in-out;
+position:relative;
+transform:translateX(110%);
+overflow:hidden;
+display:none;
+justify-content: center;
+}
+.brandbtncontroler{
+width:100%;
+max-width:1190px;
+}
+.halfimgcontainer{
+width:100%;
+transition:all .3s ease-in-out;
+vertical-align: top;
+display:block;
+}
+.contentcontainer{
+position:relative;
+margin-top:20px;
+overflow:hidden;
+transition:all .3s ease-in-out;
+}
+.brandbtn-container{
+display:inline-block;
+vertical-align:top;
+}
+    </style>
+</head>
+<body>
+<div class="skinswitchwrapper">
+        <div class="timeorder" id="timeorder" onclick="timeorder()">Timeline</div>
+        <div class="switchbluebg" id="switchbluebg"></div>
+        <div class="brandorder" id="brandorder" onclick="brandorder()">Collection</div>
+    </div></body><script>
+document.addEventListener('DOMContentLoaded',function(){
+var csscheck=document.getElementsByClassName("pre-content")[0];
+if(csscheck==null||csscheck==undefined){
+}else{
+                    var btncontroler=document.getElementsByClassName("brandbtn-controler");
+                    var btncontainer=document.getElementsByClassName("brandbtn-container");
+                    var j;
+                    for(j=0;j<btncontroler.length;j++){
+	                   btncontroler[j].style.transformOrigin="left top";
+                      btncontroler[j].style.transform="scale(.6)";
+                      btncontainer[j].style.height="102px";
+                      btncontainer[j].style.width="90px";
+                      btncontainer[j].style.margin="5px";
+                    }
+                    var controler=document.getElementsByClassName("charskinbtn-controler");
+                    var container=document.getElementsByClassName("charskinbtn-container");
+                    var i;
+                    for(i=0;i<controler.length;i++){
+	                   controler[i].style.transformOrigin="left top";
+                      controler[i].style.transform="scale(.6)";
+                      container[i].style.height="165.5px";
+                      container[i].style.width="72px";
+                      container[i].style.margin="5px";
+                    }
+                    }
+});</script></html></includeonly>
