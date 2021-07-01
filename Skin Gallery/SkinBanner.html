@@ -1,0 +1,295 @@
+<!--Modified from original file from prts.wiki-->
+
+<includeonly><!DOCTYPE html>
+    <html lang="en">
+    <head>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+                    var csscheck=document.getElementsByClassName("pre-content")[0];
+                    if(csscheck==null||csscheck==undefined){
+                    var width=document.getElementById('firstHeading').clientWidth;
+                    if(width<800){
+                    var sliderwidth=document.getElementById('firstHeading').clientWidth;
+                    var sliderheight=sliderwidth/800;
+                    document.getElementById("brandswiper-controler").style.left="0";
+                    document.getElementById("brandswiper-controler").style.transformOrigin="left top";
+                    document.getElementById("brandswiper-controler").style.transform="scale("+(sliderwidth/800)+")";
+                    document.getElementById("brandswiper-container").style.height=720*sliderheight+"px";}else{
+                    document.getElementById("brandswiper-controler").style.left="50%";
+                    document.getElementById("brandswiper-controler").style.transformOrigin="center";
+                    document.getElementById("brandswiper-controler").style.transform="translateX(-50%)";
+                    document.getElementById("brandswiper-container").style.height="";
+                    document.getElementById("brandswiper-container").style.background-color="#313131";
+                    document.getElementById("brandswiper-controller").style.background-color="#313131";
+                }
+                    }else{
+                    var sliderwidth=document.getElementsByClassName("pre-content")[0].clientWidth;
+                    var sliderheight=sliderwidth/800;
+                    document.getElementById("brandswiper-controler").style.left="0";
+                    document.getElementById("brandswiper-controler").style.transformOrigin="left top";
+                    document.getElementById("brandswiper-controler").style.transform="scale("+(sliderwidth/800)+")";
+                    document.getElementById("brandswiper-container").style.height=720*sliderheight+"px";
+                    document.getElementById("brandswiper-container").style.background-color="#313131";
+                    document.getElementById("brandswiper-controller").style.background-color="#313131";
+                    }
+                });
+</script>
+        <link href="https://cdn.bootcdn.net/ajax/libs/Swiper/5.4.5/css/swiper.css" rel="stylesheet">
+        <link href="https://cdn.bootcdn.net/ajax/libs/Swiper/5.4.5/css/swiper.min.css" rel="stylesheet">   
+        <style>
+        .swiper-container {
+            position: relative;
+            width: 800px;
+            height: auto;
+            display: inline-block;
+        }
+.swiper-container-horizontal>.swiper-pagination-bullets .swiper-pagination-bullet {
+    margin: 0 6px;
+}
+        .swiper-slide {
+            width: 800px;
+            height:auto;
+            text-align: center;
+            font-size: 18px;
+            background: #313131;
+            display: -webkit-box;
+            display: -ms-flexbox;
+            display: -webkit-flex;
+            display: flex;
+            -webkit-box-pack: center;
+            -ms-flex-pack: center;
+            -webkit-justify-content: center;
+            justify-content: center;
+            -webkit-box-align: center;
+            -ms-flex-align: center;
+            -webkit-align-items: center;
+            align-items: center;
+        }
+        .swiper-pagination{
+            text-align: right;
+        }
+        .swiper-pagination-fraction, .swiper-pagination-custom, .swiper-container-horizontal > .swiper-pagination-bullets{
+            display: inline-block;
+            position: absolute;
+            left: auto;
+            bottom: 25px;
+            right: 40px;
+        }
+        .swiper-pagination-bullet{
+            background: #cbcbcb;
+            opacity: 1;
+width:12px;
+height:12px;
+        }
+        .swiper-pagination-bullet-active{
+            background: #0024ff;
+        }
+        .brandswiper-container{
+            position: relative;
+            height:505px;
+            font-size:0;
+            margin:0;
+            padding:0;
+            color: white;
+            
+        }
+        .brandswiper-controler{
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            width: 1150px;
+            height: 466.8px;
+            background: #313131;
+            overflow: hidden;
+            filter: drop-shadow(0px 0px 5px rgba(0,0,0,.3));
+            color: white;
+        }
+        .brand-container{
+            vertical-align: top;
+            display:inline-block;
+            width:350px;
+            height: auto;
+            font-size: 10px;
+            position: relative;
+            background: #313131;
+            color: white;
+        }
+        .brand-content-logo{
+            position: relative;
+            filter: invert(0);
+            width: 350px;
+            height:270px;
+            background: #313131;
+        }
+    .brand-content-logo img{
+            position: absolute;
+        left: 50%;
+        top: 50%;
+        transform: translate(-50%,-50%);
+        box-sizing: border-box;
+        max-height:100%;
+        max-width:100%;
+padding: 35px 70px 35px 70px;
+        }
+        .brandlogo-wrapper{
+            position: absolute;
+            left: 50%;
+            transform: translateX(-50%);
+            padding: 20px;
+            height: 270px;
+            box-sizing: border-box;
+        }
+        .brand-content-logotitle{
+            position: absolute;
+            right: 20px;
+            left: auto;
+            height: 26px;
+            background: black;
+            color: white;
+            font-size: 16px;
+            line-height: 26px;
+            top: 270px;
+            display: inline-block;
+            padding-left: 10px;
+            padding-right: 10px;
+        }
+        .brand-content-text{
+            position: absolute;
+            top: 310px;
+            color: white;
+            font-size: 15px;
+            //font-weight: bolder;
+            box-sizing: border-box;
+            padding-left: 37px;
+            padding-right: 37px;
+            line-height: 21px;
+        }
+        .swiper-slide{
+            height: 466.8px;
+        }
+        
+        @media screen and (max-width: 1390px) {
+            .brandswiper-controler{
+                position: absolute;
+                left: 50%;
+                transform: translateX(-50%);
+                width: 800px;
+                height: 720px;
+                background: white;
+                overflow: hidden;
+            }
+    .brand-content-logo img{
+        padding: 20px;
+        }
+            .brandswiper-container{
+                height: 720px;
+            }
+            .brand-content-logo{
+                width: 300px;
+                height: 250px;
+                display: inline-block;
+            }
+            .brand-container{
+                width: 800px;
+            }
+            .swiper-slide{
+                width: 100%;
+                height: auto;
+            }
+            .swiper-container{
+                width: 100%;
+            }
+            .brandlogo-wrapper{
+                height: 40vw;
+                padding:2vw;
+            }
+            .brand-content-logotitle{
+            position: absolute;
+        right: auto;
+        left: 350px;
+        height: 26px;
+        background: black;
+        color: white;
+        font-size: 16px;
+        line-height: 26px;
+        top: 20px;
+        display: inline-block;
+        padding-left: 10px;
+        padding-right: 10px;
+            }
+            .brand-content-text{
+        position: absolute;
+        width: 450px;
+        top: 60px;
+        color: black;
+        font-size: 16px;
+        //font-weight: bolder;
+        box-sizing: border-box;
+        padding-left: 0px;
+        padding-right: 50px;
+        line-height: 20px;
+        left: 350px;
+            }
+        }
+        </style>
+    </head>
+    <body>
+        <div class="brandswiper-container" id="brandswiper-container">
+            <div class="brandswiper-controler" id="brandswiper-controler">
+                <div class="swiper-container">
+                    <div class="swiper-wrapper">
+                    <div class="swiper-slide" style="<!--{$imgdis_10|regex_replace:"/(script|<script)/":""}-->"><img src="<!--{$sliderimg_10|regex_replace:"/(script|<script)/":""}-->" width="100%" height="100%"></div>
+                    <div class="swiper-slide" style="<!--{$imgdis_9|regex_replace:"/(script|<script)/":""}-->"><img src="<!--{$sliderimg_9|regex_replace:"/(script|<script)/":""}-->" width="100%" height="100%"></div>
+                    <div class="swiper-slide" style="<!--{$imgdis_8|regex_replace:"/(script|<script)/":""}-->"><img src="<!--{$sliderimg_8|regex_replace:"/(script|<script)/":""}-->" width="100%" height="100%"></div>
+                    <div class="swiper-slide" style="<!--{$imgdis_7|regex_replace:"/(script|<script)/":""}-->"><img src="<!--{$sliderimg_7|regex_replace:"/(script|<script)/":""}-->" width="100%" height="100%"></div>
+                    <div class="swiper-slide" style="<!--{$imgdis_6|regex_replace:"/(script|<script)/":""}-->"><img src="<!--{$sliderimg_6|regex_replace:"/(script|<script)/":""}-->" width="100%" height="100%"></div>
+                    <div class="swiper-slide" style="<!--{$imgdis_5|regex_replace:"/(script|<script)/":""}-->"><img src="<!--{$sliderimg_5|regex_replace:"/(script|<script)/":""}-->" width="100%" height="100%"></div>
+                    <div class="swiper-slide" style="<!--{$imgdis_4|regex_replace:"/(script|<script)/":""}-->"><img src="<!--{$sliderimg_4|regex_replace:"/(script|<script)/":""}-->" width="100%" height="100%"></div>
+                    <div class="swiper-slide" style="<!--{$imgdis_3|regex_replace:"/(script|<script)/":""}-->"><img src="<!--{$sliderimg_3|regex_replace:"/(script|<script)/":""}-->" width="100%" height="100%"></div>
+                    <div class="swiper-slide" style="<!--{$imgdis_2|regex_replace:"/(script|<script)/":""}-->"><img src="<!--{$sliderimg_2|regex_replace:"/(script|<script)/":""}-->" width="100%" height="100%"></div>
+                    <div class="swiper-slide" style="<!--{$imgdis_1|regex_replace:"/(script|<script)/":""}-->"><img src="<!--{$sliderimg_1|regex_replace:"/(script|<script)/":""}-->" width="100%" height="100%"></div>
+                    <div class="swiper-slide" style="<!--{$imgdis_default|regex_replace:"/(script|<script)/":""}-->"><img src="<!--{$sliderimg_default|regex_replace:"/(script|<script)/":""}-->" width="100%" height="100%"></div>
+                    </div>
+                    <div class="swiper-pagination"></div>
+                </div>
+                <div class="brand-container">
+                    <div class="brand-content-logo">
+                        <img src="<!--{$sliderlogo|regex_replace:"/(script|<script)/":""}-->">
+                    </div>
+                    <div class="brand-content-logotitle"><!--{$slidertitle|regex_replace:"/(script|<script)/":""|replace:'&lt;br&gt;':'<br/>'}--></div>
+                    <div class="brand-content-text"><!--{$slidercontent|regex_replace:"/(script|<script)/":""|replace:'&lt;br&gt;':'<br/>'}--></div>
+                </div>
+            </div>
+        </div>
+        <script src="https://cdn.bootcdn.net/ajax/libs/Swiper/5.4.5/js/swiper.js"></script> 
+        <script src="https://cdn.bootcdn.net/ajax/libs/Swiper/5.4.5/js/swiper.min.js"></script>
+        <script>
+            window.onresize = function(){
+                var width=document.getElementById('firstHeading').clientWidth;
+                if(width<800){
+                    var sliderwidth=document.getElementById('firstHeading').clientWidth;
+                    var sliderheight=sliderwidth/800;
+                    document.getElementById("brandswiper-controler").style.left="0";
+                    document.getElementById("brandswiper-controler").style.transformOrigin="left top";
+                    document.getElementById("brandswiper-controler").style.transform="scale("+(sliderwidth/800)+")";
+                    document.getElementById("brandswiper-container").style.height=720*sliderheight+"px";
+                }else{
+                    document.getElementById("brandswiper-controler").style.left="50%";
+                    document.getElementById("brandswiper-controler").style.transformOrigin="center";
+                    document.getElementById("brandswiper-controler").style.transform="translateX(-50%)";
+                    document.getElementById("brandswiper-container").style.height="";
+                }
+            }
+            var swiper = new Swiper('.swiper-container', {
+                pagination: {
+                    el: '.swiper-pagination',
+                },
+                disableOnInteraction:true,
+                autoplay:{
+                    delay:6000,
+                    disableOnInteraction: false,
+                },
+            });
+        </script>
+    </body>
+    </html></includeonly>
