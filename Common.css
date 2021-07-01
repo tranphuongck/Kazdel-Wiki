@@ -1,0 +1,510 @@
+@import url("https://s3.pstatp.com/cdn/expire-1-M/lazysizes/4.1.8/lazysizes.min.js");
+@import url("https://lf6-cdn-tos.bytecdntp.com/cdn/expire-1-M/font-awesome/5.15.2/css/all.min.css");
+
+body.page-Main_Page.action-view h1.firstHeading, 
+body.page-Main_Page.action-submit h1.firstHeading{
+display: none;
+}
+
+/*Custom Color*/
+body {
+ --limited: #32CD32;
+}
+
+/* Wikitable */
+.wikitable {
+  max-width: 100%;
+  display: table;
+}
+
+table.wikitable {
+  box-shadow: 0 1px 3px rgba(0, 0, 0, 0.12), 0 1px 2px rgba(0, 0, 0, 0.24);
+  border-radius: 4px;
+  overflow: hidden;
+}
+
+table.wikitable>tr>th,
+table.wikitable>*>tr>th {
+  background-color: rgba(213, 215, 219, .4);
+}
+
+div#mw-page-base {
+    background: none;
+    height: 80px;
+    background-image: url("http://ak.kazdel.com/images/f/f6/Untitled-2_3%280-00-00-0%29.png");
+    background-position: center,top;
+    background-repeat: no-repeat,repeat-x;
+    background-size: auto;
+}
+
+.editOptions {
+    color: #ffffff;
+}
+
+.mw-datatable{background-color:#595959}
+
+#mw-navigation #mw-panel div.portal#p-navigation {
+    border-top: none;
+}
+
+#mw-prefsection-rendering {
+    background-color: #4f4f4f;
+}
+
+#left-navigation div.darkvectorTabs, #right-navigation div.darkvectorTabs {
+    background-color: black;
+    border-style: solid;
+}
+
+.mw-body {
+    padding: 1.25em 1.5em 1.5em 1.5em;
+    background-color: black;
+    color: white;
+    border-color: black;
+    margin-left:11em;
+    opacity: 0.98;
+}
+
+#ca-nstab-main{ display:none!important; }
+
+#ca-talk { display:none!important; }
+
+div#mw-panel {
+    font-size: inherit;
+    position: absolute;
+    top: 160px;
+    padding-top: 1em;
+    width: 400px;
+    left: 0;
+    border-style: solid;
+    background-image: url("http://ak.kazdel.com/images/e/e6/Sidebarbg2.png");
+}
+
+#p-logo {
+    position: absolute;
+    top: -160px;
+    left: 0;
+    width: 11em;
+    height: 160px;
+}
+
+
+body{
+	background-image: url('/images/3/35/Kaltsit_bg.png');
+	background-attachment: fixed;
+	background-position: 0% 0%;
+	background-size: cover;
+}
+
+#letterbox{
+   width:100%;
+   text-align: center;
+   padding:0.5em;
+   background-color: #000000;
+   border: rgb(150,150,150);
+   border-width: 3px;
+   border-style: solid;
+   box-shadow: 0px 0px 10px #000;
+   background-image: url('/images/3/3f/32ddf0470a305376204d1312ca4720f9.png');
+   background-attachment: local;
+   background-position: 0% 0%;
+   background-size: cover;
+   background-repeat: no-repeat;
+   background-blend-mode: lighten;
+   overflow:hidden;
+   display:inline-block;
+   box-sizing:border-box;
+   opacity:0.98;
+}
+
+/* Stats Graph */
+line.emphased {
+  stroke-width: 3pt;
+}
+
+radial {
+  stroke: #333;
+  stroke-width: 4pt;
+}
+
+svg {
+  fill: none;
+  stroke: #777;
+  stroke-opacity: 1;
+  stroke-width: 1pt;
+}
+
+text {
+  fill: white;
+  font-size: 2em;
+  font-weight: normal;
+  stroke: none;
+  text-anchor: middle;
+}
+
+
+polygon {
+  stroke-width: 3pt;
+  fill-opacity: 0.5;
+}
+.graph-orange {
+  stroke: #ff7733;
+  fill: orange;
+}
+.graph-red {
+  stroke: #bd0b0b;
+  fill: red;
+}
+.graph-green {
+  stroke: #007f00;
+  fill: green;
+}
+.graph-blue {
+  stroke: #00007f;
+  fill: blue;
+}
+
+/* Charactertabber */
+.tabs-container {
+  width: 100%;
+}
+
+.tabs-content-1 {
+  width: 100%;
+}
+
+.tabs-content-2 {
+  width: 100%;
+}
+
+.tabs-content-3 {
+  width: 100%;
+}
+
+
+.tabs-container td {
+  padding: 8px;
+  background-color: #808080;
+  font-weight: bold;
+  opacity: 0.45;
+  white-space: nowrap;
+}
+
+.tabs-container td:hover {
+  opacity: 1;
+}
+
+.tabs-container td.active {
+  background-color: #f0b000;
+  font-weight: bold;
+  color: white;
+  opacity: 1;
+}
+
+.tabs-container td.filler {
+  width: 100%;
+  opacity: 0;
+}
+
+.ui-corner-all, .ui-corner-top, .ui-corner-right, .ui-corner-tr, .ui-helper-clearfix, .ui-tabs .ui-tabs-nav li.ui-tabs-active, .ui-state-active, .ui-widget-content .ui-state-active, .ui-widget-header .ui-state-active, .ui-tabs {
+	background-color: #000000;
+}
+
+.ui-widget {
+	background-color: #000000;
+}
+
+#headertabs.large.ui-widget {
+	background-color: #000000;
+}
+
+.fpbox {
+    background: rgba(0, 0, 0, 0.2);
+    box-shadow: 0 0 100px rgba(65,61,52,1), 0 0 6px rgba(232,190,107,0.8);
+    margin: 5px;
+    padding: 5px;
+    overflow: auto;
+}
+
+.fpbox .mainheading {
+    border: none;
+    border-bottom: 1px solid #505050;
+    font-size: 150%;
+    font-weight: bold;
+    margin: 0 0 10px 0;
+    padding: 0 0 5px 0;
+    overflow: auto;
+}
+
+.fpbox .heading {
+    border: none;
+    border-bottom: 1px solid #505050;
+    text-align: center;
+    font-size: 132%;
+    margin: 0 0 10px 0;
+    padding: 0 0 5px 0;
+    overflow: auto;
+}
+
+.backTop{
+  opacity: 1;
+  display: none;
+  position: fixed;
+  z-index: 9999;
+  height: 65px;
+  width: 65px;
+  bottom: 40px;
+  right: 15px;
+  background: url(images/5/50/BackTop.png) no-repeat;
+  cursor: pointer;
+  color: #272727;
+}
+
+/* Style for horizontal lists (separator following item).
+   @source mediawiki.org/wiki/Snippets/Horizontal_lists
+   @revision 8 (2016-05-21)
+   @author [[User:Edokter]]
+ */
+.hlist dl,
+.hlist ol,
+.hlist ul {
+	margin: 0;
+	padding: 0;
+}
+
+/* Display list items inline */
+.hlist dd,
+.hlist dt,
+.hlist li {
+	margin: 0; /* don't trust the note that says margin doesn't work with inline
+				* removing margin: 0 makes dds have margins again */
+	display: inline;
+}
+
+/* Display nested lists inline */
+.hlist.inline,
+.hlist.inline dl,
+.hlist.inline ol,
+.hlist.inline ul,
+.hlist dl dl,
+.hlist dl ol,
+.hlist dl ul,
+.hlist ol dl,
+.hlist ol ol,
+.hlist ol ul,
+.hlist ul dl,
+.hlist ul ol,
+.hlist ul ul {
+	display: inline;
+}
+
+/* Hide empty list items */
+.hlist .mw-empty-li {
+	display: none;
+}
+
+/* Generate interpuncts */
+.hlist dt:after {
+	content: ": ";
+}
+
+/**
+ * Note hlist style usage differs in Minerva and is defined in core as well!
+ * Please check Minerva desktop (and Minerva.css) when changing
+ * See https://phabricator.wikimedia.org/T213239
+ */
+.hlist dd:after,
+.hlist li:after {
+	content: " · ";
+	font-weight: bold;
+}
+
+.hlist dd:last-child:after,
+.hlist dt:last-child:after,
+.hlist li:last-child:after {
+	content: none;
+}
+
+/* Add parentheses around nested lists */
+.hlist dd dd:first-child:before,
+.hlist dd dt:first-child:before,
+.hlist dd li:first-child:before,
+.hlist dt dd:first-child:before,
+.hlist dt dt:first-child:before,
+.hlist dt li:first-child:before,
+.hlist li dd:first-child:before,
+.hlist li dt:first-child:before,
+.hlist li li:first-child:before {
+	content: " (";
+	font-weight: normal;
+}
+
+.hlist dd dd:last-child:after,
+.hlist dd dt:last-child:after,
+.hlist dd li:last-child:after,
+.hlist dt dd:last-child:after,
+.hlist dt dt:last-child:after,
+.hlist dt li:last-child:after,
+.hlist li dd:last-child:after,
+.hlist li dt:last-child:after,
+.hlist li li:last-child:after {
+	content: ")";
+	font-weight: normal;
+}
+
+/* Put ordinals in front of ordered list items */
+.hlist ol {
+	counter-reset: listitem;
+}
+
+.hlist ol > li {
+	counter-increment: listitem;
+}
+
+.hlist ol > li:before {
+	content: " " counter(listitem) "\a0";
+}
+
+.hlist dd ol > li:first-child:before,
+.hlist dt ol > li:first-child:before,
+.hlist li ol > li:first-child:before {
+	content: " (" counter(listitem) "\a0";
+}
+
+/* Unbulleted lists */
+.plainlist ol,
+.plainlist ul {
+	line-height: inherit;
+	list-style: none none;
+	margin: 0;
+}
+
+.plainlist ol li,
+.plainlist ul li {
+	margin-bottom: 0;
+}
+
+/* Default style for navigation boxes */
+.navbox {                     /* Navbox container style */
+        color: #e69710;
+	box-sizing: border-box;
+	border: 1px solid #a2a9b1;
+	width: 100%;
+	clear: both;
+	font-size: 100%;
+	text-align: center;
+	padding: 1px;
+	margin: 1em auto 0;       /* Prevent preceding content from clinging to navboxes */
+}
+
+.navbox .navbox {
+	margin-top: 0;            /* No top margin for nested navboxes */
+}
+
+.navbox + .navbox {
+	margin-top: -1px;         /* Single pixel border between adjacent navboxes */
+}
+
+.navbox-inner,
+.navbox-subgroup {
+	width: 100%;
+}
+
+.navbox-group,
+.navbox-title,
+.navbox-abovebelow {
+	padding: 0.25em 1em;      /* Title, group and above/below styles */
+	line-height: 1.5em;
+	text-align: center;
+}
+
+th.navbox-group {             /* Group style */
+	white-space: nowrap;
+	/* @noflip */
+	text-align: right;
+}
+
+.navbox,
+.navbox-subgroup {
+	background-color: #474747; /* Background color */
+}
+
+.navbox-list {
+	line-height: 1.5em;
+	border-color: #737373;    /* Must match background color */
+}
+
+/* cell spacing for navbox cells */
+tr + tr > .navbox-abovebelow,
+tr + tr > .navbox-group,
+tr + tr > .navbox-image,
+tr + tr > .navbox-list {    /* Borders above 2nd, 3rd, etc. rows */
+	border-top: 2px solid #919191; /* Must match background color */
+}
+
+.navbox th,
+.navbox-title {
+	background-color: #2b2b2b;      /* Level 1 color */
+}
+
+.navbox-abovebelow,
+th.navbox-group,
+.navbox-subgroup .navbox-title {
+	background-color: #333;      /* Level 2 color */
+}
+
+.navbox-subgroup .navbox-group,
+.navbox-subgroup .navbox-abovebelow {
+	background-color: #474747;      /* Level 3 color */
+}
+
+.navbox-even {
+	background-color: #474747;      /* Even row striping */
+}
+
+.navbox-odd {
+	background-color: #474747;  /* Odd row striping */
+}
+
+.navbox .hlist td dl,
+.navbox .hlist td ol,
+.navbox .hlist td ul,
+.navbox td.hlist dl,
+.navbox td.hlist ol,
+.navbox td.hlist ul {
+	padding: 0.125em 0;       /* Adjust hlist padding in navboxes */
+}
+
+.nodesktop {
+  display: none !important;
+}
+
+/* 'show'/'hide' buttons created dynamically by the CollapsibleTables javascript
+ in [[MediaWiki:Common.js]] are styled here so they can be customised. */
+
+/*.collapseButton {       
+  /* @noflip */
+  float: right;
+  font-weight: normal;
+  /* @noflip */
+  margin-left: 0.5em;
+  /* @noflip */
+  text-align: right;
+  width: auto;
+}*/
+
+/* In navboxes, the show/hide button balances the v·d·e links
+ from [[Template:Navbar]], so they need to be the same width. */
+.navbox .collapseButton {
+  width: 8em;
+}
+
+/*Lazy load*/
+.lazyload,
+.lazyloading {
+	opacity: 0;
+}
+.lazyloaded {
+	opacity: 1;
+	transition: opacity 300ms;
+}
