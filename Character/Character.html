@@ -1,0 +1,2063 @@
+<includeonly><script src="https://cdn.jsdelivr.net/particles.js/2.0.0/particles.min.js"></script>
+<script src="https://haku0011.github.io/kazdel_live2d/SpineRenderer.4a6e63bd.chunk.js"></script>
+<script class="navigation-not-searchable">
+document.onkeydown=function(event){
+  var e = event || window.event || arguments.callee.caller.arguments[0];
+  var fulldis=document.getElementById("fullOff").style.display;
+  if(e && e.keyCode==27){
+  if(fulldis=="block"){refullscreen();}
+   }
+};
+document.addEventListener('DOMContentLoaded',function(){
+var csscheck=document.getElementsByClassName("pre-content")[0];
+if(csscheck==null||csscheck==undefined){
+var width=window.innerWidth;
+                var skinname=document.getElementById("skin1").style.display;
+                if(width<1000){
+                document.getElementById("dynbtn").style.top="56px";
+                document.getElementById("dynbtn").style.right="18px";
+                document.getElementById("dynbtn").style.bottom="auto";
+                    if(skinname=="none"){
+                     document.getElementById("skinnoinfo").style.display="block";
+                    }else{
+                    document.getElementById("skinnoinfo").style.display="none";
+                    }
+                }else{
+document.getElementById("dynbtn").style.top="auto";
+                     document.getElementById("dynbtn").style.right="220px";
+                     document.getElementById("dynbtn").style.bottom="94px";
+                }
+}else{
+var charwd=document.getElementsByClassName("pre-content")[0].clientWidth;
+var charheight=charwd/576;
+document.getElementsByClassName("outpact")[0].style.transform="scale("+(charwd/576)+")";
+document.getElementsByClassName("charinfo-container")[0].style.height=1024*charheight+"px";
+mobilecss();
+}
+});
+function mobilecss(){
+var skinname=document.getElementById("skin1").style.display;
+if(skinname=="none"){
+document.getElementById("skinnoinfo").style.display="block";
+}
+document.getElementById("dynbtn").style.top="56px";
+document.getElementById("dynbtn").style.right="18px";
+document.getElementById("dynbtn").style.bottom="auto";
+document.getElementById("thidebtn").style.display="block";
+document.getElementById("widebtn").style.display="none";
+document.getElementById("fullscbtn").style.display="none";
+document.getElementById("clearbtn").style.display="none";
+document.getElementsByClassName("all-wrap")[0].style.width="576px";
+document.getElementsByClassName("all-wrap")[0].style.height="1024px";
+document.getElementsByClassName("all-wrapper")[0].style.width="576px";
+document.getElementsByClassName("all-wrapper")[0].style.height="1024px";
+document.getElementsByClassName("all")[0].style.width="576px";
+document.getElementsByClassName("all")[0].style.height="1024px";
+document.getElementsByClassName("outpact")[0].style.width="576px";
+document.getElementsByClassName("outpact")[0].style.height="1024px";
+document.getElementsByClassName("inpact")[0].style.width="576px";
+document.getElementsByClassName("inpact")[0].style.height="1024px";
+document.getElementsByClassName("charimg-wrapper")[0].style.left="0px";
+document.getElementsByClassName("charimg-wrapper")[0].style.top="90px";
+document.getElementsByClassName("charimg-wrapper")[0].style.zIndex="5";
+document.getElementsByClassName("features-wrapper")[0].style.left="15px";
+document.getElementsByClassName("features-wrapper")[0].style.zIndex="999";
+try{
+document.getElementsByClassName("features-wrapperpro")[0].style.left="15px";
+document.getElementsByClassName("features-wrapperpro")[0].style.zIndex="999";
+document.getElementsByClassName("explain-wrapperpro")[0].style.left="15px";
+document.getElementsByClassName("explain-wrapperpro")[0].style.zIndex="999";
+document.getElementsByClassName("charclasspro")[0].style.bottom="335px";
+document.getElementsByClassName("chartag1-wrapperpro")[0].style.bottom="335px";
+document.getElementsByClassName("chartag2-wrapperpro")[0].style.bottom="385px";
+document.getElementsByClassName("explain-wrapperpro")[0].style.height="200px";
+document.getElementsByClassName("features-wrapperpro")[0].style.bottom="220px";
+}
+catch(err) {
+
+}
+
+document.getElementsByClassName("explain-wrapper")[0].style.left="15px";
+document.getElementsByClassName("explain-wrapper")[0].style.zIndex="999";
+
+document.getElementsByClassName("charclass")[0].style.bottom="335px";
+
+document.getElementsByClassName("chartag1-wrapper")[0].style.bottom="335px";
+document.getElementsByClassName("chartag2-wrapper")[0].style.bottom="385px";
+
+document.getElementsByClassName("explain-wrapper")[0].style.height="200px";
+
+document.getElementsByClassName("features-wrapper")[0].style.bottom="220px";
+
+document.getElementsByClassName("charname")[0].style.bottom="415px";
+document.getElementsByClassName("charname-en")[0].style.bottom="480px";
+document.getElementsByClassName("star")[0].style.bottom="515px";
+document.getElementById("cv-wrapper").style.left="auto";
+document.getElementById("cv-wrapper").style.right="15px";
+document.getElementById("cv-wrapper").style.width="230px";
+document.getElementById("cv-wrapper").style.bottom="380px";
+document.getElementById("cv-wrapper").style.backgroundColor="#313131";
+document.getElementById("cv-content").style.backgroundColor="#313131";
+document.getElementById("cv-content").style.borderLeft="1px solid black";
+document.getElementsByClassName("cv-bg")[0].style.width="230px";
+document.getElementById("painter-wrapper").style.left="auto";
+document.getElementById("painter-wrapper").style.right="15px";
+document.getElementById("painter-wrapper").style.width="230px";
+document.getElementById("painter-wrapper").style.bottom="340px";
+document.getElementById("painter-wrapper").style.backgroundColor="#313131";
+document.getElementById("painter-content").style.backgroundColor="#313131";
+document.getElementById("painter-content").style.borderLeft="1px solid black";
+document.getElementsByClassName("painter-bg")[0].style.width="230px";
+document.getElementsByClassName("skinbutton-wrapper")[0].style.width="230px";
+document.getElementsByClassName("skinbutton-wrapper")[0].style.top="auto";
+document.getElementsByClassName("skinbutton-wrapper")[0].style.bottom="20px";
+document.getElementsByClassName("skinbutton-wrapper")[0].style.height="315px";
+document.getElementsByClassName("bg")[0].style.height="1024px";
+document.getElementsByClassName("bg")[0].style.width="576px";
+document.getElementsByClassName("skinbg")[0].style.height="1024px";
+document.getElementsByClassName("skinbg")[0].style.width="576px";
+document.getElementsByClassName("skinbgimg")[0].style.height="100%";
+document.getElementsByClassName("skinbgimg")[0].style.width="100%";
+document.getElementsByClassName("bgimg")[0].style.height="100%";
+document.getElementsByClassName("bgimg")[0].style.width="100%";
+var skbtnlist = document.getElementsByClassName("skinbutton");
+        if(skbtnlist){
+            for(var idx = 0; idx < skbtnlist.length; idx ++){
+                var mya = skbtnlist[idx];
+                mya.style.width = "230px";
+            }
+        }
+var sknlist = document.getElementsByClassName("skinname");
+        if(sknlist){
+            for(var idx = 0; idx < sknlist.length; idx ++){
+                var mya = sknlist[idx];
+                mya.style.width = "150px";
+            }
+        }
+}
+window.onresize = function(){
+                var width=window.innerWidth;
+                var skinname=document.getElementById("skin1").style.display;
+                if(width<1024){
+                     document.getElementById("dynbtn").style.top="56px";
+                     document.getElementById("dynbtn").style.right="18px";
+                     document.getElementById("dynbtn").style.bottom="auto";
+                    if(skinname=="none"){
+                     document.getElementById("skinnoinfo").style.display="block";
+                    }else{
+                    document.getElementById("skinnoinfo").style.display="none";
+                    }
+                }else{
+                     document.getElementById("dynbtn").style.right="220px";
+                     document.getElementById("dynbtn").style.bottom="94px";
+                }
+            }
+</script>
+<body><div id="rare" class="rare"><!--{$rare|escape:'script'}--></div>
+<div id="Limited" class="rare"><!--{$Limited|escape:'script'}--></div><div id="charinfo-container" class="charinfo-container" style="max-width:100%;overflow:hidden;"><div id="charinfo-scaler" style="position: relative; transform-origin: top left;"><div class="outpact anicss">
+                <div class="skinbutton-wrapper" id="skinbutton-wrapper" style="overflow:scroll">
+                        <div class="skinbutton" id="skin1" onclick="changeskin1();" style="<!--{$skin1dis|escape:'script'}-->">
+                            <div class="headcolor1"></div>
+                            <div class="charhead"><img src="<!--{$skinhead1|escape:'script'}-->" width="100px"></div>
+                            <div class="headmask"></div><!--
+                            --><div class="skinselect" id="skinselect1" style="width:65px;"><img src="/images/1/1b/SkinSelect1.png" width="100%"/></div><div class="skinname anicss" id="skinname1"><!--{$skinname1|escape:'script'}--></div>
+                        </div>
+                        <div class="skinbutton" id="skin2" onclick="changeskin2();" style="<!--{$skin2dis|escape:'script'}-->">
+                            <div class="headcolor2"></div>
+                            <div class="charhead"><img src="<!--{$skinhead2|escape:'script'}-->" width="100px"></div>
+                            <div class="headmask"></div><!--
+                            --><div class="skinselect" id="skinselect2" style="width:65px;"><img src="/images/1/1b/SkinSelect1.png" width="100%"/></div><div class="skinname anicss" id="skinname2"><!--{$skinname2|escape:'script'}--></div>
+                        </div>
+                        <div class="skinbutton" id="skin3" onclick="changeskin3();" style="<!--{$skin3dis|escape:'script'}-->">
+                            <div class="headcolor3"></div>
+                            <div class="charhead"><img src="<!--{$skinhead3|escape:'script'}-->" width="100px"></div>
+                            <div class="headmask"></div><!--
+                            --><div class="skinselect" id="skinselect3" style="width:65px;"><img src="/images/1/1b/SkinSelect1.png" width="100%"/></div><div class="skinname anicss" id="skinname3"><!--{$skinname3|escape:'script'}--></div>
+                        </div>
+                        <div class="skinbutton" id="skin4" onclick="changeskin4();" style="<!--{$skin4dis|escape:'script'}-->">
+                            <div class="headcolor4"></div>
+                            <div class="charhead"><img src="<!--{$skinhead4|escape:'script'}-->" width="100px"></div>
+                            <div class="headmask"></div><!--
+                            --><div class="skinselect" id="skinselect4" style="width:65px;"><img src="/images/1/1b/SkinSelect1.png" width="100%"/></div><div class="skinname anicss" id="skinname4"><!--{$skinname4|escape:'script'}--></div>
+                        </div>
+                        <div class="skinbutton" id="skin5" onclick="changeskin5();" style="<!--{$skin5dis|escape:'script'}-->">
+                            <div class="headcolor5"></div>
+                            <div class="charhead"><img src="<!--{$skinhead5|escape:'script'}-->" width="100px"></div>
+                            <div class="headmask"></div><!--
+                            --><div class="skinselect" id="skinselect5" style="width:65px;"><img src="/images/1/1b/SkinSelect1.png" width="100%"/></div><div class="skinname anicss" id="skinname5"><!--{$skinname5|escape:'script'}--></div>
+                        </div>
+                        <div class="skinbutton" id="skin6" onclick="changeskin6();" style="<!--{$skin6dis|escape:'script'}-->">
+                            <div class="headcolor6"></div>
+                            <div class="charhead"><img src="<!--{$skinhead6|escape:'script'}-->" width="100px"></div>
+                            <div class="headmask"></div><!--
+                            --><div class="skinselect" id="skinselect6" style="width:65px;"><img src="/images/1/1b/SkinSelect1.png" width="100%"/></div><div class="skinname anicss" id="skinname6"><!--{$skinname6|escape:'script'}--></div>
+                        </div>
+                        <div class="skinbutton" id="skin7" onclick="changeskin7();" style="<!--{$skin7dis|escape:'script'}-->">
+                            <div class="headcolor7"></div>
+                            <div class="charhead"><img src="<!--{$skinhead7|escape:'script'}-->" width="100px"></div>
+                            <div class="headmask"></div><!--
+                            --><div class="skinselect" id="skinselect7" style="width:65px;"><img src="/images/1/1b/SkinSelect1.png" width="100%"/></div><div class="skinname anicss" id="skinname7"><!--{$skinname7|escape:'script'}--></div>
+                        </div>
+                        <div class="skinbutton" id="skin8" onclick="changeskin8();" style="<!--{$skin8dis|escape:'script'}-->">
+                            <div class="headcolor8"></div>
+                            <div class="charhead"><img src="<!--{$skinhead8|escape:'script'}-->" width="100px"></div>
+                            <div class="headmask"></div><!--
+                            --><div class="skinselect" id="skinselect8" style="width:65px;"><img src="/images/1/1b/SkinSelect1.png" width="100%"/></div><div class="skinname anicss" id="skinname8"><!--{$skinname8|escape:'script'}--></div>
+                        </div>
+                        <div class="skinbutton" id="skin9" onclick="changeskin9();" style="<!--{$skin9dis|escape:'script'}-->">
+                            <div class="headcolor9"></div>
+                            <div class="charhead"><img src="<!--{$skinhead9|escape:'script'}-->" width="100px"></div>
+                            <div class="headmask"></div><!--
+                            --><div class="skinselect" id="skinselect9" style="width:65px;"><img src="/images/1/1b/SkinSelect1.png" width="100%"/></div><div class="skinname anicss" id="skinname9"><!--{$skinname9|escape:'script'}--></div>
+                        </div>
+                        <div class="skinbutton" id="skin10" onclick="changeskin10();" style="<!--{$skin10dis|escape:'script'}-->">
+                            <div class="headcolor10"></div>
+                            <div class="charhead"><img src="<!--{$skinhead10|escape:'script'}-->" width="100px"></div><!--
+                            --><div class="headmask"></div><!--
+                            --><div class="skinselect" id="skinselect10" style="width:65px;"><img src="/images/1/1b/SkinSelect1.png" width="100%"/></div><div class="skinname anicss" id="skinname10"><!--{$skinname10|escape:'script'}--></div>
+                        </div>
+                </div>
+            <div class="inpact anicss">
+                <div class="all anicss" id="all">
+<div class="thidebtn<!--{$proclass|escape:'script'}-->" id="thidebtn" onclick="thideui();">
+<div id="tclearui" class="tclearui"><img src="/images/3/30/Zoom_In.png" width="30px"></div>
+<div id="treturnui" class="tclearui" style="display:none;"><img src="/images/b/bf/Zoom_Out.png" width="30px"></div>
+</div>
+<div class="skinnoinfo<!--{$proclass|escape:'script'}--> anicss" id="skinnoinfo" style="display:none;">
+<div class="skintitle<!--{$proclass|escape:'script'}-->">Thời trang</div>
+<div class="skincontent<!--{$proclass|escape:'script'}-->">NO INFO/</div>
+</div>
+                    <!-- 普通背景 -->
+                    <!-- 皮肤button -->
+                    <div class="all-wrapper anicss">
+                    <div class="all-wrap anicss">
+                    <div class="rodesbg" style="<!--{$prodisR|escape:'script'}-->"></div>
+                    <div class="bg anicss" style="width:1024px;"><img class="anicss bgimg" src="<!--{$probg|escape:'script'}-->" width="100%" height="100%"/></div>
+                    <!-- 皮肤背景 -->
+                    <div class="skinbg" id="skinbg" style="display:none;width:1024px;transform: translateX(0px);transition: all 0.3s ease-in-out;"><img class="anicss skinbgimg" src="/images/3/33/Background2.png" width="100%" height="100%"></div>
+                    <!-- 左上logo -->
+                    <div class="charlogo">
+                        <div class="<!--{$rdslogo}-->" id="deflogo" style="<!--{$prodis|escape:'script'}-->"><img src="<!--{$deflogo|escape:'script'}-->" width="260px"></div>
+                        <div class="logo-wrapper">
+                            <div class="logo-wrap">
+                                <div id="skin1logo" class="logodis"><img src="<!--{$skin1logo|escape:'script'}-->" width="auto"></div>
+                                <div id="skin2logo" class="logodis"><img src="<!--{$skin2logo|escape:'script'}-->" width="auto"></div>
+                                <div id="skin3logo" class="logodis"><img src="<!--{$skin3logo|escape:'script'}-->" width="auto"></div>
+                                <div id="skin4logo" class="logodis"><img src="<!--{$skin4logo|escape:'script'}-->" width="auto"></div>
+                                <div id="skin5logo" class="logodis"><img src="<!--{$skin5logo|escape:'script'}-->" width="auto"></div>
+                                <div id="skin6logo" class="logodis"><img src="<!--{$skin6logo|escape:'script'}-->" width="auto"></div>
+                                <div id="skin7logo" class="logodis"><img src="<!--{$skin7logo|escape:'script'}-->" width="auto"></div>
+                                <div id="skin8logo" class="logodis"><img src="<!--{$skin8logo|escape:'script'}-->" width="auto"></div>
+                                <div id="skin9logo" class="logodis"><img src="<!--{$skin9logo|escape:'script'}-->" width="auto"></div>
+                                <div id="skin10logo" class="logodis"><img src="<!--{$skin10logo|escape:'script'}-->" width="auto"></div>
+                            </div>
+                        </div>
+                    </div>
+                            <!-- 服装描述 -->
+				<div class="explain-wrapper<!--{$proclass|escape:'script'}-->" id="explain-wrapper">
+                                <div id="explain-stage0">
+                                    <span style="display:none" id="SPINEDATA" type="json"><!--{$data}--></span>
+                                    <span style="display:none" id="INDEXDATA" type="json"><!--{$indexdata}--></span>
+				    <div id="Spine0"></div>
+                                </div>
+                                <div id="explain-skin1" style="display:none">
+                                    <span style="display:none" id="SPINEDATA" type="json"><!--{$data}--></span>
+                                    <span style="display:none" id="INDEXDATA1" type="json"><!--{$indexdata1}--></span>
+				    <div id="Spine1"></div>
+                                </div>
+                                <div id="explain-skin2" style="display:none">
+                                    <span style="display:none" id="SPINEDATA" type="json"><!--{$data}--></span>
+                                    <span style="display:none" id="INDEXDATA2" type="json"><!--{$indexdata2}--></span>
+				    <div id="Spine2"></div>
+                                </div>
+                                <div id="explain-skin3" style="display:none">
+                                    <span style="display:none" id="SPINEDATA" type="json"><!--{$data}--></span>
+                                    <span style="display:none" id="INDEXDATA3" type="json"><!--{$indexdata3}--></span>
+				    <div id="Spine3"></div>
+                                </div>
+                                <div id="explain-skin4" style="display:none">
+                                    <span style="display:none" id="SPINEDATA" type="json"><!--{$data}--></span>
+                                    <span style="display:none" id="INDEXDATA4" type="json"><!--{$indexdata4}--></span>
+				    <div id="Spine4"></div>
+                                </div>
+                                <div id="explain-skin5" style="display:none">
+                                    <span style="display:none" id="SPINEDATA" type="json"><!--{$data}--></span>
+                                    <span style="display:none" id="INDEXDATA5" type="json"><!--{$indexdata5}--></span>
+				    <div id="Spine5"></div>
+                                </div>
+                                <div id="explain-skin6" style="display:none">
+                                    <span style="display:none" id="SPINEDATA" type="json"><!--{$data}--></span>
+                                    <span style="display:none" id="INDEXDATA" type="json"><!--{$indexdata6}--></span>
+                                </div>
+                                <div id="explain-skin7" style="display:none">
+                                    <span style="display:none" id="SPINEDATA" type="json"><!--{$data}--></span>
+                                    <span style="display:none" id="INDEXDATA" type="json"><!--{$indexdata7}--></span>
+                                </div>
+                                <div id="explain-skin8" style="display:none">
+                                    <span style="display:none" id="SPINEDATA" type="json"><!--{$data}--></span>
+                                    <span style="display:none" id="INDEXDATA" type="json"><!--{$indexdata8}--></span>
+                                </div>
+                                <div id="explain-skin9" style="display:none">
+                                    <span style="display:none" id="SPINEDATA" type="json"><!--{$data}--></span>
+                                    <span style="display:none" id="INDEXDATA" type="json"><!--{$indexdata9}--></span>
+                                </div>
+                                <div id="explain-skin10" style="display:none">
+                                    <span style="display:none" id="SPINEDATA" type="json"><!--{$data}--></span>
+                                    <span style="display:none" id="INDEXDATA" type="json"><!--{$indexdata10}--></span>
+                                </div>
+                            </div>
+                            <!-- 特性 -->
+                            <div class="features-wrapper<!--{$proclass|escape:'script'}-->" id="features-wrapper">
+                                <div class="features-title<!--{$proclass|escape:'script'}-->">Trait</div><div class="features-content<!--{$proclass|escape:'script'}-->" id="features0" style="display:block"><!--{$features0|regex_replace:"/(script|<script)/":""}--></div><div class="features-content<!--{$proclass|escape:'script'}-->" id="features1"><!--{$features1|regex_replace:"/(script|<script)/":""}--></div><div class="features-content<!--{$proclass|escape:'script'}-->" id="features2"><!--{$features2|regex_replace:"/(script|<script)/":""}--></div><div class="features-content<!--{$proclass|escape:'script'}-->" id="features3"><!--{$features3|regex_replace:"/(script|<script)/":""}--></div></div>
+                    <!-- 切换动画矩形 -->
+                    <div class="anime-bg" id="anime-bg"></div>
+                    <div id="charinfoparticles" class="charinfoparticles"></div>
+                    <!-- 干员立绘 -->
+                    <div class="charimg-wrapper anicss" >
+                    <div id="charImgmove" onwheel="">
+                        <div id="img" style="left: <!--{$stage0x|escape:'script'}-->px; top: <!--{$stage0y|escape:'script'}-->px;">
+                            <div id="charimg" style="transform: scale(<!--{$stage0scale|escape:'script'}-->);">
+                                <div id="img-stage0" class="charimg-stage" style="display:block"><img src="<!--{$charstage0|escape:'script'}-->" width="512px"/></div>
+                                <div id="img-stage1" class="charimg-stage"><img src="<!--{$charstage1|escape:'script'}-->" width="512px"/></div><!--
+                                --><div id="img-stage2" class="charimg-stage" style="position:relative;width:512px;height:512px;"><div id="stage2_default" class="anicss" style="opacity:1;position:absolute;top:0;left:0;display:inline-block;width:512px;height:512px"><img src="<!--{$charstage2|escape:'script'}-->" width="512px"/></div>
+                                <div id="stage2_dyn" class="anicss" style="opacity:0;position:absolute;top:0;left:0;display:none;width:512px;height:512px"><div id="container" style="width:1000px;height:1000px;transform:scale(0.512, 0.512);transform-origin:left top;"><canvas width="1000" height="1000" style="width:100%;height:100%"></div></div></div>
+                                <div id="img-stage3" class="charimg-stage"><img src="<!--{$charstage3|escape:'script'}-->" width="512px"/></div>
+                                <div id="img-skin1" class="charimg-skin"><img src="<!--{$charskin1|escape:'script'}-->" width="512px"/></div>
+                                <div id="img-skin2" class="charimg-skin"><img src="<!--{$charskin2|escape:'script'}-->" width="512px"/></div>
+                                <div id="img-skin3" class="charimg-skin"><img src="<!--{$charskin3|escape:'script'}-->" width="512px"/></div>
+                                <div id="img-skin4" class="charimg-skin"><img src="<!--{$charskin4|escape:'script'}-->" width="512px"/></div>
+                                <div id="img-skin5" class="charimg-skin"><img src="<!--{$charskin5|escape:'script'}-->" width="512px"/></div>
+                                <div id="img-skin6" class="charimg-skin"><img src="<!--{$charskin6|escape:'script'}-->" width="512px"/></div>
+                                <div id="img-skin7" class="charimg-skin"><img src="<!--{$charskin7|escape:'script'}-->" width="512px"/></div>
+                                <div id="img-skin8" class="charimg-skin"><img src="<!--{$charskin8|escape:'script'}-->" width="512px"/></div>
+                                <div id="img-skin9" class="charimg-skin"><img src="<!--{$charskin9|escape:'script'}-->" width="512px"/></div>
+                                <div id="img-skin10" class="charimg-skin"><img src="<!--{$charskin10|escape:'script'}-->" width="512px"/></div>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+                    <div id="charin" class="charleft">
+                        <!-- 职业logo -->
+                        <div class="charclass anicss" id="charclass" style="<!--{$prodis|escape:'script'}-->"><a href="<!--{$classlink|escape:'script'}-->"><img src="<!--{$classlogo|escape:'script'}-->" width="72px" style="border-radius:3px;"/></a></div>
+                        <div class="charclasspro anicss" id="charclasspro" style="<!--{$prodisR|escape:'script'}-->"><a href="<!--{$classlink|escape:'script'}-->"><img src="<!--{$classlogopro|escape:'script'}-->" width="75px"/></a></div>
+                        <!-- 干员tag1 -->
+                        <div class="chartag1-wrapper<!--{$proclass|escape:'script'}--> anicss" id="chartag1">
+                            <div class="chartag1-content<!--{$proclass|escape:'script'}-->"><!--{$chartag1|escape:'script'}--></div>
+                        </div>
+                        <!-- 干员tag2 -->
+                        <div class="chartag2-wrapper<!--{$proclass|escape:'script'}--> anicss" id="chartag2">
+                            <div class="chartag2-content<!--{$proclass|escape:'script'}-->"><!--{$chartag2|escape:'script'}--></div>
+                        </div>
+                        <!-- 干员代号 -->
+                        <div class="charname<!--{$proclass|escape:'script'}--> anicss" id="charname"><!--{$charname|escape:'script'}--></div>
+                        <!-- 干员代号英文 -->
+                        <div class="charname-en<!--{$proclass|escape:'script'}--> anicss" id="charname-en"><!--{$charnameEN|escape:'script'}--></div>
+                        <!-- 稀有度 -->
+                        <div class="star anicss" id="star"><div class="starimg"><img src="<!--{$star|escape:'script'|escape:'script'}-->" height="38px"></div><div class="limited" id="limited">Limited</div></div>
+                        <!-- 配音 -->
+                        <div class="cv-wrapper<!--{$proclass|escape:'script'}--> anicss" id="cv-wrapper">
+                            <div class="cv-bg">
+                                <div class="cv-logo"><img src="/images/e/ee/CV.png" width="18px"></div>
+                                <!--<div class="cv-title">配音</div>-->
+                                <div class="cv-content<!--{$proclass|escape:'script'}-->" id="cv-content"><!--{$cv|escape:'script'}--></div>
+                            </div>
+                        </div>
+                        <!-- 画师 -->
+                        <div class="painter-wrapper<!--{$proclass|escape:'script'}--> anicss" id="painter-wrapper">
+                            <div class="painter-bg">
+                                <div class="painter-logo"><img src="/images/a/a5/Artist.png" width="18px"></div>
+                                <!--<div class="painter-title">画师</div>-->
+                                <div class="painter-content<!--{$proclass|escape:'script'}-->" id="painter-content"><!--{$painter|escape:'script'}--></div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 精英化button -->
+                    <div id="stageWrapper" class="stageWrapper" style="<!--{$prodis|escape:'script'}-->">
+                        <div class="stage0-btn-wrapper" onclick="changeStage0();" id="stage0btn">
+                            <div class="satge0-btn-bg">
+                                <div class="stage0-btn-logo"><img src="/images/0/00/Elite_0.png" width="50px"></div>
+                                <div class="stage0-btn-logoafter"><img src="/images/9/91/Elite_0_After.png" width="50px"></div>
+                                <div class="stage0-btn-content">Elite 0</div>
+                            </div>
+                        </div>
+                        <div class="stage1-btn-wrapper" onclick="changeStage1();" id="stage1btn" style="<!--{$stage1dis|escape:'script'}-->">
+                            <div class="satge1-btn-bg">
+                                <div class="stage1-btn-logo"><img src="/images/f/f2/Elite_1.png" width="50px"></div>
+                                <div class="stage1-btn-logoafter"><img src="/images/3/3f/Elite_1_Hover.png" width="50px"></div>
+                                <div class="stage1-btn-content">Elite 1</div>
+                            </div>
+                        </div>
+                        <div class="stage2-btn-wrapper" onclick="changeStage2();" id="stage2btn" style="<!--{$stage2dis|escape:'script'}-->">
+                            <div class="satge2-btn-bg">
+                                <div class="stage2-btn-logo"><img src="/images/2/27/Elite_2.png" width="50px"></div>
+                                <div class="stage2-btn-logoafter"><img src="/images/8/86/Elite_2_Hover.png" width="50px"></div>
+                                <div class="stage2-btn-content">Elite 2</div>
+                            </div>
+                        </div>
+                        <div class="stage3-btn-wrapper" onclick="changeStage3();" style="display:none">
+                            <div class="satge3-btn-bg">
+                                <div class="stage3-btn-logo"><img src="/images/f/ff/Elite_3.png" width="50px"></div>
+                                <div class="stage3-btn-logoafter"><img src="/images/b/b8/Elite_3_Hover.png" width="50px"></div>
+                                <div class="stage3-btn-content">Elite 3</div>
+                            </div>
+                        </div>
+                    </div>
+                    <!-- 看图按钮 -->
+                    <div id="clearbtn" class="clearbtn<!--{$proclass|escape:'script'}-->" onclick="clearimg();"><!--
+                        --><div id="clearui"><img src="/images/3/30/Zoom_In.png" width="25px"></div><!--
+                        --><div id="returnui"><img src="/images/b/bf/Zoom_Out.png" width="25px"></div>
+                    </div>
+                    <!-- 宽屏按钮 -->
+                    <div id="widebtn" class="widebtn<!--{$proclass|escape:'script'}-->" onclick="widescreen();"><!--
+                        --><div id="wideOn"><img src="/images/7/7b/WideOut.png" width="25px"></div><!--
+                        --><div id="wideOff"><img src="/images/d/df/Wide_In.png" width="25px"></div>
+                    </div>
+                    <!-- 全屏按钮 -->
+                    <div id="fullscbtn" class="fullscbtn<!--{$proclass|escape:'script'}-->" onclick="fullscreen();"><!--
+                        --><div id="fullOn"><img src="/images/7/74/Fullscreen.png" width="22px"></div><!--
+                        --><div id="fullOff"><img src="/images/7/78/Fullscreen_Out.png" width="22px"></div>
+                    </div>
+                    <div id="dynbtn" class="dynbtn" style="<!--{$dynchar}-->"><!--
+                        --><div id="dynOn"><img src="/images/4/47/L2d.png" width="25px"></div>
+                    </div>
+                    </div>
+                    </div>
+                </div>
+            </div>
+        </div></div></div>
+        <script class="navigation-not-searchable">
+        let PrevSpecialStartTime = Date.now();
+        let container = document.getElementById("container");
+        let isPlayingInteract = false;
+        var width=window.innerWidth;
+        if(width<1024){
+        SpineRender.render(container, {
+          atlasPath: "https://haku0011.github.io/kazdel_storage/spine/live2d/char_1012_skadi2/dyn_illust_char_1012_skadi2.atlas",
+          skelPath: "https://haku0011.github.io/kazdel_storage/spine/live2d/char_1012_skadi2/dyn_illust_char_1012_skadi2.skel",
+          atlasPages: [
+            "dyn_illust_char_1012_skadi2.png",
+            "dyn_illust_char_1012_skadi22.png",
+          ],
+          ani: "Idle",
+          backgroundColor: "#00000000",
+          loop: true,
+          skin: "default",
+          debug: false,
+          scale:0.45,
+          x: 485,
+          y: 140,
+          fitToCanvas: false,
+          onSuccess: (widget) => {
+          widget.canvas.oncontextmenu = ()=>{return false;};
+            console.log(widget);
+            document.getElementById("dynbtn").onclick = function () {
+            let a=document.getElementById("stage2_dyn").style.display;
+if(a=="none"){
+document.getElementById("stage2_default").style.opacity="0";
+setTimeout(function(){ document.getElementById("stage2_default").style.display="none";}, 300);
+document.getElementById("stage2_dyn").style.display="inline-block";
+document.getElementById("stage2_dyn").style.opacity="1";
+}else{
+document.getElementById("stage2_dyn").style.opacity="0";
+setTimeout(function(){ document.getElementById("stage2_dyn").style.display="none";}, 300);
+document.getElementById("stage2_default").style.display="inline-block";
+document.getElementById("stage2_default").style.opacity="1";
+}
+            }
+            widget.state.addListener({
+              end: (e) => {
+                if (e.animation.name == "Interact") {
+                  isPlayingInteract = false;
+                }
+              },
+              complete: (e) => {
+                if (
+                  Date.now() - PrevSpecialStartTime >= 8 * 1000 &&
+                  Math.random() < 0.3
+                ) {
+                  PrevSpecialStartTime = Date.now();
+                  console.log("play special");
+                  let entry = widget.state.setAnimation(0, "Special", false, 0);
+                  entry.mixDuration = 0.2;
+                  widget.state.addAnimation(0, "Idle", true, 0);
+                }
+              },
+            });
+            container.addEventListener("click", () => {
+              if (isPlayingInteract) {
+                return;
+              }
+              isPlayingInteract = true;
+              let entry = widget.state.setAnimation(0, "Interact", false, 0);
+              entry.mixDuration = 0.2;
+              widget.state.addAnimation(0, "Idle", true, 0);
+            });
+          },
+          onSkelLoaded: (skel) => {
+            console.log(skel);
+          },
+        });
+        }else{
+        document.getElementById("container").style="width:2500px;height:2500px;transform:scale(0.2048, 0.2048);transform-origin:left top;"
+        SpineRender.render(container, {
+          atlasPath: "https://haku0011.github.io/kazdel_storage/spine/live2d/char_1012_skadi2/dyn_illust_char_1012_skadi2.atlas",
+          skelPath: "https://haku0011.github.io/kazdel_storage/spine/live2d/char_1012_skadi2/dyn_illust_char_1012_skadi2.skel",
+          atlasPages: [
+            "dyn_illust_char_1012_skadi2.png",
+            "dyn_illust_char_1012_skadi22.png",
+          ],
+          ani: "Idle",
+          backgroundColor: "#00000000",
+          loop: true,
+          skin: "default",
+          debug: false,
+          scale:1.13,
+          x: 1190,
+          y: 340,
+          fitToCanvas: false,
+          onSuccess: (widget) => {
+          widget.canvas.oncontextmenu = ()=>{return false;};
+            console.log(widget);
+            document.getElementById("dynbtn").onclick = function () {
+            let a=document.getElementById("stage2_dyn").style.display;
+if(a=="none"){
+document.getElementById("stage2_default").style.opacity="0";
+setTimeout(function(){ document.getElementById("stage2_default").style.display="none";}, 300);
+document.getElementById("stage2_dyn").style.display="inline-block";
+document.getElementById("stage2_dyn").style.opacity="1";
+}else{
+document.getElementById("stage2_dyn").style.opacity="0";
+setTimeout(function(){ document.getElementById("stage2_dyn").style.display="none";}, 300);
+document.getElementById("stage2_default").style.display="inline-block";
+document.getElementById("stage2_default").style.opacity="1";
+}
+            }
+            widget.state.addListener({
+              end: (e) => {
+                if (e.animation.name == "Interact") {
+                  isPlayingInteract = false;
+                }
+              },
+              complete: (e) => {
+                if (
+                  Date.now() - PrevSpecialStartTime >= 8 * 1000 &&
+                  Math.random() < 0.3
+                ) {
+                  PrevSpecialStartTime = Date.now();
+                  console.log("play special");
+                  let entry = widget.state.setAnimation(0, "Special", false, 0);
+                  entry.mixDuration = 0.2;
+                  widget.state.addAnimation(0, "Idle", true, 0);
+                }
+              },
+            });
+            container.addEventListener("click", () => {
+              if (isPlayingInteract) {
+                return;
+              }
+              isPlayingInteract = true;
+              let entry = widget.state.setAnimation(0, "Interact", false, 0);
+              entry.mixDuration = 0.2;
+              widget.state.addAnimation(0, "Idle", true, 0);
+            });
+          },
+          onSkelLoaded: (skel) => {
+            console.log(skel);
+          },
+        });
+        }
+        var params = {
+            zoomVal:<!--{$stage0scale|escape:'script'}-->,
+            left: <!--{$stage0x|escape:'script'}-->,
+            top: <!--{$stage0y|escape:'script'}-->,
+            currentX: <!--{$stage0x|escape:'script'}-->,
+            currentY: <!--{$stage0y|escape:'script'}-->,
+            flag: false
+        };
+        function bbimg(o){
+            var o=o.getElementsByTagName("img")[0];
+            params.zoomVal+=(navigator.userAgent.indexOf('Firefox') != -1?-event.deltaY/30:event.deltaY*-0.001);
+            //event.deltaY *(navigator.userAgent.indexOf('Firefox') != -1?-0.01:-0.001);
+            //+=((event.wheelDelta)?event.wheelDelta/1024:-(event.detail||0)/30)
+            //event.wheelDelta/1024;
+            if (params.zoomVal >= 0.2) {
+                document.getElementById("charimg").style.transform="scale("+params.zoomVal+")";
+            } else {
+                params.zoomVal=0.2;
+                document.getElementById("charimg").style.transform="scale("+params.zoomVal+")";
+                return false;
+            }
+        }
+        var getCss = function(o,key){
+            return o.currentStyle? o.currentStyle[key] : document.defaultView.getComputedStyle(o,false)[key];
+        };
+        var startDrag = function(bar, target, callback){
+            if(getCss(target, "left") !== "auto"){
+                params.left = getCss(target, "left");
+            }
+            if(getCss(target, "top") !== "auto"){
+                params.top = getCss(target, "top");
+            }
+            bar.onmousedown = function(event){
+                params.flag = true;
+                if(!event){
+                    event = window.event;
+                    bar.onselectstart = function(){
+                        return false;
+                    }
+                }
+                var e = event;
+                params.currentX = e.clientX;
+                params.currentY = e.clientY;
+            };
+            document.onmouseup = function(){
+                params.flag = false;
+                if(getCss(target, "left") !== "auto"){
+                    params.left = getCss(target, "left");
+                }
+                if(getCss(target, "top") !== "auto"){
+                    params.top = getCss(target, "top");
+                }
+            };
+            document.onmousemove = function(event){
+                var e = event ? event: window.event;
+     
+                if(params.flag){
+                    var nowX = e.clientX, nowY = e.clientY;
+                    var disX = nowX - params.currentX, disY = nowY - params.currentY;
+                    target.style.left = parseInt(params.left) + disX+ "px";
+                    target.style.top = parseInt(params.top) + disY+ "px";
+     
+                    if (typeof callback == "function") {
+                        callback((parseInt(params.left) || 0) + disX, (parseInt(params.top) || 0) + disY);
+                    }
+     
+                    if (event.preventDefault) {
+                        event.preventDefault();
+                    }
+                    return false;
+                }
+     
+     
+            }
+        };
+        startDrag(document.getElementById("img"),document.getElementById("img"))
+    
+        window.onload=function(){
+        setskinlogo();
+        setlimited();
+        }
+function charinfoScale() {
+    function c() {
+        var containerWidth = $('#charinfo-container').width();
+        if (containerWidth < 1024) {
+            $('#charinfo-scaler').css({
+                'transform': 'scale(' + (containerWidth / 1024) + ')',
+                'left': '0'
+            });
+            $('#charinfo-container').css('height', (576 * containerWidth / 1024) + 'px');
+        }
+    }
+    var e = document.getElementById("content-collapsible-block-0");
+    if (e.attributes["aria-expanded"].value === "true") {
+        c();
+    } else if (e.attributes["aria-expanded"].value === "false") {
+        var observer = new MutationObserver((m) => {
+            if (m[0].oldValue === "false" && m[0].target.attributes["aria-expanded"].value === "true") {
+                c();
+                observer.disconnect();
+                observer = null;
+            }
+        });
+        observer.observe(document.getElementById('content-collapsible-block-0'), { attributes: true, childList: false, subtree: false, attributeFilter: ["aria-expanded"], attributeOldValue: true });
+    }
+}
+        function setstagebtn(){
+            if(document.getElementById("rare").innerHTML<3){
+                document.getElementById("stage2btn").style.display="none";
+            }
+            if(document.getElementById("rare").innerHTML<2){
+                document.getElementById("stage1btn").style.display="none";
+            }
+        }
+        function setlimited(){
+            if(document.getElementById("Limited").innerHTML==1){
+                document.getElementById("limited").style.display="inline-block";
+            }
+        }
+        function setskinbtn(){
+            if(document.getElementById("skinname1").innerHTML!=""){
+                document.getElementById("skin1").style.display="block";
+            }
+            if(document.getElementById("skinname2").innerHTML!=""){
+                document.getElementById("skin2").style.display="block";
+            }
+            if(document.getElementById("skinname3").innerHTML!=""){
+                document.getElementById("skin3").style.display="block";
+            }
+            if(document.getElementById("skinname4").innerHTML!=""){
+                document.getElementById("skin4").style.display="block";
+            }
+            if(document.getElementById("skinname5").innerHTML!=""){
+                document.getElementById("skin5").style.display="block";
+            }
+            if(document.getElementById("skinname6").innerHTML!=""){
+                document.getElementById("skin6").style.display="block";
+            }
+            if(document.getElementById("skinname7").innerHTML!=""){
+                document.getElementById("skin7").style.display="block";
+            }
+            if(document.getElementById("skinname8").innerHTML!=""){
+                document.getElementById("skin8").style.display="block";
+            }
+            if(document.getElementById("skinname9").innerHTML!=""){
+                document.getElementById("skin9").style.display="block";
+            }
+            if(document.getElementById("skinname10").innerHTML!=""){
+                document.getElementById("skin10").style.display="block";
+            }
+        }
+    
+        function setskinlogo(){
+            if(document.getElementById("skin1logo").innerHTML==""){
+                document.getElementById("skin1logo").style.display="none";
+            }
+            if(document.getElementById("skin2logo").innerHTML==""){
+                document.getElementById("skin2logo").style.display="none";
+            }
+            if(document.getElementById("skin3logo").innerHTML==""){
+                document.getElementById("skin3logo").style.display="none";
+            }
+            if(document.getElementById("skin4logo").innerHTML==""){
+                document.getElementById("skin4logo").style.display="none";
+            }
+            if(document.getElementById("skin5logo").innerHTML==""){
+                document.getElementById("skin5logo").style.display="none";
+            }
+            if(document.getElementById("skin6logo").innerHTML==""){
+                document.getElementById("skin6logo").style.display="none";
+            }
+            if(document.getElementById("skin7logo").innerHTML==""){
+                document.getElementById("skin7logo").style.display="none";
+            }
+            if(document.getElementById("skin8logo").innerHTML==""){
+                document.getElementById("skin8logo").style.display="none";
+            }
+            if(document.getElementById("skin9logo").innerHTML==""){
+                document.getElementById("skin9logo").style.display="none";
+            }
+            if(document.getElementById("skin10logo").innerHTML==""){
+                document.getElementById("skin10logo").style.display="none";
+            }
+        }
+    function ctrlscale(){
+    return bbimg(this);
+    }
+    
+        function clearimg(){
+            
+            var dis=document.getElementById("clearui").style.display;
+            if(dis=="none"){
+                document.getElementById("stage0btn").style.borderRadius="0px";
+                document.getElementById("stage0btn").style.backgroundColor="rgba(0,0,0,.8)";
+                document.getElementById("stage0btn").style.width="120px";
+                document.getElementById("stage0btn").style.left="15px";
+                document.getElementById("stage1btn").style.borderRadius="0px";
+                document.getElementById("stage1btn").style.backgroundColor="rgba(0,0,0,.8)";
+                document.getElementById("stage1btn").style.width="120px";
+                document.getElementById("stage1btn").style.top="10px";
+                document.getElementById("stage1btn").style.left="140px";
+                document.getElementById("stage2btn").style.borderRadius="0px";
+                document.getElementById("stage2btn").style.backgroundColor="rgba(0,0,0,.8)";
+                document.getElementById("stage2btn").style.width="120px";
+                document.getElementById("stage2btn").style.top="10px";
+                document.getElementById("stage2btn").style.left="265px";
+                document.getElementById("charclass").style.transform="translateY(0px)";
+                document.getElementById("charclasspro").style.transform="translateY(0px)";
+                document.getElementById("chartag1").style.transform="translateY(0px)";
+                document.getElementById("chartag2").style.transform="translateY(0px)";
+                document.getElementById("charname").style.transform="translateX(0px)";
+                document.getElementById("charname-en").style.transform="translateX(0px)";
+                document.getElementById("star").style.transform="translateX(0px)";
+                document.getElementById("cv-wrapper").style.transform="translateX(0px)";
+                document.getElementById("painter-wrapper").style.transform="translateX(0px)";
+                document.getElementById("features-wrapper").style.transform="translateX(0px)";
+                document.getElementById("returnui").style.display="none";
+                document.getElementById("clearui").style.display="block";
+                document.getElementById("charImgmove").removeEventListener("wheel",ctrlscale);
+                
+                document.getElementById("charname-en").style.opacity="1";
+                document.getElementById("charname").style.opacity="1";
+                
+                document.getElementById("skinname1").style.opacity="1";
+                document.getElementById("skinname2").style.opacity="1";
+                document.getElementById("skinname3").style.opacity="1";
+                document.getElementById("skinname4").style.opacity="1";
+                document.getElementById("skinname5").style.opacity="1";
+                document.getElementById("skinname6").style.opacity="1";
+                document.getElementById("skinname7").style.opacity="1";
+                document.getElementById("skinname8").style.opacity="1";
+                document.getElementById("skinname9").style.opacity="1";
+                document.getElementById("skinname10").style.opacity="1";
+                
+                
+                document.getElementById("skinselect1").style.width="65px";
+                document.getElementById("skinselect2").style.width="65px";
+                document.getElementById("skinselect3").style.width="65px";
+                document.getElementById("skinselect4").style.width="65px";
+                document.getElementById("skinselect5").style.width="65px";
+                document.getElementById("skinselect6").style.width="65px";
+                document.getElementById("skinselect7").style.width="65px";
+                document.getElementById("skinselect8").style.width="65px";
+                document.getElementById("skinselect9").style.width="65px";
+                document.getElementById("skinselect10").style.width="65px";
+                
+                document.getElementById("skinselect1").style.bottom="-10px";
+                document.getElementById("skinselect2").style.bottom="-10px";
+                document.getElementById("skinselect3").style.bottom="-10px";
+                document.getElementById("skinselect4").style.bottom="-10px";
+                document.getElementById("skinselect5").style.bottom="-10px";
+                document.getElementById("skinselect6").style.bottom="-10px";
+                document.getElementById("skinselect7").style.bottom="-10px";
+                document.getElementById("skinselect8").style.bottom="-10px";
+                document.getElementById("skinselect9").style.bottom="-10px";
+                document.getElementById("skinselect10").style.bottom="-10px";
+                
+                document.getElementById("skinselect1").style.opacity=".4";
+                document.getElementById("skinselect2").style.opacity=".4";
+                document.getElementById("skinselect3").style.opacity=".4";
+                document.getElementById("skinselect4").style.opacity=".4";
+                document.getElementById("skinselect5").style.opacity=".4";
+                document.getElementById("skinselect6").style.opacity=".4";
+                document.getElementById("skinselect7").style.opacity=".4";
+                document.getElementById("skinselect8").style.opacity=".4";
+                document.getElementById("skinselect9").style.opacity=".4";
+                document.getElementById("skinselect10").style.opacity=".4";
+                
+                document.getElementById("skin1").style.width="350px";
+                document.getElementById("skin2").style.width="350px";
+                document.getElementById("skin3").style.width="350px";
+                document.getElementById("skin4").style.width="350px";
+                document.getElementById("skin5").style.width="350px";
+                document.getElementById("skin6").style.width="350px";
+                document.getElementById("skin7").style.width="350px";
+                document.getElementById("skin8").style.width="350px";
+                document.getElementById("skin9").style.width="350px";
+                document.getElementById("skin10").style.width="350px";
+                
+                document.getElementById("skinbutton-wrapper").style.right="15px";
+                if(document.getElementById("widebtn").style.display=="none"){}else{$(all).unbind('mousewheel');}
+            }
+            else{
+                document.getElementById("stage0btn").style.borderRadius="5px";
+                document.getElementById("stage0btn").style.backgroundColor="rgba(0,0,0,.47)";
+                document.getElementById("stage0btn").style.width="60px";
+                document.getElementById("stage0btn").style.left="10px";
+                document.getElementById("stage1btn").style.borderRadius="5px";
+                document.getElementById("stage1btn").style.backgroundColor="rgba(0,0,0,.47)";
+                document.getElementById("stage1btn").style.width="60px";
+                document.getElementById("stage1btn").style.top="55px";
+                document.getElementById("stage1btn").style.left="10px";
+                document.getElementById("stage2btn").style.borderRadius="5px";
+                document.getElementById("stage2btn").style.backgroundColor="rgba(0,0,0,.47)";
+                document.getElementById("stage2btn").style.width="60px";
+                document.getElementById("stage2btn").style.top="100px";
+                document.getElementById("stage2btn").style.left="10px";
+                document.getElementById("charclass").style.transform="translateY(100px)";
+                document.getElementById("charclasspro").style.transform="translateY(100px)";
+                document.getElementById("chartag1").style.transform="translateY(100px)";
+                document.getElementById("chartag2").style.transform="translateY(100px)";
+                document.getElementById("charname").style.transform="translateX(-500px)";
+                document.getElementById("charname-en").style.transform="translateX(-200px)";
+                document.getElementById("star").style.transform="translateX(-250px)";
+                document.getElementById("cv-wrapper").style.transform="translateX(-310px)";
+                document.getElementById("painter-wrapper").style.transform="translateX(-310px)";
+                document.getElementById("features-wrapper").style.transform="translateX(400px)";
+                document.getElementById("returnui").style.display="block";
+                document.getElementById("clearui").style.display="none";
+                document.getElementById("charImgmove").addEventListener("wheel",ctrlscale);
+                if(document.getElementById("widebtn").style.display=="none"){}else{$(all).bind('mousewheel', function(event, delta) {return false;});}
+                
+                document.getElementById("charname-en").style.opacity="0";
+                document.getElementById("charname").style.opacity="0";
+                
+                document.getElementById("skinname1").style.opacity="0";
+                document.getElementById("skinname2").style.opacity="0";
+                document.getElementById("skinname3").style.opacity="0";
+                document.getElementById("skinname4").style.opacity="0";
+                document.getElementById("skinname5").style.opacity="0";
+                document.getElementById("skinname6").style.opacity="0";
+                document.getElementById("skinname7").style.opacity="0";
+                document.getElementById("skinname8").style.opacity="0";
+                document.getElementById("skinname9").style.opacity="0";
+                document.getElementById("skinname10").style.opacity="0";
+
+                document.getElementById("skinselect1").style.width="50px";
+                document.getElementById("skinselect2").style.width="50px";
+                document.getElementById("skinselect3").style.width="50px";
+                document.getElementById("skinselect4").style.width="50px";
+                document.getElementById("skinselect5").style.width="50px";
+                document.getElementById("skinselect6").style.width="50px";
+                document.getElementById("skinselect7").style.width="50px";
+                document.getElementById("skinselect8").style.width="50px";
+                document.getElementById("skinselect9").style.width="50px";
+                document.getElementById("skinselect10").style.width="50px";
+                
+                document.getElementById("skinselect1").style.opacity="1";
+                document.getElementById("skinselect2").style.opacity="1";
+                document.getElementById("skinselect3").style.opacity="1";
+                document.getElementById("skinselect4").style.opacity="1";
+                document.getElementById("skinselect5").style.opacity="1";
+                document.getElementById("skinselect6").style.opacity="1";
+                document.getElementById("skinselect7").style.opacity="1";
+                document.getElementById("skinselect8").style.opacity="1";
+                document.getElementById("skinselect9").style.opacity="1";
+                document.getElementById("skinselect10").style.opacity="1";
+                
+                document.getElementById("skinselect1").style.bottom="-5px";
+                document.getElementById("skinselect2").style.bottom="-5px";
+                document.getElementById("skinselect3").style.bottom="-5px";
+                document.getElementById("skinselect4").style.bottom="-5px";
+                document.getElementById("skinselect5").style.bottom="-5px";
+                document.getElementById("skinselect6").style.bottom="-5px";
+                document.getElementById("skinselect7").style.bottom="-5px";
+                document.getElementById("skinselect8").style.bottom="-5px";
+                document.getElementById("skinselect9").style.bottom="-5px";
+                document.getElementById("skinselect10").style.bottom="-5px";
+                
+                document.getElementById("skin1").style.width="110px";
+                document.getElementById("skin2").style.width="110px";
+                document.getElementById("skin3").style.width="110px";
+                document.getElementById("skin4").style.width="110px";
+                document.getElementById("skin5").style.width="110px";
+                document.getElementById("skin6").style.width="110px";
+                document.getElementById("skin7").style.width="110px";
+                document.getElementById("skin8").style.width="110px";
+                document.getElementById("skin9").style.width="110px";
+                document.getElementById("skin10").style.width="110px";
+                
+                document.getElementById("skinbutton-wrapper").style.right="-225px";
+            }
+        }  
+function thideui(){
+        var dis=document.getElementById("tclearui").style.display;
+            if(dis=="none"){
+                document.getElementById("stage0btn").style.borderRadius="0px";
+                document.getElementById("stage0btn").style.backgroundColor="rgba(0,0,0,.8)";
+                document.getElementById("stage0btn").style.width="120px";
+                document.getElementById("stage0btn").style.left="15px";
+                document.getElementById("stage1btn").style.borderRadius="0px";
+                document.getElementById("stage1btn").style.backgroundColor="rgba(0,0,0,.8)";
+                document.getElementById("stage1btn").style.width="120px";
+                document.getElementById("stage1btn").style.top="10px";
+                document.getElementById("stage1btn").style.left="140px";
+                document.getElementById("stage2btn").style.borderRadius="0px";
+                document.getElementById("stage2btn").style.backgroundColor="rgba(0,0,0,.8)";
+                document.getElementById("stage2btn").style.width="120px";
+                document.getElementById("stage2btn").style.top="10px";
+                document.getElementById("stage2btn").style.left="265px";
+                document.getElementById("charclass").style.transform="translateX(0px)";
+                document.getElementById("charclasspro").style.transform="translateX(0px)";
+                document.getElementById("chartag1").style.transform="translateX(0px)";
+                document.getElementById("chartag2").style.transform="translateX(0px)";
+                document.getElementById("charname").style.transform="translateX(0px)";
+                document.getElementById("charname-en").style.transform="translateX(0px)";
+                document.getElementById("star").style.transform="translateX(0px)";
+                document.getElementById("cv-wrapper").style.transform="translateX(0px)";
+                document.getElementById("painter-wrapper").style.transform="translateX(0px)";
+                document.getElementById("features-wrapper").style.transform="translateX(0px)";
+                document.getElementById("treturnui").style.display="none";
+                document.getElementById("tclearui").style.display="block"; 
+                
+                document.getElementById("skinname1").style.opacity="1";
+                document.getElementById("skinname2").style.opacity="1";
+                document.getElementById("skinname3").style.opacity="1";
+                document.getElementById("skinname4").style.opacity="1";
+                document.getElementById("skinname5").style.opacity="1";
+                document.getElementById("skinname6").style.opacity="1";
+                document.getElementById("skinname7").style.opacity="1";
+                document.getElementById("skinname8").style.opacity="1";
+                document.getElementById("skinname9").style.opacity="1";
+                document.getElementById("skinname10").style.opacity="1";
+                
+                
+                document.getElementById("skinselect1").style.width="65px";
+                document.getElementById("skinselect2").style.width="65px";
+                document.getElementById("skinselect3").style.width="65px";
+                document.getElementById("skinselect4").style.width="65px";
+                document.getElementById("skinselect5").style.width="65px";
+                document.getElementById("skinselect6").style.width="65px";
+                document.getElementById("skinselect7").style.width="65px";
+                document.getElementById("skinselect8").style.width="65px";
+                document.getElementById("skinselect9").style.width="65px";
+                document.getElementById("skinselect10").style.width="65px";
+                
+                document.getElementById("skinselect1").style.bottom="-10px";
+                document.getElementById("skinselect2").style.bottom="-10px";
+                document.getElementById("skinselect3").style.bottom="-10px";
+                document.getElementById("skinselect4").style.bottom="-10px";
+                document.getElementById("skinselect5").style.bottom="-10px";
+                document.getElementById("skinselect6").style.bottom="-10px";
+                document.getElementById("skinselect7").style.bottom="-10px";
+                document.getElementById("skinselect8").style.bottom="-10px";
+                document.getElementById("skinselect9").style.bottom="-10px";
+                document.getElementById("skinselect10").style.bottom="-10px";
+                
+                document.getElementById("skinselect1").style.opacity=".4";
+                document.getElementById("skinselect2").style.opacity=".4";
+                document.getElementById("skinselect3").style.opacity=".4";
+                document.getElementById("skinselect4").style.opacity=".4";
+                document.getElementById("skinselect5").style.opacity=".4";
+                document.getElementById("skinselect6").style.opacity=".4";
+                document.getElementById("skinselect7").style.opacity=".4";
+                document.getElementById("skinselect8").style.opacity=".4";
+                document.getElementById("skinselect9").style.opacity=".4";
+                document.getElementById("skinselect10").style.opacity=".4";
+                
+                document.getElementById("skin1").style.width="230px";
+                document.getElementById("skin2").style.width="230px";
+                document.getElementById("skin3").style.width="230px";
+                document.getElementById("skin4").style.width="230px";
+                document.getElementById("skin5").style.width="230px";
+                document.getElementById("skin6").style.width="230px";
+                document.getElementById("skin7").style.width="230px";
+                document.getElementById("skin8").style.width="230px";
+                document.getElementById("skin9").style.width="230px";
+                document.getElementById("skin10").style.width="230px";
+                
+                document.getElementById("skinbutton-wrapper").style.right="15px";
+                document.getElementById("skinbutton-wrapper").style.height="315px";
+                document.getElementById("skinnoinfo").style.right="15px";
+                document.getElementById("charImgmove").removeEventListener("wheel",ctrlscale);
+                $(all).unbind('mousewheel');
+            }
+            else{
+                document.getElementById("stage0btn").style.borderRadius="5px";
+                document.getElementById("stage0btn").style.backgroundColor="rgba(0,0,0,.47)";
+                document.getElementById("stage0btn").style.width="60px";
+                document.getElementById("stage0btn").style.left="10px";
+                document.getElementById("stage1btn").style.borderRadius="5px";
+                document.getElementById("stage1btn").style.backgroundColor="rgba(0,0,0,.47)";
+                document.getElementById("stage1btn").style.width="60px";
+                document.getElementById("stage1btn").style.top="55px";
+                document.getElementById("stage1btn").style.left="10px";
+                document.getElementById("stage2btn").style.borderRadius="5px";
+                document.getElementById("stage2btn").style.backgroundColor="rgba(0,0,0,.47)";
+                document.getElementById("stage2btn").style.width="60px";
+                document.getElementById("stage2btn").style.top="100px";
+                document.getElementById("stage2btn").style.left="10px";
+                document.getElementById("charclass").style.transform="translateX(-100px)";
+                document.getElementById("charclasspro").style.transform="translateX(-100px)";
+                document.getElementById("chartag1").style.transform="translateX(-350px)";
+                document.getElementById("chartag2").style.transform="translateX(-350px)";
+                document.getElementById("charname").style.transform="translateX(-500px)";
+                document.getElementById("charname-en").style.transform="translateX(-200px)";
+                document.getElementById("star").style.transform="translateX(-250px)";
+                document.getElementById("cv-wrapper").style.transform="translateX(250px)";
+                document.getElementById("painter-wrapper").style.transform="translateX(250px)";
+                document.getElementById("features-wrapper").style.transform="translateX(-400px)";
+                document.getElementById("treturnui").style.display="block";
+                document.getElementById("tclearui").style.display="none";            
+                document.getElementById("skinname1").style.opacity="0";
+                document.getElementById("skinname2").style.opacity="0";
+                document.getElementById("skinname3").style.opacity="0";
+                document.getElementById("skinname4").style.opacity="0";
+                document.getElementById("skinname5").style.opacity="0";
+                document.getElementById("skinname6").style.opacity="0";
+                document.getElementById("skinname7").style.opacity="0";
+                document.getElementById("skinname8").style.opacity="0";
+                document.getElementById("skinname9").style.opacity="0";
+                document.getElementById("skinname10").style.opacity="0";
+
+                document.getElementById("skinselect1").style.width="50px";
+                document.getElementById("skinselect2").style.width="50px";
+                document.getElementById("skinselect3").style.width="50px";
+                document.getElementById("skinselect4").style.width="50px";
+                document.getElementById("skinselect5").style.width="50px";
+                document.getElementById("skinselect6").style.width="50px";
+                document.getElementById("skinselect7").style.width="50px";
+                document.getElementById("skinselect8").style.width="50px";
+                document.getElementById("skinselect9").style.width="50px";
+                document.getElementById("skinselect10").style.width="50px";
+                
+                document.getElementById("skinselect1").style.opacity="1";
+                document.getElementById("skinselect2").style.opacity="1";
+                document.getElementById("skinselect3").style.opacity="1";
+                document.getElementById("skinselect4").style.opacity="1";
+                document.getElementById("skinselect5").style.opacity="1";
+                document.getElementById("skinselect6").style.opacity="1";
+                document.getElementById("skinselect7").style.opacity="1";
+                document.getElementById("skinselect8").style.opacity="1";
+                document.getElementById("skinselect9").style.opacity="1";
+                document.getElementById("skinselect10").style.opacity="1";
+                
+                document.getElementById("skinselect1").style.bottom="-5px";
+                document.getElementById("skinselect2").style.bottom="-5px";
+                document.getElementById("skinselect3").style.bottom="-5px";
+                document.getElementById("skinselect4").style.bottom="-5px";
+                document.getElementById("skinselect5").style.bottom="-5px";
+                document.getElementById("skinselect6").style.bottom="-5px";
+                document.getElementById("skinselect7").style.bottom="-5px";
+                document.getElementById("skinselect8").style.bottom="-5px";
+                document.getElementById("skinselect9").style.bottom="-5px";
+                document.getElementById("skinselect10").style.bottom="-5px";
+                
+                document.getElementById("skin1").style.width="110px";
+                document.getElementById("skin2").style.width="110px";
+                document.getElementById("skin3").style.width="110px";
+                document.getElementById("skin4").style.width="110px";
+                document.getElementById("skin5").style.width="110px";
+                document.getElementById("skin6").style.width="110px";
+                document.getElementById("skin7").style.width="110px";
+                document.getElementById("skin8").style.width="110px";
+                document.getElementById("skin9").style.width="110px";
+                document.getElementById("skin10").style.width="110px";
+                
+                document.getElementById("skinbutton-wrapper").style.right="-105px";
+                document.getElementById("skinbutton-wrapper").style.height="auto";
+                document.getElementById("skinnoinfo").style.right="-350px";
+                document.getElementById("charImgmove").addEventListener("wheel",ctrlscale);
+                $(all).bind('mousewheel', function(event, delta) {return false;});
+            }
+        }  
+        function widescreen(){
+        var scwidth=document.getElementById("all").style.width;
+        if(scwidth!="1024px"){
+        document.getElementsByClassName("outpact")[0].style.width="1024px";
+        document.getElementsByClassName("inpact")[0].style.width="1024px";
+        document.getElementsByClassName("all")[0].style.width="1024px";
+        document.getElementsByClassName("all-wrapper")[0].style.width="1024px";
+        document.getElementsByClassName("all-wrap")[0].style.width="1024px";
+        document.getElementsByClassName("bg")[0].style.width="1024px";
+        document.getElementById("skinbg").style.width="1024px";
+        document.getElementsByClassName("charimg-wrapper")[0].style.left="350px";
+        document.getElementById("wideOn").style.display="none";
+        document.getElementById("wideOff").style.display="block";
+        }
+        else{
+        document.getElementsByClassName("outpact")[0].style.width="1024px";
+        document.getElementsByClassName("inpact")[0].style.width="1024px";
+        document.getElementsByClassName("all")[0].style.width="1024px";
+        document.getElementsByClassName("all-wrapper")[0].style.width="1024px";
+        document.getElementsByClassName("all-wrap")[0].style.width="1024px";
+        document.getElementsByClassName("bg")[0].style.width="1024px";
+        document.getElementById("skinbg").style.width="1024px";
+        document.getElementsByClassName("charimg-wrapper")[0].style.left="200px";
+        document.getElementById("wideOn").style.display="block";
+        document.getElementById("wideOff").style.display="none";
+        }
+       }
+        function clearstage(){
+            document.getElementById("img-stage0").style.display="none";
+            document.getElementById("img-stage1").style.display="none";
+            document.getElementById("img-stage2").style.display="none";
+            document.getElementById("img-stage3").style.display="none";
+        }
+    
+        function clearskin(){
+            document.getElementById("img-skin1").style.display="none";
+            document.getElementById("img-skin2").style.display="none";
+            document.getElementById("img-skin3").style.display="none";
+            document.getElementById("img-skin4").style.display="none";
+            document.getElementById("img-skin5").style.display="none";
+            document.getElementById("img-skin6").style.display="none";
+            document.getElementById("img-skin7").style.display="none";
+            document.getElementById("img-skin8").style.display="none";
+            document.getElementById("img-skin9").style.display="none";
+            document.getElementById("img-skin10").style.display="none";
+        }
+    
+        function resetlocation(){
+            document.getElementById("charimg").style.transform="scale(1)";
+            document.getElementById("img").style.left="0px";
+            document.getElementById("img").style.top="0px";
+            params = {
+            zoomVal:1,
+            left: 0,
+            top: 0,
+            currentX: 0,
+            currentY: 0,
+            flag: false
+            };
+        }
+       function clearfeatures(){
+           document.getElementById("features0").style.display="none";
+           document.getElementById("features1").style.display="none";
+           document.getElementById("features2").style.display="none";
+           document.getElementById("features3").style.display="none";
+       }
+       function clearxy(){
+           document.getElementById("charimg").transform="scale(1)";
+           document.getElementById("img").style.left="0px";
+           document.getElementById("img").style.top="0px";
+       }
+        function changeStage0(){
+            resetlocation();
+            clearexplain();
+            clearfeatures();
+            clearskinselect();
+            document.getElementById("painter-content").innerHTML='<!--{$painter|escape:'script'}-->';
+            var dis=document.getElementById("skinbg").style.display;
+            if(dis=="none"){
+                clearstage();
+                document.getElementById("img-stage0").style.display="block";
+                document.getElementById("explain-stage0").style.display="block";
+                document.getElementById("features0").style.display="block";
+            }
+            else{
+                
+                clearskin();
+                clearlogo();
+                document.getElementById("img-stage0").style.display="block";
+                document.getElementById("explain-stage0").style.display="block";
+                document.getElementById("features0").style.display="block";
+                document.getElementById("skinbg").style.display="none";
+                document.getElementById("deflogo").style.display="block";
+                document.getElementById("anime-bg").className="skinbgcolor-out";
+                document.getElementById("skinbg").className="skinbg-out";
+            }
+            if(document.getElementById("fullOn").style.display=="none"){
+            var sch=document.documentElement.clientHeight;
+            document.getElementById("charimg").style.transform="scale("+(sch/512)+")";
+            document.getElementById("img").style.left="0px";
+            document.getElementById("img").style.top="0px";
+            params = {
+            left:0,
+            top:0,
+            currentX:0,
+            currentY:0,
+            zoomVal:sch/512,
+            flag: false
+            };
+            }else{
+            document.getElementById("charimg").style="transform:scale(<!--{$stage0scale|escape:'script'}-->)";
+            document.getElementById("img").style.left="<!--{$stage0x|escape:'script'}-->px";
+            document.getElementById("img").style.top="<!--{$stage0y|escape:'script'}-->px";
+            params = {
+            zoomVal:<!--{$stage0scale|escape:'script'}-->,
+            left: <!--{$stage0x|escape:'script'}-->,
+            top: <!--{$stage0y|escape:'script'}-->,
+            currentX: <!--{$stage0x|escape:'script'}-->,
+            currentY: <!--{$stage0y|escape:'script'}-->,
+            flag: false
+            };
+            }
+        }
+    
+        function changeStage1(){
+            resetlocation();
+            clearexplain();
+            clearfeatures();
+            clearskinselect();
+            document.getElementById("painter-content").innerHTML='<!--{$painter|escape:'script'}-->';
+            var o=document.getElementById("skinbg").style.display;
+            if(o=="none"){
+                clearstage();
+                document.getElementById("img-stage1").style.display="block";
+                document.getElementById("explain-stage0").style.display="block";
+                document.getElementById("features1").style.display="block";
+            }
+            else{
+            
+                clearskin();
+                clearlogo();
+                document.getElementById("img-stage1").style.display="block";
+                document.getElementById("explain-stage0").style.display="block";
+                document.getElementById("skinbg").style.display="none";
+                document.getElementById("deflogo").style.display="block";
+                document.getElementById("anime-bg").className="skinbgcolor-out";
+                document.getElementById("skinbg").className="skinbg-out";
+                document.getElementById("features1").style.display="block";
+            }
+            if(document.getElementById("fullOn").style.display=="none"){
+            var sch=document.documentElement.clientHeight;
+            document.getElementById("charimg").style.transform="scale("+(sch/512)+")";
+            document.getElementById("img").style.left="0px";
+            document.getElementById("img").style.top="0px";
+            params = {
+            left:0,
+            top:0,
+            currentX:0,
+            currentY:0,
+            zoomVal:sch/512,
+            flag: false
+            };
+            }else{
+            document.getElementById("charimg").style="transform:scale(<!--{$stage1scale|escape:'script'}-->)";
+            document.getElementById("img").style.left="<!--{$stage1x|escape:'script'}-->px";
+            document.getElementById("img").style.top="<!--{$stage1y|escape:'script'}-->px";
+            
+            params = {
+            zoomVal:<!--{$stage1scale|escape:'script'}-->,
+            left: <!--{$stage1x|escape:'script'}-->,
+            top: <!--{$stage1y|escape:'script'}-->,
+            currentX: <!--{$stage1x|escape:'script'}-->,
+            currentY: <!--{$stage1y|escape:'script'}-->,
+            flag: false
+            };
+            }
+        }
+    
+        function changeStage2(){
+            resetlocation();
+            clearexplain();
+            clearfeatures();
+            clearskinselect();
+            
+            document.getElementById("painter-content").innerHTML='<!--{$painter|escape:'script'}-->';
+            var o=document.getElementById("skinbg").style.display;
+            if(o=="none"){
+                clearstage();
+                document.getElementById("img-stage2").style.display="block";
+                document.getElementById("explain-stage0").style.display="block";
+                document.getElementById("features2").style.display="block";
+            }
+            else{
+            
+                clearskin();
+                clearlogo();
+                document.getElementById("img-stage2").style.display="block";
+                document.getElementById("explain-stage0").style.display="block";
+                document.getElementById("skinbg").style.display="none";
+                document.getElementById("deflogo").style.display="block";
+                document.getElementById("anime-bg").className="skinbgcolor-out";
+                document.getElementById("skinbg").className="skinbg-out";
+                document.getElementById("features2").style.display="block";
+            }
+            if(document.getElementById("fullOn").style.display=="none"){
+            var sch=document.documentElement.clientHeight;
+            document.getElementById("charimg").style.transform="scale("+(sch/512)+")";
+            document.getElementById("img").style.left="0px";
+            document.getElementById("img").style.top="0px";
+            params = {
+            left:0,
+            top:0,
+            currentX:0,
+            currentY:0,
+            zoomVal:sch/512,
+            flag: false
+            };
+            }else{
+            document.getElementById("charimg").style="transform:scale(<!--{$stage2scale|escape:'script'}-->)";
+            document.getElementById("img").style.left="<!--{$stage2x|escape:'script'}-->px";
+            document.getElementById("img").style.top="<!--{$stage2y|escape:'script'}-->px";
+            
+            params = {
+            zoomVal:<!--{$stage2scale|escape:'script'}-->,
+            left: <!--{$stage2x|escape:'script'}-->,
+            top: <!--{$stage2y|escape:'script'}-->,
+            currentX: <!--{$stage2x|escape:'script'}-->,
+            currentY: <!--{$stage2y|escape:'script'}-->,
+            flag: false
+            };
+            }
+        }
+    
+        function clearlogo(){
+            document.getElementById("deflogo").style.display="none";
+            document.getElementById("skin1logo").style.display="none";
+            document.getElementById("skin2logo").style.display="none";
+            document.getElementById("skin3logo").style.display="none";
+            document.getElementById("skin4logo").style.display="none";
+            document.getElementById("skin5logo").style.display="none";
+            document.getElementById("skin6logo").style.display="none";
+            document.getElementById("skin7logo").style.display="none";
+            document.getElementById("skin8logo").style.display="none";
+            document.getElementById("skin9logo").style.display="none";
+            document.getElementById("skin10logo").style.display="none";
+        }
+    
+       function clearskinselect(){
+       document.getElementById("skinselect1").style.display="none";
+       document.getElementById("skinselect2").style.display="none";
+       document.getElementById("skinselect3").style.display="none";
+       document.getElementById("skinselect4").style.display="none";
+       document.getElementById("skinselect5").style.display="none";
+       document.getElementById("skinselect6").style.display="none";
+       document.getElementById("skinselect7").style.display="none";
+       document.getElementById("skinselect8").style.display="none";
+       document.getElementById("skinselect9").style.display="none";
+       document.getElementById("skinselect10").style.display="none";
+       }
+        function changeskin1(){
+            resetlocation();
+            clearlogo();
+            clearskinselect();
+            document.getElementById("skinselect1").style.display="block";
+            clearexplain();
+            document.getElementById("skin1logo").style.display="block";
+            var o=document.getElementById("skinbg").style.display;
+            if(o=="none"){
+            
+                clearstage();
+                document.getElementById("img-skin1").style.display="block";
+                document.getElementById("explain-skin1").style.display="block";
+                document.getElementById("skinbg").style.display="block";
+                document.getElementById("skinbg").className="skinbg-in";
+                document.getElementById("anime-bg").style.backgroundColor="var(--color1)";
+                document.getElementById("anime-bg").className="skinbgcolor-in";
+            }
+            else{
+                clearskin();
+                document.getElementById("img-skin1").style.display="block";
+                document.getElementById("explain-skin1").style.display="block";
+                document.getElementById("anime-bg").className="skinbgcolor-out";
+                setTimeout(function (){document.getElementById("anime-bg").style.backgroundColor="var(--color1)";},150); 
+                setTimeout(function (){document.getElementById("anime-bg").className="skinbgcolor-in";},150); 
+                
+            }
+            if(document.getElementById("fullOn").style.display=="none"){
+            var sch=document.documentElement.clientHeight;
+            document.getElementById("charimg").style.transform="scale("+(sch/512)+")";
+            document.getElementById("img").style.left="0px";
+            document.getElementById("img").style.top="0px";
+            params = {
+            left:0,
+            top:0,
+            currentX:0,
+            currentY:0,
+            zoomVal:sch/512,
+            flag: false
+            };
+            }else{
+            document.getElementById("charimg").style="transform:scale(<!--{$skin1scale|escape:'script'}-->)";
+            document.getElementById("img").style.left="<!--{$skin1x|escape:'script'}-->px";
+            document.getElementById("img").style.top="<!--{$skin1y|escape:'script'}-->px";
+           
+            
+            params = {
+            zoomVal:<!--{$skin1scale|escape:'script'}-->,
+            left: <!--{$skin1x|escape:'script'}-->,
+            top: <!--{$skin1y|escape:'script'}-->,
+            currentX: <!--{$skin1x|escape:'script'}-->,
+            currentY: <!--{$skin1y|escape:'script'}-->,
+            flag: false
+            };
+            }
+        }
+    
+        function changeskin2(){
+            resetlocation();
+            clearlogo();
+            clearskinselect();
+            document.getElementById("skinselect2").style.display="block";
+            clearexplain();
+            document.getElementById("skin2logo").style.display="block";
+            var o=document.getElementById("skinbg").style.display;
+            if(o=="none"){
+            
+                clearstage();
+                document.getElementById("img-skin2").style.display="block";
+                document.getElementById("explain-skin2").style.display="block";
+                document.getElementById("skinbg").style.display="block";
+                document.getElementById("skinbg").className="skinbg-in";
+                document.getElementById("anime-bg").style.backgroundColor="var(--color2)";
+                document.getElementById("anime-bg").className="skinbgcolor-in";
+            }
+            else{
+                clearskin();
+                document.getElementById("img-skin2").style.display="block";
+                document.getElementById("explain-skin2").style.display="block";
+                document.getElementById("anime-bg").className="skinbgcolor-out";
+                setTimeout(function (){document.getElementById("anime-bg").style.backgroundColor="var(--color2)";},150); 
+                setTimeout(function (){document.getElementById("anime-bg").className="skinbgcolor-in";},150); 
+            }
+            if(document.getElementById("fullOn").style.display=="none"){
+            var sch=document.documentElement.clientHeight;
+            document.getElementById("charimg").style.transform="scale("+(sch/512)+")";
+            document.getElementById("img").style.left="0px";
+            document.getElementById("img").style.top="0px";
+            params = {
+            left:0,
+            top:0,
+            currentX:0,
+            currentY:0,
+            zoomVal:sch/512,
+            flag: false
+            };
+            }else{
+            document.getElementById("charimg").style="transform:scale(<!--{$skin2scale|escape:'script'}-->)";
+            document.getElementById("img").style.left="<!--{$skin2x|escape:'script'}-->px";
+            document.getElementById("img").style.top="<!--{$skin2y|escape:'script'}-->px";
+            
+            params = {
+            zoomVal:<!--{$skin2scale|escape:'script'}-->,
+            left: <!--{$skin2x|escape:'script'}-->,
+            top: <!--{$skin2y|escape:'script'}-->,
+            currentX: <!--{$skin2x|escape:'script'}-->,
+            currentY: <!--{$skin2y|escape:'script'}-->,
+            flag: false
+            };
+            }
+        }
+    
+        function changeskin3(){
+            resetlocation();
+            clearlogo();
+            clearskinselect();
+            document.getElementById("skinselect3").style.display="block";
+            clearexplain();
+            document.getElementById("skin3logo").style.display="block";
+            var o=document.getElementById("skinbg").style.display;
+            if(o=="none"){
+            
+                clearstage();
+                document.getElementById("img-skin3").style.display="block";
+                document.getElementById("explain-skin3").style.display="block";
+                document.getElementById("skinbg").style.display="block";
+                document.getElementById("skinbg").className="skinbg-in";
+                document.getElementById("anime-bg").style.backgroundColor="var(--color3)";
+                document.getElementById("anime-bg").className="skinbgcolor-in";
+            }
+            else{
+                clearskin();
+                document.getElementById("img-skin3").style.display="block";
+                document.getElementById("explain-skin3").style.display="block";
+                document.getElementById("anime-bg").className="skinbgcolor-out";
+                setTimeout(function (){document.getElementById("anime-bg").style.backgroundColor="var(--color3)";},150); 
+                setTimeout(function (){document.getElementById("anime-bg").className="skinbgcolor-in";},150); 
+            }
+            if(document.getElementById("fullOn").style.display=="none"){
+            var sch=document.documentElement.clientHeight;
+            document.getElementById("charimg").style.transform="scale("+(sch/512)+")";
+            document.getElementById("img").style.left="0px";
+            document.getElementById("img").style.top="0px";
+            params = {
+            left:0,
+            top:0,
+            currentX:0,
+            currentY:0,
+            zoomVal:sch/512,
+            flag: false
+            };
+            }else{
+            document.getElementById("charimg").style="transform:scale(<!--{$skin3scale|escape:'script'}-->)";
+            document.getElementById("img").style.left="<!--{$skin3x|escape:'script'}-->px";
+            document.getElementById("img").style.top="<!--{$skin3y|escape:'script'}-->px";
+            params = {
+            zoomVal:<!--{$skin3scale|escape:'script'}-->,
+            left: <!--{$skin3x|escape:'script'}-->,
+            top: <!--{$skin3y|escape:'script'}-->,
+            currentX: <!--{$skin3x|escape:'script'}-->,
+            currentY: <!--{$skin3y|escape:'script'}-->,
+            flag: false
+            };
+            }
+            
+        }
+    
+        function changeskin4(){
+            resetlocation();
+            clearlogo();
+            clearskinselect();
+            document.getElementById("skinselect4").style.display="block";
+            clearexplain();
+            document.getElementById("skin4logo").style.display="block";
+            var o=document.getElementById("skinbg").style.display;
+            if(o=="none"){
+            
+                clearstage();
+                document.getElementById("img-skin4").style.display="block";
+                document.getElementById("explain-skin4").style.display="block";
+                document.getElementById("skinbg").style.display="block";
+                document.getElementById("skinbg").className="skinbg-in";
+                document.getElementById("anime-bg").style.backgroundColor="var(--color4)";
+                document.getElementById("anime-bg").className="skinbgcolor-in";
+            }
+            else{
+                clearskin();
+                document.getElementById("img-skin4").style.display="block";
+                document.getElementById("explain-skin4").style.display="block";
+                document.getElementById("anime-bg").className="skinbgcolor-out";
+                setTimeout(function (){document.getElementById("anime-bg").style.backgroundColor="var(--color4)";},150); 
+                setTimeout(function (){document.getElementById("anime-bg").className="skinbgcolor-in";},150); 
+            }
+            if(document.getElementById("fullOn").style.display=="none"){
+            var sch=document.documentElement.clientHeight;
+            document.getElementById("charimg").style.transform="scale("+(sch/512)+")";
+            document.getElementById("img").style.left="0px";
+            document.getElementById("img").style.top="0px";
+            params = {
+            left:0,
+            top:0,
+            currentX:0,
+            currentY:0,
+            zoomVal:sch/512,
+            flag: false
+            };
+            }else{
+            document.getElementById("charimg").style="transform:scale(<!--{$skin4scale|escape:'script'}-->)";
+            document.getElementById("img").style.left="<!--{$skin4x|escape:'script'}-->px";
+            document.getElementById("img").style.top="<!--{$skin4y|escape:'script'}-->px";
+             params = {
+            zoomVal:<!--{$skin4scale|escape:'script'}-->,
+            left: <!--{$skin4x|escape:'script'}-->,
+            top: <!--{$skin4y|escape:'script'}-->,
+            currentX: <!--{$skin4x|escape:'script'}-->,
+            currentY: <!--{$skin4y|escape:'script'}-->,
+            flag: false
+            };
+            }
+           
+        }
+    
+        function changeskin5(){
+            resetlocation();
+            clearlogo();
+            clearskinselect();
+            document.getElementById("skinselect5").style.display="block";
+            clearexplain();
+            document.getElementById("skin5logo").style.display="block";
+            var o=document.getElementById("skinbg").style.display;
+            if(o=="none"){
+            
+                clearstage();
+                document.getElementById("img-skin5").style.display="block";
+                document.getElementById("explain-skin5").style.display="block";
+                document.getElementById("skinbg").style.display="block";
+                document.getElementById("skinbg").className="skinbg-in";
+                document.getElementById("anime-bg").style.backgroundColor="var(--color5)";
+                document.getElementById("anime-bg").className="skinbgcolor-in";
+            }
+            else{
+                clearskin();
+                document.getElementById("img-skin5").style.display="block";
+                document.getElementById("explain-skin5").style.display="block";
+                document.getElementById("anime-bg").className="skinbgcolor-out";
+                setTimeout(function (){document.getElementById("anime-bg").style.backgroundColor="var(--color5)";},150); 
+                setTimeout(function (){document.getElementById("anime-bg").className="skinbgcolor-in";},150); 
+            }
+            if(document.getElementById("fullOn").style.display=="none"){
+            var sch=document.documentElement.clientHeight;
+            document.getElementById("charimg").style.transform="scale("+(sch/512)+")";
+            document.getElementById("img").style.left="0px";
+            document.getElementById("img").style.top="0px";
+            params = {
+            left:0,
+            top:0,
+            currentX:0,
+            currentY:0,
+            zoomVal:sch/512,
+            flag: false
+            };
+            }else{
+            document.getElementById("charimg").style="transform:scale(<!--{$skin5scale|escape:'script'}-->)";
+            document.getElementById("img").style.left="<!--{$skin5x|escape:'script'}-->px";
+            document.getElementById("img").style.top="<!--{$skin5y|escape:'script'}-->px";
+            params = {
+            zoomVal:<!--{$skin5scale|escape:'script'}-->,
+            left: <!--{$skin5x|escape:'script'}-->,
+            top: <!--{$skin5y|escape:'script'}-->,
+            currentX: <!--{$skin5x|escape:'script'}-->,
+            currentY: <!--{$skin5y|escape:'script'}-->,
+            flag: false
+            };
+            }
+            
+        }
+    
+        function changeskin6(){
+            resetlocation();
+            clearlogo();
+            clearskinselect();
+            document.getElementById("skinselect6").style.display="block";
+            clearexplain();
+            document.getElementById("skin6logo").style.display="block";
+            var o=document.getElementById("skinbg").style.display;
+            if(o=="none"){
+            
+                clearstage();
+                document.getElementById("img-skin6").style.display="block";
+                document.getElementById("explain-skin6").style.display="block";
+                document.getElementById("skinbg").style.display="block";
+                document.getElementById("skinbg").className="skinbg-in";
+                document.getElementById("anime-bg").style.backgroundColor="var(--color6)";
+                document.getElementById("anime-bg").className="skinbgcolor-in";
+            }
+            else{
+                clearskin();
+                document.getElementById("img-skin6").style.display="block";
+                document.getElementById("explain-skin6").style.display="block";
+                document.getElementById("anime-bg").className="skinbgcolor-out";
+                setTimeout(function (){document.getElementById("anime-bg").style.backgroundColor="var(--color6)";},150); 
+                setTimeout(function (){document.getElementById("anime-bg").className="skinbgcolor-in";},150); 
+            }
+            if(document.getElementById("fullOn").style.display=="none"){
+            var sch=document.documentElement.clientHeight;
+            document.getElementById("charimg").style.transform="scale("+(sch/512)+")";
+            document.getElementById("img").style.left="0px";
+            document.getElementById("img").style.top="0px";
+            params = {
+            left:0,
+            top:0,
+            currentX:0,
+            currentY:0,
+            zoomVal:sch/512,
+            flag: false
+            };
+            }else{
+            document.getElementById("charimg").style="transform:scale(<!--{$skin6scale|escape:'script'}-->)";
+            document.getElementById("img").style.left="<!--{$skin6x|escape:'script'}-->px";
+            document.getElementById("img").style.top="<!--{$skin6y|escape:'script'}-->px";
+            params = {
+            zoomVal:<!--{$skin6scale|escape:'script'}-->,
+            left: <!--{$skin6x|escape:'script'}-->,
+            top: <!--{$skin6y|escape:'script'}-->,
+            currentX: <!--{$skin6x|escape:'script'}-->,
+            currentY: <!--{$skin6y|escape:'script'}-->,
+            flag: false
+            };
+            }
+            
+        }
+    
+        function changeskin7(){
+            resetlocation();
+            clearlogo();
+            clearskinselect();
+            document.getElementById("skinselect7").style.display="block";
+            clearexplain();
+            document.getElementById("skin7logo").style.display="block";
+            var o=document.getElementById("skinbg").style.display;
+            if(o=="none"){
+            
+                clearstage();
+                document.getElementById("img-skin7").style.display="block";
+                document.getElementById("explain-skin7").style.display="block";
+                document.getElementById("skinbg").style.display="block";
+                document.getElementById("skinbg").className="skinbg-in";
+                document.getElementById("anime-bg").style.backgroundColor="var(--color7)";
+                document.getElementById("anime-bg").className="skinbgcolor-in";
+            }
+            else{
+                clearskin();
+                document.getElementById("img-skin7").style.display="block";
+                document.getElementById("explain-skin7").style.display="block";
+                document.getElementById("anime-bg").className="skinbgcolor-out";
+                setTimeout(function (){document.getElementById("anime-bg").style.backgroundColor="var(--color7)";},150); 
+                setTimeout(function (){document.getElementById("anime-bg").className="skinbgcolor-in";},150); 
+            }
+            if(document.getElementById("fullOn").style.display=="none"){
+            var sch=document.documentElement.clientHeight;
+            document.getElementById("charimg").style.transform="scale("+(sch/512)+")";
+            document.getElementById("img").style.left="0px";
+            document.getElementById("img").style.top="0px";
+            params = {
+            left:0,
+            top:0,
+            currentX:0,
+            currentY:0,
+            zoomVal:sch/512,
+            flag: false
+            };
+            }else{
+            document.getElementById("charimg").style="transform:scale(<!--{$skin7scale|escape:'script'}-->)";
+            document.getElementById("img").style.left="<!--{$skin7x|escape:'script'}-->px";
+            document.getElementById("img").style.top="<!--{$skin7y|escape:'script'}-->px";
+            params = {
+            zoomVal:<!--{$skin7scale|escape:'script'}-->,
+            left: <!--{$skin7x|escape:'script'}-->,
+            top: <!--{$skin7y|escape:'script'}-->,
+            currentX: <!--{$skin7x|escape:'script'}-->,
+            currentY: <!--{$skin7y|escape:'script'}-->,
+            flag: false
+            };
+            }
+            
+        }
+    
+        function changeskin8(){
+            resetlocation();
+            clearlogo();
+            clearskinselect();
+            document.getElementById("skinselect8").style.display="block";
+            clearexplain();
+            document.getElementById("skin8logo").style.display="block";
+            var o=document.getElementById("skinbg").style.display;
+            if(o=="none"){
+            
+                clearstage();
+                document.getElementById("img-skin8").style.display="block";
+                document.getElementById("explain-skin8").style.display="block";
+                document.getElementById("skinbg").style.display="block";
+                document.getElementById("skinbg").className="skinbg-in";
+                document.getElementById("anime-bg").style.backgroundColor="var(--color8)";
+                document.getElementById("anime-bg").className="skinbgcolor-in";
+            }
+            else{
+                clearskin();
+                document.getElementById("img-skin8").style.display="block";
+                document.getElementById("explain-skin8").style.display="block";
+                document.getElementById("anime-bg").className="skinbgcolor-out";
+                setTimeout(function (){document.getElementById("anime-bg").style.backgroundColor="var(--color8)";},150); 
+                setTimeout(function (){document.getElementById("anime-bg").className="skinbgcolor-in";},150); 
+            }
+            if(document.getElementById("fullOn").style.display=="none"){
+            var sch=document.documentElement.clientHeight;
+            document.getElementById("charimg").style.transform="scale("+(sch/512)+")";
+            document.getElementById("img").style.left="0px";
+            document.getElementById("img").style.top="0px";
+            params = {
+            left:0,
+            top:0,
+            currentX:0,
+            currentY:0,
+            zoomVal:sch/512,
+            flag: false
+            };
+            }else{
+            document.getElementById("charimg").style="transform:scale(<!--{$skin8scale|escape:'script'}-->)";
+            document.getElementById("img").style.left="<!--{$skin8x|escape:'script'}-->px";
+            document.getElementById("img").style.top="<!--{$skin8y|escape:'script'}-->px";
+            params = {
+            zoomVal:<!--{$skin8scale|escape:'script'}-->,
+            left: <!--{$skin8x|escape:'script'}-->,
+            top: <!--{$skin8y|escape:'script'}-->,
+            currentX: <!--{$skin8x|escape:'script'}-->,
+            currentY: <!--{$skin8y|escape:'script'}-->,
+            flag: false
+            };
+            }
+            
+        }
+    
+        function changeskin9(){
+            resetlocation();
+            clearlogo();
+            clearskinselect();
+            document.getElementById("skinselect9").style.display="block";
+            clearexplain();
+            document.getElementById("skin9logo").style.display="block";
+            var o=document.getElementById("skinbg").style.display;
+            if(o=="none"){
+            
+                clearstage();
+                document.getElementById("img-skin9").style.display="block";
+                document.getElementById("explain-skin9").style.display="block";
+                document.getElementById("skinbg").style.display="block";
+                document.getElementById("skinbg").className="skinbg-in";
+                document.getElementById("anime-bg").style.backgroundColor="var(--color9)";
+                document.getElementById("anime-bg").className="skinbgcolor-in";
+            }
+            else{
+                clearskin();
+                document.getElementById("img-skin9").style.display="block";
+                document.getElementById("explain-skin9").style.display="block";
+                document.getElementById("anime-bg").className="skinbgcolor-out";
+                setTimeout(function (){document.getElementById("anime-bg").style.backgroundColor="var(--color9)";},150); 
+                setTimeout(function (){document.getElementById("anime-bg").className="skinbgcolor-in";},150); 
+            }
+            if(document.getElementById("fullOn").style.display=="none"){
+            var sch=document.documentElement.clientHeight;
+            document.getElementById("charimg").style.transform="scale("+(sch/512)+")";
+            document.getElementById("img").style.left="0px";
+            document.getElementById("img").style.top="0px";
+            params = {
+            left:0,
+            top:0,
+            currentX:0,
+            currentY:0,
+            zoomVal:sch/512,
+            flag: false
+            };
+            }else{
+            document.getElementById("charimg").style="transform:scale(<!--{$skin9scale|escape:'script'}-->)";
+            document.getElementById("img").style.left="<!--{$skin9x|escape:'script'}-->px";
+            document.getElementById("img").style.top="<!--{$skin9y|escape:'script'}-->px";
+            params = {
+            zoomVal:<!--{$skin9scale|escape:'script'}-->,
+            left: <!--{$skin9x|escape:'script'}-->,
+            top: <!--{$skin9y|escape:'script'}-->,
+            currentX: <!--{$skin9x|escape:'script'}-->,
+            currentY: <!--{$skin9y|escape:'script'}-->,
+            flag: false
+            };
+            }
+            
+        }
+    
+        function changeskin10(){
+            resetlocation();
+            clearlogo();
+            clearskinselect();
+            document.getElementById("skinselect10").style.display="block";
+            clearexplain();
+            document.getElementById("skin10logo").style.display="block";
+            var o=document.getElementById("skinbg").style.display;
+            if(o=="none"){
+            
+                clearstage();
+                document.getElementById("img-skin10").style.display="block";
+                document.getElementById("explain-skin10").style.display="block";
+                document.getElementById("skinbg").style.display="block";
+                document.getElementById("skinbg").className="skinbg-in";
+                document.getElementById("anime-bg").style.backgroundColor="var(--color10)";
+                document.getElementById("anime-bg").className="skinbgcolor-in";
+            }
+            else{
+                clearskin();
+                document.getElementById("img-skin10").style.display="block";
+                document.getElementById("explain-skin10").style.display="block";
+                document.getElementById("anime-bg").className="skinbgcolor-out";
+                setTimeout(function (){document.getElementById("anime-bg").style.backgroundColor="var(--color10)";},150); 
+                setTimeout(function (){document.getElementById("anime-bg").className="skinbgcolor-in";},150); 
+            }
+            if(document.getElementById("fullOn").style.display=="none"){
+            var sch=document.documentElement.clientHeight;
+            document.getElementById("charimg").style.transform="scale("+(sch/512)+")";
+            document.getElementById("img").style.left="0px";
+            document.getElementById("img").style.top="0px";
+            params = {
+            left:0,
+            top:0,
+            currentX:0,
+            currentY:0,
+            zoomVal:sch/512,
+            flag: false
+            };
+            }else{
+            document.getElementById("charimg").style="transform:scale(<!--{$skin10scale|escape:'script'}-->)";
+            document.getElementById("img").style.left="<!--{$skin10x|escape:'script'}-->px";
+            document.getElementById("img").style.top="<!--{$skin10y|escape:'script'}-->px";
+            params = {
+            zoomVal:<!--{$skin10scale|escape:'script'}-->,
+            left: <!--{$skin10x|escape:'script'}-->,
+            top: <!--{$skin10y|escape:'script'}-->,
+            currentX: <!--{$skin10x|escape:'script'}-->,
+            currentY: <!--{$skin10y|escape:'script'}-->,
+            flag: false
+            };
+            }
+            
+        }
+    
+        function clearexplain(){
+            document.getElementById("explain-stage0").style.display="none";
+            document.getElementById("explain-skin1").style.display="none";
+            document.getElementById("explain-skin2").style.display="none";
+            document.getElementById("explain-skin3").style.display="none";
+            document.getElementById("explain-skin4").style.display="none";
+            document.getElementById("explain-skin5").style.display="none";
+            document.getElementById("explain-skin6").style.display="none";
+            document.getElementById("explain-skin7").style.display="none";
+            document.getElementById("explain-skin8").style.display="none";
+            document.getElementById("explain-skin9").style.display="none";
+            document.getElementById("explain-skin10").style.display="none";
+        }
+        
+        function disabledMouseWheel() {
+        var div = document.getElementById('all');
+        if (div.addEventListener) {
+            div.addEventListener('wheel', scrollFunc, false);
+        }else{
+        div.onwheel  = scrollFunc;//IE/Opera/Chrome
+        }
+    }
+     
+    function scrollFunc(evt) {
+        evt = evt || window.event;
+        if (evt.preventDefault) {
+            // Firefox
+            evt.preventDefault();
+            evt.stopPropagation();
+        } else {
+            // IE
+            evt.cancelBubble = true;
+            evt.returnValue = false;
+        }
+        return false;
+    }
+    function fullscreen(){
+    if(document.getElementById("widebtn").style.display=="none"){
+    refullscreen();
+    }else{
+    $(all).bind('mousewheel', function(event, delta) {return false;});
+    document.getElementsByClassName("outpact")[0].style.width="100vw";
+    document.getElementsByClassName("outpact")[0].style.height="100vh";
+    document.getElementsByClassName("outpact")[0].style.position="fixed";
+    document.getElementsByClassName("outpact")[0].style.top="0px";
+    document.getElementsByClassName("outpact")[0].style.left="0px";
+    document.getElementsByClassName("inpact")[0].style.width="100vw";
+    document.getElementsByClassName("inpact")[0].style.height="100vh";
+    document.getElementsByClassName("all")[0].style.width="100vw";
+    document.getElementsByClassName("all")[0].style.height="100vh";
+    document.getElementsByClassName("all-wrapper")[0].style.width="100vw";
+    document.getElementsByClassName("all-wrapper")[0].style.height="100vh";
+    document.getElementsByClassName("all-wrap")[0].style.width="100vw";
+    document.getElementsByClassName("all-wrap")[0].style.height="100vh";
+    document.getElementsByClassName("bg")[0].style.width="100vw";
+    document.getElementsByClassName("bg")[0].style.height="100vh";
+    document.getElementById("skinbg").style.width="100vw";
+    document.getElementById("skinbg").style.height="100vh";
+    document.getElementById("mw-panel").style.zIndex="-1";
+    document.getElementById("mw-head").style.zIndex="-1";
+    $("body").addClass("fullscreen");
+    document.getElementsByClassName("charimg-wrapper")[0].style.left=window.innerWidth/2-256+'px'
+    document.getElementsByClassName("charimg-wrapper")[0].style.top=window.innerHeight/2-256+'px'
+    document.getElementById("img").style.left="0px";
+    document.getElementById("img").style.top="0px";
+    document.getElementById("widebtn").style.display="none";
+    document.getElementById("fullOff").style.display="block";
+    document.getElementById("fullOn").style.display="none";
+    var sch=document.documentElement.clientHeight/512;
+    document.getElementById("charimg").style.transform="scale("+sch+")";
+    params = {
+            zoomVal:sch,
+            left:0,
+            top:0,
+            currentX:0,
+            currentY:0,
+            flag: false
+            };
+    }
+    }
+    function refullscreen(){
+    document.getElementsByClassName("outpact")[0].style.width="1024px";
+    document.getElementsByClassName("outpact")[0].style.height="576px";
+    document.getElementsByClassName("outpact")[0].style.position="inherit";
+    document.getElementsByClassName("outpact")[0].style.top="0px";
+    document.getElementsByClassName("outpact")[0].style.left="0px";
+    document.getElementsByClassName("inpact")[0].style.width="1024px";
+    document.getElementsByClassName("inpact")[0].style.height="576px";
+    document.getElementsByClassName("all")[0].style.width="1024px";
+    document.getElementsByClassName("all")[0].style.height="576px";
+    document.getElementsByClassName("all-wrapper")[0].style.width="1024px";
+    document.getElementsByClassName("all-wrapper")[0].style.height="576px";
+    document.getElementsByClassName("all-wrap")[0].style.width="1024px";
+    document.getElementsByClassName("all-wrap")[0].style.height="576px";
+    document.getElementsByClassName("bg")[0].style.width="1024px";
+    document.getElementsByClassName("bg")[0].style.height="576px";
+    document.getElementById("skinbg").style.width="1024px";
+    document.getElementById("skinbg").style.height="576px";
+    document.getElementById("mw-panel").style.zIndex="1";
+    document.getElementById("mw-head").style.zIndex="1";
+    $("body").removeClass("fullscreen");
+    document.getElementsByClassName("charimg-wrapper")[0].style.left="200px";
+    document.getElementsByClassName("charimg-wrapper")[0].style.top="50px";
+    document.getElementById("widebtn").style.display="inline";
+    if(document.getElementById("wideOn").style.display=="none"){document.getElementById("wideOn").style.display="block";document.getElementById("wideOff").style.display="none";}
+    params = {
+            zoomVal:<!--{$stage0scale|escape:'script'}-->,
+            left: <!--{$stage0x|escape:'script'}-->,
+            top: <!--{$stage0y|escape:'script'}-->,
+            currentX: <!--{$stage0x|escape:'script'}-->,
+            currentY: <!--{$stage0y|escape:'script'}-->,
+            flag: false
+            };
+    $(all).unbind('mousewheel');
+    document.getElementById("fullOn").style.display="block";
+    document.getElementById("fullOff").style.display="none";
+    changeStage0();
+    }
+    </script>
+<script>particlesJS("charinfoparticles", {"particles":{"number":{"value":80,"density":{"enable":true,"value_area":576}},"color":{"value":["#ffffff", "#313131", "#cccccc"]},"shape":{"type":"circle","stroke":{"width":0,"color":["#b61924", "black", "#313131"] },"polygon":{"nb_sides":3},"image":{"src":"img/github.svg","width":100,"height":100}},"opacity":{"value":0.8,"random":true,"anim":{"enable":false,"speed":1,"opacity_min":0.5,"sync":false}},"size":{"value":1.7,"random":true,"anim":{"enable":true,"speed":1,"size_min":0.5,"sync":false}},"line_linked":{"enable":false,"distance":150,"color":"#ffffff","opacity":0.13629002517356945,"width":1},"move":{"enable":true,"speed":1.5,"direction":"top-left","random":true,"straight":false,"out_mode":"out","bounce":false,"attract":{"enable":false,"rotateX":1763.753266952075,"rotateY":1024}}},"interactivity":{"detect_on":"canvas","events":{"onhover":{"enable":false,"mode":"repulse"},"onclick":{"enable":true,"mode":"push"},"resize":true},"modes":{"grab":{"distance":400,"line_linked":{"opacity":1}},"bubble":{"distance":400,"size":40,"duration":2,"opacity":8,"speed":3},"repulse":{"distance":200,"duration":0.4},"push":{"particles_nb":4},"remove":{"particles_nb":2}}},"retina_detect":true});
+</script>
+<script>!function(e){function r(r){for(var n,i,l=r[0],a=r[1],p=r[2],c=0,s=[];c<l.length;c++)i=l[c],Object.prototype.hasOwnProperty.call(o,i)&&o[i]&&s.push(o[i][0]),o[i]=0;for(n in a)Object.prototype.hasOwnProperty.call(a,n)&&(e[n]=a[n]);for(f&&f(r);s.length;)s.shift()();return u.push.apply(u,p||[]),t()}function t(){for(var e,r=0;r<u.length;r++){for(var t=u[r],n=!0,l=1;l<t.length;l++){var a=t[l];0!==o[a]&&(n=!1)}n&&(u.splice(r--,1),e=i(i.s=t[0]))}return e}var n={},o={1:0},u=[];function i(r){if(n[r])return n[r].exports;var t=n[r]={i:r,l:!1,exports:{}};return e[r].call(t.exports,t,t.exports,i),t.l=!0,t.exports}i.m=e,i.c=n,i.d=function(e,r,t){i.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},i.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},i.t=function(e,r){if(1&r&&(e=i(e)),8&r)return e;if(4&r&&"object"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(i.r(t),Object.defineProperty(t,"default",{enumerable:!0,value:e}),2&r&&"string"!=typeof e)for(var n in e)i.d(t,n,function(r){return e[r]}.bind(null,n));return t},i.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return i.d(r,"a",r),r},i.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},i.p="https://haku0011.github.io/kazdel_spine_skin0/";var l=this.webpackJsonpkazdel_spine_skin0=this.webpackJsonpkazdel_spine_skin0||[],a=l.push.bind(l);l.push=r,l=l.slice();for(var p=0;p<l.length;p++)r(l[p]);var f=a;t()}([])</script><script src="https://haku0011.github.io/kazdel_spine_skin0/static/js/2.052bb71b.chunk.js"></script><script src="https://haku0011.github.io/kazdel_spine_skin0/static/js/main.d828baa8.chunk.js"></script>
+
+<script>!function(e){function r(r){for(var n,i,l=r[0],a=r[1],p=r[2],c=0,s=[];c<l.length;c++)i=l[c],Object.prototype.hasOwnProperty.call(o,i)&&o[i]&&s.push(o[i][0]),o[i]=0;for(n in a)Object.prototype.hasOwnProperty.call(a,n)&&(e[n]=a[n]);for(f&&f(r);s.length;)s.shift()();return u.push.apply(u,p||[]),t()}function t(){for(var e,r=0;r<u.length;r++){for(var t=u[r],n=!0,l=1;l<t.length;l++){var a=t[l];0!==o[a]&&(n=!1)}n&&(u.splice(r--,1),e=i(i.s=t[0]))}return e}var n={},o={1:0},u=[];function i(r){if(n[r])return n[r].exports;var t=n[r]={i:r,l:!1,exports:{}};return e[r].call(t.exports,t,t.exports,i),t.l=!0,t.exports}i.m=e,i.c=n,i.d=function(e,r,t){i.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},i.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},i.t=function(e,r){if(1&r&&(e=i(e)),8&r)return e;if(4&r&&"object"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(i.r(t),Object.defineProperty(t,"default",{enumerable:!0,value:e}),2&r&&"string"!=typeof e)for(var n in e)i.d(t,n,function(r){return e[r]}.bind(null,n));return t},i.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return i.d(r,"a",r),r},i.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},i.p="https://haku0011.github.io/kazdel_spine_skin1/";var l=this.webpackJsonpkazdel_spine_skin1=this.webpackJsonpkazdel_spine_skin1||[],a=l.push.bind(l);l.push=r,l=l.slice();for(var p=0;p<l.length;p++)r(l[p]);var f=a;t()}([])</script><script src="https://haku0011.github.io/kazdel_spine_skin1/static/js/2.c4760496.chunk.js"></script><script src="https://haku0011.github.io/kazdel_spine_skin1/static/js/main.0781713e.chunk.js"></script>
+
+<script>!function(e){function r(r){for(var n,i,l=r[0],a=r[1],p=r[2],c=0,s=[];c<l.length;c++)i=l[c],Object.prototype.hasOwnProperty.call(o,i)&&o[i]&&s.push(o[i][0]),o[i]=0;for(n in a)Object.prototype.hasOwnProperty.call(a,n)&&(e[n]=a[n]);for(f&&f(r);s.length;)s.shift()();return u.push.apply(u,p||[]),t()}function t(){for(var e,r=0;r<u.length;r++){for(var t=u[r],n=!0,l=1;l<t.length;l++){var a=t[l];0!==o[a]&&(n=!1)}n&&(u.splice(r--,1),e=i(i.s=t[0]))}return e}var n={},o={1:0},u=[];function i(r){if(n[r])return n[r].exports;var t=n[r]={i:r,l:!1,exports:{}};return e[r].call(t.exports,t,t.exports,i),t.l=!0,t.exports}i.m=e,i.c=n,i.d=function(e,r,t){i.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},i.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},i.t=function(e,r){if(1&r&&(e=i(e)),8&r)return e;if(4&r&&"object"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(i.r(t),Object.defineProperty(t,"default",{enumerable:!0,value:e}),2&r&&"string"!=typeof e)for(var n in e)i.d(t,n,function(r){return e[r]}.bind(null,n));return t},i.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return i.d(r,"a",r),r},i.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},i.p="https://haku0011.github.io/kazdel_spine_skin2/";var l=this.webpackJsonpkazdel_spine_skin2=this.webpackJsonpkazdel_spine_skin2||[],a=l.push.bind(l);l.push=r,l=l.slice();for(var p=0;p<l.length;p++)r(l[p]);var f=a;t()}([])</script><script src="https://haku0011.github.io/kazdel_spine_skin2/static/js/2.d4eecf18.chunk.js"></script><script src="https://haku0011.github.io/kazdel_spine_skin2/static/js/main.19476c75.chunk.js"></script>
+
+<script>!function(e){function r(r){for(var n,i,l=r[0],a=r[1],p=r[2],c=0,s=[];c<l.length;c++)i=l[c],Object.prototype.hasOwnProperty.call(o,i)&&o[i]&&s.push(o[i][0]),o[i]=0;for(n in a)Object.prototype.hasOwnProperty.call(a,n)&&(e[n]=a[n]);for(f&&f(r);s.length;)s.shift()();return u.push.apply(u,p||[]),t()}function t(){for(var e,r=0;r<u.length;r++){for(var t=u[r],n=!0,l=1;l<t.length;l++){var a=t[l];0!==o[a]&&(n=!1)}n&&(u.splice(r--,1),e=i(i.s=t[0]))}return e}var n={},o={1:0},u=[];function i(r){if(n[r])return n[r].exports;var t=n[r]={i:r,l:!1,exports:{}};return e[r].call(t.exports,t,t.exports,i),t.l=!0,t.exports}i.m=e,i.c=n,i.d=function(e,r,t){i.o(e,r)||Object.defineProperty(e,r,{enumerable:!0,get:t})},i.r=function(e){"undefined"!=typeof Symbol&&Symbol.toStringTag&&Object.defineProperty(e,Symbol.toStringTag,{value:"Module"}),Object.defineProperty(e,"__esModule",{value:!0})},i.t=function(e,r){if(1&r&&(e=i(e)),8&r)return e;if(4&r&&"object"==typeof e&&e&&e.__esModule)return e;var t=Object.create(null);if(i.r(t),Object.defineProperty(t,"default",{enumerable:!0,value:e}),2&r&&"string"!=typeof e)for(var n in e)i.d(t,n,function(r){return e[r]}.bind(null,n));return t},i.n=function(e){var r=e&&e.__esModule?function(){return e.default}:function(){return e};return i.d(r,"a",r),r},i.o=function(e,r){return Object.prototype.hasOwnProperty.call(e,r)},i.p="https://haku0011.github.io/kazdel_spine_skin3/";var l=this.webpackJsonpkazdel_spine_skin3=this.webpackJsonpkazdel_spine_skin3||[],a=l.push.bind(l);l.push=r,l=l.slice();for(var p=0;p<l.length;p++)r(l[p]);var f=a;t()}([])</script><script src="https://haku0011.github.io/kazdel_spine_skin3/static/js/2.b30ba2ed.chunk.js"></script><script src="https://haku0011.github.io/kazdel_spine_skin3/static/js/main.abc9e4a9.chunk.js"></script>
+</body>
+</includeonly>
