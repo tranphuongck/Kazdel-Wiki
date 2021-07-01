@@ -1,0 +1,333 @@
+<!--Modified from original file from prts.wiki-->
+
+<includeonly>
+<script>
+document.addEventListener('DOMContentLoaded',function(){
+                    var csscheck=document.getElementsByClassName("pre-content")[0];
+                    if(csscheck==null||csscheck==undefined){
+                    }else{
+                    var controler=document.getElementsByClassName("charskinbtn-controler");
+                    var container=document.getElementsByClassName("charskinbtn-container");
+                    var i;
+                    for(i=0;i<controler.length;i++){
+	                   controler[i].style.transformOrigin="left top";
+                      controler[i].style.transform="scale(.6)";
+                      container[i].style.height="165.5px";
+                      container[i].style.width="72px";
+                      container[i].style.margin="5px";
+                      container[i].style.background-color="#333";
+                    }
+                    }
+                });
+</script>
+
+<style>
+        :root{
+            --size1:10px;
+            --size2:5px;
+            --color1:rgba(0,0,0,.2);
+        }
+        .skinwrapper{
+            width: 120px;
+            height:276px;
+            background-color: #333;
+            position: relative;
+            margin: 0px;
+            font-size: 0px;
+            display: inline-block;
+            filter:drop-shadow(0px 5px 5px rgba(0,0,0,.5));
+            cursor:pointer;
+        }
+        .charimgwrapper{
+            position: absolute;
+            bottom: 36px;
+            left: 0px;
+            width: 120px;
+            z-index: 1;
+            overflow: hidden;
+        }
+        .charimg{
+        position:relative;
+        z-index:1;
+        }
+        .skintag{
+            width:66px;
+            height:20px;
+            background-color: #0224ff;
+            position: absolute;
+            top:5px;
+            right:-7px;
+            color: white;
+            font-size: 12px;
+            line-height: 20px;
+            text-align: center;
+            box-sizing: border-box;
+            z-index: 2;
+        }
+        .skintagbg{
+            width:30px;
+            height:20px;
+            position: absolute;
+            top: 5px;
+            right:-7px;
+            transform-origin: bottom right;
+            transform: rotate(-45deg);
+            background-color:#1f1f8a;
+            z-index:-1;
+        }
+        .charnameEn{
+            position: absolute;
+            color: white;
+            top:244px;
+            left: 4px;
+            font-weight: bold;
+            font-size: 13px;
+            line-height: 12px;
+        }
+        .skinname{
+            position: absolute;
+            color: white;
+            bottom:4px;
+            left: 4px;
+            font-size: 10px;
+            line-height: 12px;
+        }
+        .skinlogowrapper{
+            position: absolute;
+            top: 0px;
+            width: 120px;
+            height: 240px;
+            overflow: hidden;
+            z-index: 0;
+        }
+        .skinlogo{
+            filter: invert(0);
+            opacity: .81;
+            position: relative;
+        }
+        .circlepoint{
+            position: absolute;
+            right:-50px;
+            bottom:-33px;
+            width: 200px;
+            height: 100px;
+            background-image: 
+                radial-gradient(var(--color1) 6%, transparent 7%), 
+                radial-gradient(var(--color1) 12%, transparent 13%), 
+                radial-gradient(var(--color1) 16%, transparent 17%), 
+                radial-gradient(var(--color1) 20%, transparent 21%), 
+                radial-gradient(var(--color1) 25%, transparent 26%), 
+                radial-gradient(var(--color1) 26%, transparent 27%), 
+                radial-gradient(var(--color1) 30%, transparent 31%), 
+                radial-gradient(var(--color1) 32%, transparent 33%), 
+                radial-gradient(var(--color1) 35%, transparent 36%), 
+                radial-gradient(var(--color1) 32%, transparent 33%), 
+                radial-gradient(var(--color1) 35%, transparent 36%), 
+                radial-gradient(var(--color1) 32%, transparent 33%), 
+                radial-gradient(var(--color1) 35%, transparent 36%), 
+                radial-gradient(var(--color1) 32%, transparent 33%), 
+                radial-gradient(var(--color1) 35%, transparent 36%),
+                radial-gradient(var(--color1) 32%, transparent 33%);
+            background-size: var(--size1) var(--size1);
+            background-position: 
+                0 0,var(--size2) 5px,
+                0 10px,var(--size2) 15px,
+                0 20px,var(--size2) 25px,
+                0 30px,var(--size2) 35px,
+                0 40px,var(--size2) 45px,
+                0 50px,var(--size2) 55px,
+                0 60px,var(--size2) 65px,
+                0 70px,var(--size2) 75px,
+                0 80px,var(--size2) 85px,
+                0 90px,var(--size2) 95px,
+                0 100px,var(--size2) 105px;
+            background-repeat: repeat-x;
+            transform: rotate(-15deg);
+            z-index: 0;
+        }
+        .logo-epoque{
+            position: absolute;
+            top:50px;
+            left: -10px;
+            width: 120px;
+        }
+        .logo-boc{
+            position:absolute;
+            top:8px;
+            left:-10px;
+            width: 75px;
+        }
+        .logo-crossover{
+            position: absolute;
+            top: 27px;
+            left: -28px;
+            width: 120px;
+        }
+        .logo-sale{
+            position:absolute;
+            top: 35px;
+            left: -22px;
+            width: 100px;
+        }
+        .logo-nian{
+            position: absolute;
+            top: 7px;
+            left: -10px;
+            width: 75px;
+        }
+        .logo-whirlwind{
+            position: absolute;
+            top: 10px;
+            left: -10px;
+            width: 80px;
+        }
+        .logo-summer{
+            position: absolute;
+            top: 10px;
+            left: -8px;
+            width: 80px;
+        }
+        .logo-marthe{
+            position: absolute;
+            top: 33px;
+            left: -28px;
+            width:120px;
+        }
+        .logo-witch{
+            position: absolute;
+            top: 33px;
+            left: -26px;
+            width:120px;
+        }
+        .logo-winter{
+            position: absolute;
+            top: 15px;
+            left: -26px;
+            width:120px;
+        }
+        .logo-xmas{
+            position: absolute;
+            top: 10px;
+            left: -16px;
+            width:100px;
+        }
+        .logo-wild{
+            position: absolute;
+            top: 8px;
+            left: -16px;
+            width:100px;
+        }
+        .logo-sweep{
+            position:absolute;
+            top: 50px;
+            left: -23px;
+            width:120px;
+        }
+        .logo-striker{
+            position:absolute;
+            top: 50px;
+            left: -23px;
+            width:120px;
+        }
+        .logo-kitchen{
+            position: absolute;
+            top: 32px;
+            left: -30px;
+            width: 120px;
+        }
+        .logo-ghost{
+            position: absolute;
+            top: 9px;
+            left: -19px;
+            width: 100px;
+        }
+        .logo-race{
+            position: absolute;
+            top: 58px;
+            left: -29px;
+            width: 124px;
+        }
+        .logo-ambienceSynesthesia{
+            position: absolute;
+            top: 0px;
+            left: -25px;
+            width: 115px;
+        }
+        .whitebg{
+        position:absolute;
+        top:0px;
+        left:0px;
+        background-color:white;
+        width:120px;
+        height:240px;
+        z-index:0;
+        }
+        .greybg{
+        position:absolute;
+        top:0px;
+        left:0px;
+        background-color:#313131;
+        width:120px;
+        height:240px;
+        z-index:0;
+        }
+        .charskinbtn-container{
+        width:120px;
+        height:276px;
+        display:inline-block;
+        margin:8px;
+        font-size:0px;
+        }
+        .charskinbtn-container:hover{
+        --color1:white;
+        }
+        .charskinbtn-container:hover .skinwrapper{
+        background-color:#313131;
+        }
+        .charskinbtn-container:hover .whitebg{
+        background-color:#313131;
+        }
+        .charskinbtn-container:hover .greybg{
+        background-color:#FFFFFF;
+        }
+        .charskinbtn-container:hover .skinlogo{
+            filter: invert();
+    opacity:1;
+        }
+        .charskinbtn-container:hover .charnameEn{
+        color:white;
+        }
+        .charskinbtn-container:hover .skinname{
+        color:white;
+        }
+        .centercontainer{
+        width:100%;
+        display:flex;
+        justify-content:center;
+        }
+        .centercontroler{
+        width:100%;
+        max-width:1150px;
+        display:flex;
+        justify-content:center;
+        flex-wrap:wrap;
+        }
+    </style>
+<body><div class="charskinbtn-container"><div class="skinwrapper charskinbtn-controler">
+         <a href="/index.php/<!--{$charname|regex_replace:"/(script|<script)/":""}-->">
+        <div class="greybg"></div>
+        <div class="charimgwrapper">
+            <div class="charimg"><img src="<!--{$skinimg|regex_replace:"/(script|<script)/":""}-->" width="120px"></div>
+            <div class="circlepoint"></div>
+        </div>
+        <div class="skinlogowrapper">
+            <div class="skinlogo">
+                    <div class="logo-<!--{$skinbrand|regex_replace:"/(script|<script)/":""}-->"><img src="<!--{$skinlogo|regex_replace:"/(script|<script)/":""}-->" width="100%"></div>
+            </div>
+        </div>
+        <div class="skintag" style="<!--{$skintagdis|regex_replace:"/(script|<script)/":""}-->"><!--{$skintag|regex_replace:"/(script|<script)/":""}--></div>
+        <div class="skintagbg" style="<!--{$skintagdis|regex_replace:"/(script|<script)/":""}-->"></div>
+        <div class="charnameEn"><!--{$charnameEn|regex_replace:"/(script|<script)/":""}--></div>
+        <div class="skinname"><!--{$skinname|regex_replace:"/(script|<script)/":""}--></div> 
+        </a>
+    </div></div></body></includeonly>
