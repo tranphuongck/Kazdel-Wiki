@@ -1,0 +1,3410 @@
+<noinclude>{{#Widget:ScenarioSimulator|data_txt={{User:Haku0011/testdata}}|data_back={{Widget:Data_Image}}|data_char={{Widget:Data_Char}}|data_audio={{Widget:Data_Audio}}|data_override={{Widget:Data_Override}}|data_link={{Widget:Data_Link}}|data_name={{DrName}}}}</noinclude>
+<includeonly>
+<div id="system_fullscreen">
+	<div id="system_offset">
+	<div id="system_main">
+		<div class="button_style" id="button_auto" style="right:144px;color:#808080">Tự động▶</div>
+		<div class="button_style" id="button_reset" style="right:0px;color:#808080;">Skip▶</div>
+		<div class="playback_style playback_normal" id="button_playback"></div>
+		<div class="fullscreen_style fullscreen_normal" id="button_fullscreen" style="display: none;"></div>
+		<div class="playback_style playback_all_normal" id="button_playback_all" style="display: none;"></div>
+		<div class="common_style" id="system_blocker"></div>
+		<div class="common_style" id="pic_subtitle"></div>
+		<div class="common_style" id="system_camera">
+			<div class="common_style" id="pic_animation"></div>
+			<div class="common_style" id="pic_back"></div>
+			<div class="common_style" id="pic_image"></div>
+			<div class="common_style" id="pic_char"><div id="char_1" class="char_style"></div><div id="char_2" class="char_style"></div></div>
+			<div class="common_style" id="pic_item"></div>
+			<div class="common_style" id="pic_cutin"></div>
+		</div>
+		<div class="common_style" id="system_playback" style="display: none;">
+			<ul class="log_style" id="playback_result"></ul>
+		</div>
+		<div class="common_style" id="system_playback_all" style="display: none;">
+			<ul class="log_style" id="playback_all_result"></ul>
+		</div>
+		<div id="system_decision" style="display: none;">
+			<div class="decision_style" id="decision_1" onclick="txt_decision(0)">...</div>
+			<div class="decision_style" id="decision_2" onclick="txt_decision(1)">....</div>
+			<div class="decision_style" id="decision_3" onclick="txt_decision(2)">.....</div>
+		</div>
+		<div id="system_dialog">
+			<div class="dialog_style" id="txt_name">Arknights Story Player</div>
+			<div class="dialog_style" id="txt_output">Đang tải...</div>
+		</div>
+	</div>
+	</div>
+</div>
+<audio id="system_music" hidden>
+</audio>
+<div id="system_audio" style="display:none;"></div>
+<style class="navigation-not-searchable">
+.button_return{
+	text-align:center;
+	color:white;
+	font-size:25px;
+	top:24px;
+}
+.button_style{
+	z-index:4;
+	position:absolute;
+	float:right;
+	color:white;
+	width:120px;
+	height:24px;
+	font-size:18px;
+	top:24px;
+	padding:0px 6px;
+	text-align:left;
+	cursor:default;
+	user-select:none;
+}
+.char_style{
+	position: absolute;
+	width: 960px;
+	height: 540px;
+	background-repeat: no-repeat;
+	transform-origin: top left;
+}
+.common_style{
+	position:absolute;
+	width:960px;
+	height:540px;
+}
+.cutin_style{
+	position:absolute;
+	background-repeat:no-repeat;
+	background-position:top;
+	background-color: grey;
+}
+.decision_style{
+	z-index:4;
+	position:absolute;
+	width:450px;
+	height:36px;
+	font-size:18px;
+	left:243px;
+	padding:6px 12px 0px 12px;
+	border:solid 2.4px white;
+	text-align:center;
+	color:white;
+	background-color:#303030;
+	cursor:default;
+	user-select:none;
+}
+.dialog_style{
+	z-index:4;
+	position:absolute;
+	height:96px;
+	bottom:0px;
+	color:white;
+	background-image:linear-gradient(rgba(0,0,0,0),black 40%);
+	cursor:default;
+	user-select:none;
+}
+.fullscreen_normal{
+	background-image:url('/images/c/c8/Avg_Fullscreen.png');
+	background-repeat:no-repeat;
+	background-size:30px 30px;
+}
+.fullscreen_style{
+	position:absolute;
+	top:24px;
+	width:45px;
+	height:45px;
+	cursor:default;
+	user-select:none;
+}
+.item_style{
+	position:absolute;
+	border:7.5px solid white;
+	background-repeat:no-repeat;
+}
+.log_style{
+	position:absolute;
+	left:120px;
+	top:30px;
+	width:700px;
+}
+.log_style li{
+	list-style-type:none;
+	list-style-image:none;
+	padding:5px 0px 5px 0px;
+	height:22px;
+}
+.log_style em{
+	position:absolute;
+	color:#929292;
+	font-size:16px;
+	font-style:unset;
+	width:100px;
+	text-align:left;
+}
+.log_style span{
+	position:absolute;
+	left:110px;
+	color:white;
+	font-size:14px;
+	padding-left:10px;
+	width:582px;
+	text-align:left;
+}
+.log_style div.log_decision{
+	position: relative;
+	border: solid 3px #f3f333;
+}
+.log_style div.log_predicate{
+	position: relative;
+	border: solid 2px #0080ff;
+}
+.log_style span.log_decision{
+	position: initial;
+	float: right;
+}
+.log_style .log_predicate>span{
+	position: inherit;
+	color:skyblue;	
+}
+.log_style .log_predicate>li>em{
+	left:5px;
+}
+.log_style .log_predicate>li>span{
+	width:565px;
+}
+.playback_normal{
+	background-image:url('/images/1/17/Avg_btn_playback.png');
+	background-repeat:no-repeat;
+	background-size:45px 38px;
+}
+.playback_all_normal{
+	background-image:url('/images/f/f7/Avg_btn_playback_all.png');
+	background-repeat:no-repeat;
+	background-size:45px 38px;
+}
+.playback_style{
+	position:absolute;
+	top:24px;
+	width:45px;
+	height:45px;
+	cursor:default;
+	user-select:none;
+}
+.subtitle_style{
+	position: absolute;
+	z-index: 3;
+	color: white;
+	user-select: none;
+}
+#button_fullscreen.button_return{
+	z-index: 4;
+	left: 72px;
+}
+#button_fullscreen.fullscreen_normal{
+	z-index: 4;
+	left: 80px;
+}
+#button_playback.button_return{
+	z-index: 6;
+	left: 24px;
+}
+#button_playback.playback_normal{
+	z-index: 4;
+	left: 24px;
+}
+#button_playback_all.button_return{
+	z-index: 6;
+	left: 24px;
+}
+#button_playback+#button_playback_all.playback_all_normal{
+	z-index: 4;
+	left: 75px;
+}
+#button_fullscreen+#button_playback_all.playback_all_normal{
+	z-index: 4;
+	left: 125px;
+}
+#pic_back{
+	z-index:0;
+}
+#pic_image,#pic_cutin,#pic_item{
+	z-index:2;
+}
+#pic_char{
+	z-index:1;
+}
+#playback_result li:nth-last-child(1) em,#playback_result li:nth-last-child(1) span{
+	color: gold !important;
+}
+#system_blocker{
+	z-index:3;
+	background-color:rgb(0,0,0);
+	user-select:none;
+}
+#system_camera{
+	overflow:hidden;
+}
+#system_main{
+	position: relative;
+	width:960px;
+	height:540px;
+	font-family: 'Noto Sans S Chinese';
+	background-color:#000000;
+	transition:all 0.1s ease-out 0s;
+	transform-origin:top left;
+	-webkit-transform-origin: top left;
+	-moz-transform-origin: top left;
+}
+#system_offset{
+	position: absolute;
+	width: 100%;
+	height: 100%;
+}
+#system_fullscreen{
+	position: relative;
+	width: 960px;
+	height: 540px;
+}
+#system_playback,#system_playback_all{
+	z-index:5;
+	background-color:rgba(0,0,0,0.9);
+	overflow-y:auto;
+	cursor:default;
+	user-select:none;
+}
+#txt_name{
+	padding:40px 15px 0px 45px;
+	font-size:21px;
+	left:0px;
+	width:200px;
+	text-align:right;
+	color:#929292;
+}
+#txt_output{
+	padding:40px 70px 0px 15px;
+	font-size:18px;
+	left:260px;
+	width:615px;
+}
+</style>
+<script type="csv" id="datas_txt"><!--{$data_txt|regex_replace:"/<?script/":""}--></script>
+<script type="csv" id="datas_back" class="navigation-not-searchable"><!--{$data_back|regex_replace:"/<?script/":""}--></script>
+<script type="csv" id="datas_char" class="navigation-not-searchable"><!--{$data_char|regex_replace:"/<?script/":""}--></script>
+<script type="json" id="datas_audio" class="navigation-not-searchable"><!--{$data_audio|regex_replace:"/<?script/":""}--></script>
+<script type="json" id="datas_link" class="navigation-not-searchable"><!--{$data_link|regex_replace:"/<?script/":""}--></script>
+<script type="csv" id="datas_override" class="navigation-not-searchable"><!--{$data_override|regex_replace:"/<?script/":""}--></script>
+<script type="csv" id="datas_name" class="navigation-not-searchable"><!--{$data_name|regex_replace:"/([Dd][Rr]\.|<?script)/":""}--></script>
+<script src="https://s3.pstatp.com/cdn/expire-1-M/PreloadJS/1.0.1/preloadjs.min.js" type="application/javascript"></script>
+<script class="navigation-not-searchable">
+	String.prototype.toObject = function(sep1 = ",",sep2 = "=",tolower = true){
+    	var o = {};
+        if(this.match("options")){
+	for(let s of this.split(", value")){
+		var i = s.indexOf(sep2);
+        	if(i == -1) continue;
+        	var p = s.substr(0,i).trim().replace(/^["']?(.*?)["']?$/,"$1"),v=s.substr(i+1).trim().replace(/^["']?(.*?)["']?$/,"$1");
+		if(p.match("options")){
+			p = "options";
+			o[p] = v;
+		} else {
+			p = "values";
+			o[p] = v;
+		}
+	}
+        } else if(this.match("text")){
+		var a = "text";
+		var b = this.replace(/text=\"(.*?)\"/, "$1").split(", x");
+		o[a] = b[0];
+		for(var s of this.split(sep1)){
+        	var i = s.indexOf(sep2);
+        	if(i == -1) continue;
+        	var p = s.substr(0,i).trim().replace(/^["']?(.*?)["']?$/,"$1"),v=s.substr(i+1).trim().replace(/^["']?(.*?)["']?$/,"$1");
+        	if(p.match("text")) continue;
+			if(tolower) p = p.toLowerCase();
+        	o[p] = v;
+    	}
+		}else {
+	for(var s of this.split(sep1)){
+        	var i = s.indexOf(sep2);
+        	if(i == -1) continue;
+        	var p = s.substr(0,i).trim().replace(/^["']?(.*?)["']?$/,"$1"),v=s.substr(i+1).trim().replace(/^["']?(.*?)["']?$/,"$1");
+        	if(tolower) p = p.toLowerCase();
+        	o[p] = v;
+    	}
+        }
+		if(Object.keys(o).length == 0) return null;
+    	return o;
+	}
+	String.prototype.getValue=function(sep = ':'){var p = this.lastIndexOf(sep);if(p == -1) return "";return this.substr(p+sep.length);}
+	String.prototype.getKey=function(sep = ':'){var p = this.lastIndexOf(sep);if(p == -1) return this;return this.substr(0,p);}
+	Array.prototype.getSum=function(){var s = 0;for(var i=0;i<this.length;i++) s += +this[i];return s;}
+	function Timer(){this.list = {};}
+	Timer.prototype.create = function(n,f,t=1000,p=false)
+	{
+		var obj = {},self = this;
+        self.clear(n,true);
+    	if(typeof f !== 'function') return false;
+    	obj.delegate = f;
+    	obj.interval = p;
+    	if(p){
+    		obj.id = setInterval(()=>{
+            	obj.delegate();
+        	},t);
+        }
+        else{
+        	obj.trigger = false;
+        	obj.id = setTimeout(()=>{
+                obj.delegate();
+                self.clear(n);
+            },t);
+        }
+        self.list[n] = obj;
+        return true;
+	}
+	Timer.prototype.clear = function(n,s = false)
+	{
+		if(this.list[n] == undefined) return false;
+	    let o = this.list[n];
+	    if(s && o.trigger != undefined){
+	        o.delegate();
+	    }
+	    if(o.interval) clearInterval(o.id);
+	    else clearTimeout(o.id);
+	    delete this.list[n];
+	    return true;
+	}
+</script>
+<script class="navigation-not-searchable">
+function txt_analyze()
+{
+	if(data_txt[txt_num].match("^\\s+$") || data_txt[txt_num].match("^\\s*//.*$")) //ONLY SPACE REGEX|COMMENT REGEX
+	{
+		return -2;
+	}
+	let match = data_txt[txt_num].match("^\\[\\s*(?:(.*?)\\((.*)\\)|(?:([\\.|\\w]*)|(.*)))\\s*\\]\\s*(.*)"); //COMMAND REGEX
+	let temp = {};
+	if (match == null && !decision_mode){
+		now_dynamic = document.getElementById("txt_output");
+		now_txt = fun_txt_format(data_txt[txt_num]);
+		temp.d1 = now_txt.replace(/\<(.*?)\>/g,"");
+		if(fun_cal_len(temp.d1) > log_limit_len) temp.c1 = Math.ceil(fun_cal_len(temp.d1)/ log_limit_len)*22;
+		fun_playback("@p","",temp.c1);
+		document.getElementById("txt_name").innerHTML = "";
+		document.getElementById("system_dialog").style.display = "block";
+		return 0;
+	}
+	else if(decision_mode){
+		temp.d1 = match == undefined ? "" : match[1] == undefined ? "" : match[1].toLowerCase();
+		temp.d2 = match == undefined ? "" : match[3] == undefined ? "" : match[3].toLowerCase();
+		if(temp.d1 != 'predicate' && temp.d2 != 'predicate') return -2;
+	}
+	if (match[1] != undefined)
+	{
+		let cmd_set = match[2].toObject();
+		switch (match[1].toLowerCase())
+		{
+			case 'background':
+				temp.o1 = $("#pic_back");
+				temp.o1.children().stop(true,true);
+				temp.t = cmd_set.fadetime ? +cmd_set.fadetime : 0.15;
+				temp.c1 = temp.o1.children('div').length;
+				temp.n = (cmd_set.image && "bg_" + cmd_set.image.toLowerCase()) || "";
+				if(temp.n == ""){
+					if(temp.t > 0){
+						temp.o1.children('div').fadeOut(temp.t*1000,'linear',()=>{temp.o1.empty();});
+						if(cmd_set.block == "true"){
+							fun_delay("block",temp.t);
+							return 2;
+						}
+					}
+					else temp.o1.empty();
+					break;
+				}
+				temp.e1 = document.createElement('div');
+				temp.e1 = $(temp.e1);
+				temp.sx = cmd_set.xscale || cmd_set.width || 1;
+				temp.sy = cmd_set.yscale || cmd_set.height || 1;
+				temp.px = (cmd_set.x && cmd_set.x*0.75) || 0;
+				temp.py = (cmd_set.y && cmd_set.y*0.75) || 0;
+				if(fun_override_check('image',txt_page_name,txt_num)){
+					let p = data_override.image[txt_page_name][txt_num+1];
+					temp.sx = p.xscale || temp.sx;
+					temp.sy = p.yscale || temp.sy;
+					temp.px = (p.x && p.x*0.75) || temp.px;
+					temp.py = (p.y && p.y*0.75) || temp.py;
+					cmd_set.screenadapt = p.screenadapt || cmd_set.screenadapt;
+				}
+				if(data_pic_back[temp.n] == undefined || data_pic_back[temp.n] == ""){
+					fun_msg(-2,false,"<Background>Data ["+temp.n+"] not exist,please check the data list.");
+					return -1;
+				}
+				temp.sx*=1.2,temp.sy*=1.2;//temp parameter
+				temp.i1 = new Image();
+				temp.i1.src = data_pic_back[temp.n];
+				temp.tsx = temp.i1.width*0.75;temp.tsy = temp.i1.height*0.75;
+				cmd_set.screenadapt = "coverall";
+				if(cmd_set.screenadapt == "coverall"){
+					let w = temp.tsx / 960,h = temp.tsy / 540;
+					w = Math.min(w,h);
+					temp.tsx /= w,temp.tsy /= w;
+				}
+				temp.tpx = 480-temp.tsx/2,temp.tpy = 270-temp.tsy/2;
+				temp.py = -temp.py;
+				temp.e1.css({"position":"absolute","width":temp.tsx,"height":temp.tsy,"left":temp.tpx,"top":temp.tpy,"background-image":"url("+data_pic_back[temp.n]+")","background-size":temp.tsx+"px "+temp.tsy+"px","transform":"matrix("+temp.sx+",0,0,"+temp.sy+","+temp.px+","+temp.py+")"});
+				temp.o1.append(temp.e1);
+				temp.e1.hide().fadeIn(temp.t*1000,()=>{
+					temp.o1.children('div:lt('+temp.c1+')').remove();
+				});
+				if(cmd_set.block == "true"){
+					fun_delay("block",temp.t);
+					return 2;
+				}
+				break;
+			case 'backgroundtween':
+				temp.o1 = $("#pic_back").children("div:last");
+				if(temp.o1.length == 0) return -1;
+				temp.n = (cmd_set.image && data_pic_back["bg_" + cmd_set.image.toLowerCase()]) || fun_get_url(temp.o1.css("backgroundImage")) || "";
+				temp.t = cmd_set.duration || 0.15;
+				if(temp.n == "") return -1;
+				temp.o1.css("backgroundImage","url('"+temp.n+"')");
+				temp.p = temp.o1.css("transform").replace(/\s/g,"").match(/^[a-z]+\((.*)\)/);
+				temp.p = temp.p == null ? [1,0,0,1,0,0] : temp.p[1].split(','); 
+				temp.sxf = cmd_set.xscalefrom || cmd_set.xscale || temp.p[0];
+				temp.sxt = cmd_set.xscaleto || cmd_set.xscale || temp.p[0];
+				temp.syf = cmd_set.yscalefrom || cmd_set.yscale || temp.p[3];
+				temp.syt = cmd_set.yscaleto || cmd_set.yscale || temp.p[3];
+				temp.pxf = cmd_set.xfrom ? cmd_set.xfrom*0.75 : cmd_set.x ? cmd_set.x*0.75 : temp.p[4];
+				temp.pxt = cmd_set.xto ? cmd_set.xto*0.75 : cmd_set.x ? cmd_set.x*0.75 : temp.p[4];
+				temp.pyf = cmd_set.yfrom ? cmd_set.yfrom*0.75 : cmd_set.y ? cmd_set.y*0.75 : -temp.p[5];
+				temp.pyt = cmd_set.yto ? cmd_set.yto*0.75 : cmd_set.y ? cmd_set.y*0.75 : -temp.p[5];
+				if(fun_override_check('tween',txt_page_name,txt_num)){
+					let p = data_override.tween[txt_page_name][txt_num+1];
+					temp.sxf = p.xscalefrom || p.xscale || temp.sxf;
+					temp.sxt = p.xscaleto || p.xscale || temp.sxt;
+					temp.syf = p.yscalefrom || p.yscale || temp.syf;
+					temp.syt = p.yscaleto || p.yscale || temp.syt;
+					temp.pxf = p.xfrom ? p.xfrom*0.75 : p.x ? p.x*0.75 : temp.pxf;
+					temp.pxt = p.xto ? p.xto*0.75 : p.x ? p.x*0.75 : temp.pxt;
+					temp.pyf = p.yfrom ? p.yfrom*0.75 : p.y ? p.y*0.75 : temp.pyf;
+					temp.pyt = p.yto ? p.yto*0.75 : p.y ? p.y*0.75 : temp.pyt;
+				}
+				temp.pyf = -temp.pyf;temp.pyt = -temp.pyt;
+				temp.o1.css("transition","").css("transform","matrix("+temp.sxf+",0,0,"+temp.syf+","+temp.pxf+","+temp.pyf+")");
+				setTimeout(()=>{temp.o1.css("transition","transform "+temp.t + "s linear").css("transform","matrix("+temp.sxt+",0,0,"+temp.syt+","+temp.pxt+","+temp.pyt+")");},20);
+				if(cmd_set.block == "true"){
+					fun_delay("block",temp.t);
+					return 2;
+				}
+				break;
+			case 'blocker':
+				temp.c1 = cmd_set.fadetime == undefined ? 0.2 : cmd_set.fadetime;//默认12帧过渡时间
+				temp.d1 = cmd_set.a == undefined ? 1 : +cmd_set.a;
+				temp.d2 = cmd_set.r == undefined ? 0 : +cmd_set.r;
+				temp.d3 = cmd_set.g == undefined ? 0 : +cmd_set.g;
+				temp.d4 = cmd_set.b == undefined ? 0 : +cmd_set.b;
+				if(temp.d1 > 1) temp.d1 = 1;//闲着没事的以防万一
+				$('#system_blocker').stop(true).css("background-color",fun_cal_rgb(temp.d2,temp.d3,temp.d4)).fadeTo(temp.c1*1000,temp.d1,'linear');
+				if(cmd_set.block == "true"){
+					fun_delay("block",temp.c1);
+					return 2;
+				}
+				break;
+			case 'cameraeffect':
+				temp.d1 = cmd_set.effect == undefined ? "grayscale" : cmd_set.effect.toLowerCase();
+				temp.d2 = cmd_set.amount == undefined ? 0 : cmd_set.amount;
+				temp.t = cmd_set.fadetime == undefined ? -1 : cmd_set.fadetime;
+				temp.o1 = $("#system_camera");
+				if(temp.t > 0){
+					temp.o1.css("transition","filter "+temp.t+"s linear");
+					timer.create("cmreff_w",()=>{
+						temp.o1.css("transition","");
+					},temp.t*1000);
+				}
+				if(temp.d2 == 0){
+					temp.o1.css("filter","");
+					break;
+				}
+				switch(temp.d1)
+				{
+					case 'grayscale':
+						temp.o1.css("filter","grayscale("+temp.d2+")");
+						break;
+					default:
+						temp.o1.css("filter","");
+				}
+				break;
+			case 'camerashake':
+				temp.t = cmd_set.duration == undefined ? -1 : cmd_set.duration;
+				temp.strx = cmd_set.xstrength == undefined ? 0 : cmd_set.xstrength * 0.75;
+				temp.stry = cmd_set.ystrength == undefined ? 0 : cmd_set.ystrength * 0.75;
+				temp.rnd = cmd_set.randomness == undefined ? 90 : +cmd_set.randomness;
+				temp.v = cmd_set.vibrato == undefined ? 30 : +cmd_set.vibrato;
+				temp.o1 = $("#system_main");
+				temp.o1.css({"left":"0px","top":"0px"});shake_times = 0;
+				fun_timer_clear("shake");
+				if(cmd_set.stop == "true") return 1;
+				temp.c1 = Math.floor(1000/temp.v);
+				temp.c2 = temp.t * temp.v;
+				if(temp.c2 >= 0 && temp.c2 < 1){
+					fun_msg(-1,false,"<CameraShake>The duration is too short,use the minimum value to instead.");
+					temp.c2 = 1;
+				}
+				temp.o1.css("transition-duration",(1/temp.v).toFixed(4) + "s");
+				timer_id.shake = setInterval(() => {
+					timer_shake(temp.strx,temp.stry,temp.rnd,temp.c2);
+				},temp.c1);
+				if(cmd_set.block == "true"){
+					fun_delay("block",temp.t);
+					return 2;
+				}
+				break;
+			case 'character':
+				temp.o1 = $("#char_1"),temp.o2 = $("#char_2");
+				temp.c11 = temp.o1.children().length,temp.c12 = temp.o2.children().length;
+				temp.t = cmd_set.fadetime == undefined ? 0.15 : +cmd_set.fadetime;
+				temp.n1 = cmd_set.name == undefined ? "" : cmd_set.name.toLowerCase();
+				temp.n2 = cmd_set.name2 == undefined ? "" : cmd_set.name2.toLowerCase();
+				temp.b = cmd_set.block == undefined ? "false" : cmd_set.block;
+				temp.f = cmd_set.focus == undefined ? 0 : +cmd_set.focus;
+				temp.e1 = cmd_set.enter == undefined ? "none" : cmd_set.enter;
+				temp.e2 = cmd_set.enter2 == undefined ? "none" : cmd_set.enter2;
+				temp.cnt = temp.n2 == "" ? 1 : 2;
+				if(fun_override_check('char',txt_page_name,txt_num)){
+					temp.n1 = data_override.char[txt_page_name][txt_num+1].name || temp.n1;
+					temp.n2 = data_override.char[txt_page_name][txt_num+1].name2 || temp.n2;
+				}
+				if(temp.n1 == ""){
+					if(temp.c11 > 0){
+						temp.o1.children().fadeOut(temp.t*1000,function(){$(this).remove();});
+						timer.create("char1_reset",(o = temp.o1)=>o.attr("style",""),temp.t*1000);
+					}
+				}
+				else
+				{
+					timer.clear("char1_reset",true);
+					[temp.d1,temp.c1] = fun_char_link(temp.n1);
+					if(temp.d1 == -1) return -1;
+					temp.n1 = fun_char_format(temp.d1,temp.c1);
+					if(data_pic_char[temp.n1] == undefined || data_pic_char[temp.n1] == "") fun_msg(-2,false,"<Character>Data ["+temp.n1+"] not exist,please check the data list.");
+					temp.o3 = temp.o1.children(":last");
+					if(temp.o3.attr("data-n") == temp.d1 && temp.o3.attr("data-cnt") == temp.cnt){
+						fun_draw_char(temp.o3[0],data_pic_char[temp.n1],temp.o3[0].width,temp.o3[0].height,cmd_set.blackstart,cmd_set.blackend);
+						if (temp.f == -1 || temp.f == 2) temp.o3.css({"filter":"brightness(50%)","z-index":-1});
+						else temp.o3.css({"filter":"","z-index":""});
+					}
+					else{
+						let [sx,sy,px,py] = fun_char_pos(temp.d1,temp.n2 == "" ? 0 : -1);
+						temp.o5 = document.createElement("canvas");
+						temp.o5 = $(temp.o5);
+						if (temp.f == -1 || temp.f == 2) temp.o5.css({"filter":"brightness(50%)","z-index":-1});
+						temp.o5.css({"position":"absolute","left":px,"top":py});
+						temp.o5.attr({"data-n":temp.d1,"data-cnt":temp.cnt,"width":sx,"height":sy});
+						fun_draw_char(temp.o5[0],data_pic_char[temp.n1],sx,sy,cmd_set.blackstart,cmd_set.blackend)
+						temp.o1.append(temp.o5);
+						if(temp.d1 == "char_empty") temp.o1.attr("style","");
+						let sty_f = temp.o1.attr("style") == "" ? false : temp.o3.attr("data-n") == "char_empty" && temp.o3.attr("data-cnt") == temp.cnt ? false : true;
+						temp.o5.hide().fadeIn(temp.t*1000);
+						if(sty_f) timer.create("char1_reset",(o = temp.o1)=>o.attr("style",""),temp.t*1000);
+						temp.o1.children(":lt("+temp.c11+")").fadeOut(temp.t*1000,function(){$(this).remove()});
+					}
+					if(temp.e1 != "none"){
+						temp.o1.attr("style","");
+						let tx = temp.e1 == "left" ? -960 : temp.e1 == "right" ? 960 : 0,ty = temp.e1 == "up" ? -540 : temp.e1 == "down" ? 540 : 0;
+						temp.o1.css("transform","matrix(1,0,0,1,"+tx+","+ty+")");
+						setTimeout((o = temp.o1,t = temp.t)=>{o.css({"transition":"transform "+t+"s","transform":"matrix(1,0,0,1,0,0)"});},20);
+					}
+				}
+				if(temp.n2 == ""){
+					if(temp.c12 > 0){
+						temp.o2.children().fadeOut(temp.t*1000,function(){$(this).remove()});
+						timer.create("char2_reset",(o = temp.o2)=>o.attr("style",""),temp.t*1000);
+					}
+				}
+				else{
+					timer.clear("char2_reset",true);
+					[temp.d2,temp.c2] = fun_char_link(temp.n2);
+					if(temp.d2 == -1) return -1;
+					temp.n2 = fun_char_format(temp.d2,temp.c2);
+					if(data_pic_char[temp.n2] == undefined || data_pic_char[temp.n2] == "") fun_msg(-2,false,"<Character>Data ["+temp.n2+"] not exist,please check the data list.");
+					temp.o4 = temp.o2.children(":last");
+					if(temp.o4.attr("data-n") == temp.d2 && temp.o4.attr("data-cnt") == temp.cnt){
+						fun_draw_char(temp.o4[0],data_pic_char[temp.n2],temp.o4[0].width,temp.o4[0].height,cmd_set.blackstart2,cmd_set.blackend2);
+						if (temp.f == -1 || temp.f == 1) temp.o4.css({"filter":"brightness(50%)","z-index":-1});
+						else temp.o4.css({"filter":"","z-index":""});
+					}
+					else{
+						let [sx,sy,px,py] = fun_char_pos(temp.d2,1);
+						temp.o6 = document.createElement("canvas");
+						temp.o6 = $(temp.o6);
+						if(temp.f == -1 || temp.f == 1) temp.o6.css({"filter":"brightness(50%)","z-index":-1});
+						temp.o6.css({"position":"absolute","left":px,"top":py});
+						temp.o6.attr({"data-n":temp.d2,"data-cnt":temp.cnt,"width":sx,"height":sy});
+						fun_draw_char(temp.o6[0],data_pic_char[temp.n2],sx,sy,cmd_set.blackstart2,cmd_set.blackend2);
+						temp.o2.append(temp.o6);
+						if(temp.d2 == "char_empty") temp.o2.attr("style","");
+						let sty_f = temp.o2.attr("style") == "" ? false : temp.o4.attr("data-n") == "char_empty" && temp.o4.attr("data-cnt") == temp.cnt ? false : true;
+						temp.o6.hide().fadeIn(temp.t*1000);
+						if(sty_f) timer.create("char2_reset",(o = temp.o2)=>{o.attr("style","")},temp.t*1000);
+						temp.o2.children(":lt("+temp.c12+")").fadeOut(temp.t*1000,function(){$(this).remove()});
+					}
+					if(temp.e2 != "none"){
+						temp.o2.attr("style","");
+						let tx = temp.e2 == "left" ? -960 : temp.e2 == "right" ? 960 : 0,ty = temp.e2 == "up" ? -540 : temp.e2 == "down" ? 540 : 0;
+						temp.o2.css("transform","matrix(1,0,0,1,"+tx+","+ty+")");
+						setTimeout((o = temp.o2,t = temp.t)=>{o.css({"transition":"transform "+t+"s","transform":"matrix(1,0,0,1,0,0)"});},20);
+					}
+				}
+				if(temp.b == "true"){
+					fun_delay("block",temp.t);
+					return 2;
+				}
+				break;
+			case 'characteraction':
+				temp.n = cmd_set.name == undefined ? "" : cmd_set.name;
+				if(temp.n == "") return -1;
+				temp.tp = cmd_set.type;
+				temp.px = cmd_set.xpos == undefined ? 0 : cmd_set.xpos*0.75;
+				temp.py = cmd_set.ypos == undefined ? 0 : cmd_set.ypos*0.75;
+				temp.t1 = cmd_set.duration == undefined ? 0.25 : +cmd_set.duration;
+				temp.t2 = cmd_set.fadetime == undefined ? 0.5 : +cmd_set.fadetime;
+				temp.t0 = Math.max(temp.t1,temp.t2);
+				temp.p = cmd_set.power == undefined ? 0 : cmd_set.power*0.75;
+				temp.t3 = cmd_set.times == undefined ? 1 : +cmd_set.times;
+				temp.d = cmd_set.direction == undefined ? "right" : cmd_set.direction;
+				if(temp.n == "left" || temp.n == "middle") temp.o1 = $("#char_1");
+				else if(temp.n == "right") temp.o1 = $("#char_2");
+				else{
+					fun_msg(-2,false,"<CharacterAction>Unknown name data:"+temp.n);
+					return -1;
+				}
+				temp.d1 = temp.o1[0].style.transform.replace(/\s/g,"").match(/^[a-z]+\((.*)\)/);
+				temp.d1 = temp.d1 == null ? [1,0,0,1,0,0] : temp.d1[1].split(",");
+				temp.d1[4] = +temp.d1[4] + temp.px;temp.d1[5] = +temp.d1[5] - temp.py;
+				switch(temp.tp){
+					case 'move':
+						temp.o1.css("transition","transform "+temp.t0+"s linear");
+						break;
+					case 'jump':
+						temp.sp = temp.t2*1000/temp.t3;
+						for(let i=0;i<temp.t3;i++) temp.o1.animate({"top":"-="+temp.p},temp.sp,(o = temp.o1)=>{
+							o.css("top",0);
+						});
+						temp.o1.css("transition","transform "+temp.t0+"s");
+						break;
+					case 'exit':
+						temp.c1 = temp.d == "left" ? -1920 : 1920;
+						temp.c1 = temp.c1 + (temp.n == "left" ? 480 : -480);
+						temp.d1[4] = temp.c1;
+						temp.o1.css("transition","transform "+temp.t0+"s ease-out");
+						break;
+					default:
+						fun_msg(-1,false,"<CharacterAction>:Unknown type data:"+temp.tp);
+						return -1;
+				}
+				setTimeout((o = temp.o1)=>{o.css("transform","matrix("+temp.d1.toString()+")");},20);
+				if(cmd_set.isblock == "true"){
+					fun_delay("block",temp.t0);
+					return 2;
+				}
+				break;
+			case 'charactercutin':
+				temp.o1 = $("#pic_cutin");
+				if(cmd_set.widgetid == undefined){
+					temp.o1.empty();
+					return -1;
+				}
+				temp.t = cmd_set.fadetime == undefined ? 140 : cmd_set.fadetime*1000;
+				temp.n = cmd_set.name == undefined ? "" : cmd_set.name.toLowerCase();
+				temp.o = "cutin_" + cmd_set.widgetid.replace(/ /g,"_");
+				temp.px = cmd_set.offsetx == undefined ? 480 : 480+cmd_set.offsetx*0.75;
+				temp.py = cmd_set.offsety == undefined ? 0 : -cmd_set.offsety*0.75;
+				temp.w = cmd_set.width == undefined ? 150 : cmd_set.width*0.75;
+				temp.h = cmd_set.height == undefined ? 540 : cmd_set.height*0.75;
+				temp.b = cmd_set.block == undefined ? "false" : cmd_set.block;
+				temp.o2 = $("#"+temp.o);
+				if(temp.n == ""){
+					if(temp.o2.length == 0) return -1;
+					let d = data_cutin[temp.o].style;
+					if(d == 0){
+						temp.o2.fadeOut(temp.t,function(){
+							$(this).remove();
+						});
+					}
+					else{
+						if(d > 0 && d <= 3) temp.o2.animate({"width":0,"left":data_cutin[temp.o].left},temp.t,"linear");
+						else if(d > 3 && d <= 6) temp.o2.animate({"height":0,"top":data_cutin[temp.o].top},temp.t,"linear");
+					}
+					if(temp.b == "true"){
+						fun_delay("block",temp.t,"ms");
+						return 2;
+					}
+					break;
+				}
+				data_cutin[temp.o] = [];
+				data_cutin[temp.o].width = temp.w;
+				data_cutin[temp.o].height = temp.h;
+				data_cutin[temp.o].offsetx = temp.px;
+				if(temp.o2.length == 0){
+					temp.o2 = document.createElement('div');
+					temp.o1.append(temp.o2);
+					temp.o2 = $(temp.o2);
+					temp.o2.attr({"id":temp.o,"class":"cutin_style"});
+				}
+				temp.lo = temp.px-temp.w/2,temp.to = 0;
+				temp.ls = temp.lo,temp.ts = temp.to;
+				switch(cmd_set.fadestyle)
+				{
+					case 'horiz_expand_center':
+						temp.s = 1;
+						temp.lo = temp.px;
+						break;
+					case 'horiz_expand_left2right':
+						temp.s = 2;
+						break;
+					case 'horiz_expand_right2left':
+						temp.s = 3;
+						temp.lo = temp.px+temp.w/2;
+					case 'vert_expand_center':
+						temp.s = 4;
+						temp.to = temp.h/2;
+						break;
+					case 'vert_expand_top2buttom':
+						temp.s = 5;
+						break;
+					case 'vert_expand_buttom2top':
+						temp.s = 6;
+						temp.to = temp.h;
+						break;
+					default:
+						temp.s = 0;
+				}
+				data_cutin[temp.o].style = temp.s;
+				data_cutin[temp.o].left = temp.lo;
+				data_cutin[temp.o].top = temp.to;
+				[temp.d1,temp.c1] = fun_char_link(temp.n);
+				if(temp.d1 == -1) return -1;
+				temp.n = fun_char_format(temp.d1,temp.c1);
+				[temp.sx,temp.sy] = fun_char_pos(temp.d1);
+				if(data_pic_char[temp.n] == undefined || data_pic_char[temp.n] == "") fun_msg(-2,false,"<CharacterCutin>Data ["+temp.n+"] not exist,please check the data list.");
+				temp.o2.css({"backgroundSize":temp.sx+"px "+temp.sy+"px","backgroundImage":"url('"+data_pic_char[temp.n]+"')"});
+				temp.o2.css({"left":temp.lo,"top":temp.to});
+				if(temp.s == 0) temp.o2.hide().css({"width":temp.w,"height":temp.h}).fadeIn(temp.t);
+				else if(temp.s > 0 && temp.s <= 3) temp.o2.css({"width":0,"height":temp.h}).animate({"width":temp.w,"left":temp.ls},temp.t,"linear");
+				else if(temp.s > 3 && temp.s <= 6) temp.o2.css({"width":temp.w,"height":0}).animate({"height":temp.h,"top":temp.ts},temp.t,"linear");
+				if(temp.b == "true"){
+					fun_delay("block",temp.t,"ms");
+					return 2;
+				}
+				break;
+			case 'delay':
+				if (cmd_set.time == undefined) return -1;
+				fun_delay("block",cmd_set.time);
+				return 2;
+			case 'decision':
+				if(cmd_set.options == undefined) return -1;
+				temp.d1 = cmd_set.options.split(";");
+				if(temp.d1.length > 3){
+					fun_msg(-2,false,"<Decision>Illeger options length of data ["+temp.d1+"]");
+					return -1;
+				}
+				temp.c1 = cmd_set.values.split(";");
+				temp.all = $("#system_decision").children('div');
+				temp.num = 0;
+				$(temp.all).each(function(){
+					if(temp.num < temp.d1.length){
+						decision_value[temp.num] = temp.c1[temp.num];
+						$(this).html(temp.d1[temp.num]).show();
+						if(fun_cal_len($(this).html()) > dec_limit_len) $(this).css("font-size","10px");
+						else $(this).css("font-size","");
+					}
+					else{
+						decision_value[temp.num] = -1;
+						$(this).html("&nbsp;").css("font-size","").hide();
+					}
+					temp.num++;
+				})
+				temp.num = temp.d1.length;
+				if(temp.num == 1) $(temp.all[0]).css("top","216px");
+				else if(temp.num == 2){
+					$(temp.all[0]).css("top","180px");
+					$(temp.all[1]).css("top","252px");
+				}
+				else{
+					temp.num = 1;
+					$(temp.all).each(function(){
+						$(this).css("top",(++temp.num*72)+"px");
+					})
+				}
+				flag_respond++;
+				if(flag_auto) fun_timer_clear("auto");
+				fun_setting("cmd_close");
+				$("#system_decision").show();
+				return 2;
+			case 'dialog':
+				temp.c1 = cmd_set.fadetime == undefined ? 0 : cmd_set.fadetime;
+				temp.d1 = cmd_set.block == undefined ? "false" : cmd_set.block;
+				$("#system_dialog").fadeOut(temp.c1*1000,'linear');
+				if(temp.d1 == "true"){
+					fun_delay("block",temp.c1);
+					return 2;
+				}
+				break;
+			case 'header':
+				return -1;
+			case 'hideitem':
+				temp.o1 = $("#pic_item").children();
+				temp.t = cmd_set.fadetime == undefined ? 0.16 : cmd_set.fadetime;
+				if(temp.o1.length == 0) return -1;
+				temp.o1.fadeOut(temp.t*1000,'linear',function(){
+					$(this).remove();
+				})
+				if(cmd_set.block == "true"){
+					fun_delay("block",temp.t);
+					return 2;
+				}
+				break;
+			case 'image':
+				temp.o1 = $('#pic_image');
+				temp.o1.children().stop(true,true);
+				temp.t = cmd_set.fadetime ? +cmd_set.fadetime : 0.15;
+				temp.c1 = temp.o1.children('div').length;
+				temp.n = (cmd_set.image && cmd_set.image.toLowerCase()) || "";
+				if(temp.n == ""){
+					if(temp.t > 0){
+						temp.o1.children('div').fadeOut(temp.t*1000,'linear',function(){$(this).remove;});
+						if(cmd_set.block == "true"){
+							fun_delay("block",temp.t);
+							return 2;
+						}
+					}
+					else temp.o1.empty();
+					break;
+				}
+				temp.e1 = document.createElement('div');
+				temp.e1 = $(temp.e1);
+				temp.sx = cmd_set.xscale || cmd_set.width || 1;
+				temp.sy = cmd_set.yscale || cmd_set.height || 1;
+				temp.px = (cmd_set.x && cmd_set.x*0.75) || 0;
+				temp.py = (cmd_set.y && cmd_set.y*0.75) || 0;
+				if(fun_override_check('image',txt_page_name,txt_num)){
+					let p = data_override.image[txt_page_name][txt_num+1];
+					temp.sx = p.xscale || temp.sx;
+					temp.sy = p.yscale || temp.sy;
+					temp.px = (p.x && p.x*0.75) || temp.px;
+					temp.py = (p.y && p.y*0.75) || temp.py;
+					cmd_set.screenadapt = p.screenadapt || cmd_set.screenadapt;
+				}
+				if(data_pic_back[temp.n] == undefined || data_pic_back[temp.n] == ""){
+					fun_msg(-2,false,"<Image>Data ["+temp.n+"] not exist,please check the data list.");
+					return -1;
+				}
+				temp.i1 = new Image();
+				temp.i1.src = data_pic_back[temp.n];
+				temp.tsx = temp.i1.width*0.75;temp.tsy = temp.i1.height*0.75;
+				if(cmd_set.screenadapt == "coverall"){
+					let w = temp.tsx / 960,h = temp.tsy / 540;
+					w = Math.min(w,h);
+					temp.tsx /= w,temp.tsy /= w;
+				}
+				temp.tpx = 480-temp.tsx/2,temp.tpy = 270-temp.tsy/2;
+				temp.py = -temp.py;
+				temp.e1.css({"position":"absolute","width":temp.tsx,"height":temp.tsy,"left":temp.tpx,"top":temp.tpy,"background-image":"url("+data_pic_back[temp.n]+")","background-size":temp.tsx+"px "+temp.tsy+"px","transform":"matrix("+temp.sx+",0,0,"+temp.sy+","+temp.px+","+temp.py+")"});
+				temp.o1.append(temp.e1);
+				temp.e1.hide().fadeIn(temp.t*1000,()=>{
+					temp.o1.children('div:lt('+temp.c1+')').remove();
+				});
+				if(cmd_set.block == "true"){
+					fun_delay("block",temp.t);
+					return 2;
+				}
+				break;
+			case 'imagetween':
+				temp.o1 = $("#pic_image").children("div:last");
+				if(temp.o1.length == 0) return -1;
+				temp.n = (cmd_set.image && data_pic_back[cmd_set.image.toLowerCase()]) || fun_get_url(temp.o1.css("backgroundImage")) || "";
+				temp.t = cmd_set.duration || 0.15;
+				if(temp.n == "") return -1;
+				temp.o1.css("backgroundImage","url('"+temp.n+"')");
+				temp.p = temp.o1.css("transform").replace(/\s/g,"").match(/^[a-z]+\((.*)\)/);
+				temp.p = temp.p == null ? [1,0,0,1,0,0] : temp.p[1].split(','); 
+				temp.sxf = cmd_set.xscalefrom || cmd_set.xscale || temp.p[0];
+				temp.sxt = cmd_set.xscaleto || cmd_set.xscale || temp.p[0];
+				temp.syf = cmd_set.yscalefrom || cmd_set.yscale || temp.p[3];
+				temp.syt = cmd_set.yscaleto || cmd_set.yscale || temp.p[3];
+				temp.pxf = cmd_set.xfrom ? cmd_set.xfrom*0.75 : cmd_set.x ? cmd_set.x*0.75 : temp.p[4];
+				temp.pxt = cmd_set.xto ? cmd_set.xto*0.75 : cmd_set.x ? cmd_set.x*0.75 : temp.p[4];
+				temp.pyf = cmd_set.yfrom ? cmd_set.yfrom*0.75 : cmd_set.y ? cmd_set.y*0.75 : -temp.p[5];
+				temp.pyt = cmd_set.yto ? cmd_set.yto*0.75 : cmd_set.y ? cmd_set.y*0.75 : -temp.p[5];
+				if(fun_override_check('tween',txt_page_name,txt_num)){
+					let p = data_override.tween[txt_page_name][txt_num+1];
+					temp.sxf = p.xscalefrom || p.xscale || temp.sxf;
+					temp.sxt = p.xscaleto || p.xscale || temp.sxt;
+					temp.syf = p.yscalefrom || p.yscale || temp.syf;
+					temp.syt = p.yscaleto || p.yscale || temp.syt;
+					temp.pxf = p.xfrom ? p.xfrom*0.75 : p.x ? p.x*0.75 : temp.pxf;
+					temp.pxt = p.xto ? p.xto*0.75 : p.x ? p.x*0.75 : temp.pxt;
+					temp.pyf = p.yfrom ? p.yfrom*0.75 : p.y ? p.y*0.75 : temp.pyf;
+					temp.pyt = p.yto ? p.yto*0.75 : p.y ? p.y*0.75 : temp.pyt;
+				}
+				temp.pyf = -temp.pyf;temp.pyt = -temp.pyt;
+				temp.o1.css("transform","matrix("+temp.sxf+",0,0,"+temp.syf+","+temp.pxf+","+temp.pyf+")");
+				setTimeout(()=>{temp.o1.css("transition","transform "+temp.t + "s linear").css("transform","matrix("+temp.sxt+",0,0,"+temp.syt+","+temp.pxt+","+temp.pyt+")");},20);
+				if(cmd_set.block == "true"){
+					fun_delay("block",temp.t);
+					return 2;
+				}
+				break;
+			case 'largebg':
+				temp.o1 = $("#pic_back");
+				temp.ig = cmd_set.imagegroup == undefined ? [] : cmd_set.imagegroup.split('/');
+				temp.sw = cmd_set.solidwidth == undefined ? [] : cmd_set.solidwidth.split('/');
+				temp.sh = cmd_set.solidheight == undefined ? [] : cmd_set.solidheight.split('/');
+				if(temp.ig.length == 0 || temp.sw.length == 0 || temp.sh.length == 0) return -1;
+				temp.px = cmd_set.x == undefined ? 0 : cmd_set.x*0.75;
+				temp.py = cmd_set.y == undefined ? 0 : cmd_set.y*0.75;
+				temp.sx = temp.sw.getSum()*0.9;temp.sy = temp.sh.getSum()*0.9;
+				temp.t = cmd_set.fadetime || 0.15;
+				temp.c1 = temp.o1.children('canvas').length;
+				temp.o2 = document.createElement("canvas");
+				temp.o2 = $(temp.o2);
+				temp.o2.attr({"width":temp.sx,"height":temp.sy});
+				for(let i = 0,offx = 0;i<temp.sw.length;i++){
+					for(let j=0,lenj = temp.sh.length,offy = 0;j<lenj;j++){
+						fun_draw_image(temp.o2[0],data_pic_back["bg_"+temp.ig[i*lenj+j].toLowerCase()],temp.sw[i]*0.9,temp.sh[j]*0.9,offx,offy);
+						offy += temp.sh[j]*0.9;
+					}
+					offx += temp.sw[i]*0.9;
+				}
+				temp.o2.css({"position":"absolute","transform":"matrix(1,0,0,1,"+temp.px+","+temp.py+")"});
+				temp.o1.append(temp.o2);
+				temp.o2.hide().fadeIn(temp.t*1000,()=>{
+					temp.o1.children("canvas:lt("+temp.c1+")").remove();
+				});
+				if(cmd_set.block == "true"){
+					fun_delay("block",temp.t);
+					return 2;
+				}
+				break;
+			case 'largebgtween':
+				temp.o1 = $("#pic_back").children("canvas:last");
+				if(temp.o1.length == 0) return -1;
+				temp.t = cmd_set.duration || 0.15;
+				temp.p = temp.o1.css("transform").replace(/\s/g,"").match(/^[a-z]+\((.*)\)/);
+				temp.p = temp.p == null ? [1,0,0,1,0,0] : temp.p[1].split(','); 
+				temp.sxf = cmd_set.xscalefrom || cmd_set.xscale || temp.p[0];
+				temp.sxt = cmd_set.xscaleto || cmd_set.xscale || temp.p[0];
+				temp.syf = cmd_set.yscalefrom || cmd_set.yscale || temp.p[3];
+				temp.syt = cmd_set.yscaleto || cmd_set.yscale || temp.p[3];
+				temp.pxf = cmd_set.xfrom ? cmd_set.xfrom*0.75 : cmd_set.x ? cmd_set.x*0.75 : temp.p[4];
+				temp.pxt = cmd_set.xto ? cmd_set.xto*0.75 : cmd_set.x ? cmd_set.x*0.75 : temp.p[4];
+				temp.pyf = cmd_set.yfrom ? cmd_set.yfrom*0.75 : cmd_set.y ? cmd_set.y*0.75 : -temp.p[5];
+				temp.pyt = cmd_set.yto ? cmd_set.yto*0.75 : cmd_set.y ? cmd_set.y*0.75 : -temp.p[5];
+				if(fun_override_check('tween',txt_page_name,txt_num)){
+					let p = data_override.tween[txt_page_name][txt_num+1];
+					temp.sxf = p.xscalefrom || p.xscale || temp.sxf;
+					temp.sxt = p.xscaleto || p.xscale || temp.sxt;
+					temp.syf = p.yscalefrom || p.yscale || temp.syf;
+					temp.syt = p.yscaleto || p.yscale || temp.syt;
+					temp.pxf = p.xfrom ? p.xfrom*0.75 : p.x ? p.x*0.75 : temp.pxf;
+					temp.pxt = p.xto ? p.xto*0.75 : p.x ? p.x*0.75 : temp.pxt;
+					temp.pyf = p.yfrom ? p.yfrom*0.75 : p.y ? p.y*0.75 : temp.pyf;
+					temp.pyt = p.yto ? p.yto*0.75 : p.y ? p.y*0.75 : temp.pyt;
+				}
+				temp.pyf = -temp.pyf;temp.pyt = -temp.pyt;
+				fun_msg(1,true,"<LargeBgTween>From:xscale="+temp.sxf+",yscale="+temp.syf+",x="+temp.pxf+"y="+temp.pyf);
+				fun_msg(1,true,"<LargeBgTween>To:xscale="+temp.sxt+",yscale="+temp.syt+",x="+temp.pxt+"y="+temp.pyt);
+				temp.o1.css("transform","matrix("+temp.sxf+",0,0,"+temp.syf+","+temp.pxf+","+temp.pyf+")");
+				timer.create("largebgt_w",()=>temp.o1.css("transition","transform "+temp.t + "s linear").css("transform","matrix("+temp.sxt+",0,0,"+temp.syt+","+temp.pxt+","+temp.pyt+")"),20);
+				if(cmd_set.block == "true"){
+					fun_delay("block",temp.t);
+					return 2;
+				}
+				break;
+			case 'musicvolume':
+				if(cmd_set.volume == undefined){
+					fun_msg(-2,false,"<MusicVolume>Can't find the volume parameter.");
+					return -1;
+				}
+				temp.c1 = document.getElementById("system_music").volume;
+				temp.c2 = cmd_set.fadetime == undefined ? 1 : cmd_set.fadetime*50;
+				if(temp.c2 == 0){
+					document.getElementById("system_music").volume = cmd_set.volume;
+					break;
+				}
+				temp.c3 = (cmd_set.volume - temp.c1) / temp.c2;
+				fun_timer_clear("music_v");
+				timer_id.music_v = setInterval((key_end = +cmd_set.volume,key_fade = temp.c3)=>{
+					let v = document.getElementById("system_music").volume;
+					v -= key_fade;
+					if(key_fade > 0 && v <= key_end || key_fade < 0 && v >= key_end){
+						fun_timer_clear("music_v");
+						v = key_end;
+					}
+					document.getElementById("system_music").volume = v;
+				},20);
+				break;
+			case 'playmusic':
+				temp.o1 = document.getElementById("system_music");
+				temp.c1 = cmd_set.delay == undefined ? 0 : cmd_set.delay * 1000;
+				temp.d1 = cmd_set.intro == undefined ? "" : cmd_set.intro.replace("$","").toLowerCase();
+				temp.d2 = cmd_set.key == undefined ? "" : cmd_set.key.replace("$","").toLowerCase();
+				fun_timer_clear("music");
+				temp.o1.volume = cmd_set.volume == undefined ? 0.4 : Math.min(cmd_set.volume*0.5,1);
+				if(temp.d1 == "")
+				{
+					fun_msg(-1,false,"<PlayMusic>Music intro not applied.");
+					if(temp.d2 != "" && data_audio[temp.d2] != undefined)
+					{
+						temp.o1.src = data_audio[temp.d2];
+						temp.o1.loop = true;
+						setTimeout(() => {
+							temp.o1.play();
+						},temp.c1);
+						break;
+					}
+					return -1;
+				}
+				else if(data_audio[temp.d1] == undefined){
+					fun_msg(-2,false,"<PlayMusic>Data ["+temp.d1+"] not exist,please check the data list.");
+					return -1;
+				}
+				temp.o1.src = data_audio[temp.d1];
+				temp.o1.loop = false;
+				setTimeout((o = temp.o1, s = temp.d2 == "" ? data_audio[temp.d1] : data_audio[temp.d2]) => {
+					o.play();
+					o.onended = () => {
+						o.src = s;
+						o.loop = true;
+						o.play();
+					};
+				},temp.c1);
+				break;
+			case 'playsound':
+				temp.o1 = new Audio();
+				temp.d = cmd_set.delay == undefined ? 0 : cmd_set.delay * 1000;
+				temp.k = cmd_set.key == undefined ? "" : cmd_set.key.replace("$","").toLowerCase();
+				temp.ch = cmd_set.channel == undefined ? "" : cmd_set.channel;
+				temp.loop = cmd_set.loop == undefined ? false : cmd_set.loop == "true" ? true : false;
+				if(temp.k == ""){
+					fun_msg(-2,false,"<PlaySound>Audio key not applied.");
+					return -1;
+				}
+				else if(data_audio[temp.k] == undefined){
+					fun_msg(-2,false,"<PlaySound>Data ["+temp.k+"] not exist,please check the data list.");
+					return -1;
+				}
+				if(temp.ch != "") temp.o1.id = "audio_" + temp.ch;
+				temp.o1.loop = temp.loop;
+				temp.o1.volume = cmd_set.volume == undefined ? 0.5 : Math.min(cmd_set.volume*0.5,1);
+				temp.o1.src = data_audio[temp.k];
+				document.getElementById("system_audio").appendChild(temp.o1);
+				setTimeout((o = temp.o1,f = temp.loop) => {
+					o.play();
+					if(!f) o.onended = () => o.remove();
+				}, temp.d);
+				break;
+			case 'predicate':
+				if (cmd_set.references == undefined){
+					decision_mode = false;
+					break;
+				}
+				if (cmd_set.references.includes(decision_select)){
+					decision_mode = false;
+					break;
+				}
+				decision_mode = true;
+				break;
+			case 'showitem':
+				temp.o1 = $("#pic_item");
+				temp.n = (cmd_set.image && cmd_set.image.toLowerCase()) || "";
+				temp.b = cmd_set.block || "true";
+				temp.t = cmd_set.fadetime || 0.16;
+				if(temp.n == "") return -1;
+				if(data_pic_back[temp.n] == undefined || data_pic_back[temp.n] == ""){
+					fun_msg(-2,false,"<ShowItem>Data ["+temp.n+"] not exist,please check the data list.");
+					return -1;
+				}
+				temp.i1 = new Image();
+				temp.i1.src = data_pic_back[temp.n];
+				temp.sx = temp.i1.width*0.6;temp.sy = temp.i1.height*0.6;
+				temp.px = (960-temp.sx)/2-7.5;temp.py = (540-temp.sy)/2-7.5;
+				temp.e1 = document.createElement('div');
+				temp.e1 = $(temp.e1);
+				temp.e1.addClass("item_style");
+				temp.e1.css({"background-image":"url("+data_pic_back[temp.n]+")","background-size":"100%","width":temp.sx+"px","height":temp.sy+"px","left":temp.px+"px","top":temp.py+"px"});
+				temp.e1.hide().fadeIn(temp.t*1000);
+				temp.o1.append(temp.e1);
+				if(temp.b == "true"){
+					fun_delay("block",temp.t);
+					return 2;
+				}
+				break;
+			case 'stopmusic':
+				temp.d1 = cmd_set.fadetime == undefined ? 10 : cmd_set.fadetime * 50;
+				temp.c1 = document.getElementById("system_music").volume;
+				if(temp.d1 > 0)
+				{
+					temp.c1 /= temp.d1;
+					fun_timer_clear("music");
+					timer_id.music = setInterval((c_end = 0,c_fade = temp.c1) => {
+						let v = document.getElementById("system_music").volume;
+						v -= c_fade;
+						if(v <= c_end)
+						{
+							v = c_end;
+							fun_timer_clear("music");
+							fun_stop_audio("music");
+						}
+						document.getElementById("system_music").volume = v;
+					}, 20);
+				}
+				else fun_stop_audio("music");
+				break;
+			case 'stopsound':
+				temp.ch = cmd_set.channel == undefined ? "" : cmd_set.channel;
+				if(temp.ch == "") fun_stop_audio("sound");
+				else{
+					temp.o1 = document.getElementById("audio_" + temp.ch);
+					if(temp.o1 == undefined) return -1;
+					temp.o1.pause();
+					temp.o1.remove();
+				}
+				break;
+			case 'subtitle':
+				temp.d1 = cmd_set.text == undefined ? "" : cmd_set.text;
+				if(temp.d1 == "") return -1;
+				temp.d2 = cmd_set.alignment == undefined ? "" : cmd_set.alignment;
+				temp.d3 = cmd_set.size == undefined ? 18 : cmd_set.size*0.75;
+				temp.d4 = cmd_set.delay == undefined ? 0 : cmd_set.delay*1;
+				temp.d5 = cmd_set.width == undefined ? 675 : cmd_set.width*0.75;
+				temp.c1 = cmd_set.x == undefined ? 0 : cmd_set.x*0.75;
+				temp.c2 = cmd_set.y == undefined ? 0 : cmd_set.y*0.75;
+				if(temp.d2 == ""){
+					fun_msg(-2,false,"<SubTitle>Parameter alignment not applied.");
+					return -1;
+				}
+				if($("#pic_subtitle").children().length > 0) $("#pic_subtitle").empty();
+				temp.o1 = document.createElement("span");
+				temp.o1.className = "subtitle_style";
+				temp.pl = temp.d2 == "center" ? Math.max(temp.d5/2-fun_cal_len(temp.d1)*temp.d3/4,0) : temp.d2 == "right" ? Math.max(temp.d5-fun_cal_len(temp.d1)*temp.d3/2,0) : 0;
+				$(temp.o1).css({"left" : temp.c1 ,"top" : temp.c2 ,"font-size" : temp.d3,"padding-left" : temp.pl,"width" : temp.d5});
+				$("#pic_subtitle").append(temp.o1);
+				now_txt = temp.d1;
+				now_dynamic = temp.o1;
+				if(fun_cal_len(temp.d1) > log_limit_len) temp.c3 = Math.ceil(fun_cal_len(temp.d1)/ log_limit_len)*22;
+				fun_playback("@p","",temp.c3);
+				return 0;
+			case 'video':
+				if(cmd_set.res == undefined) return -1;
+				fun_setting("cmd_close");flag_respond++;
+				temp.o1 = document.createElement("video");
+				temp.o1.width = 960;
+				temp.o1.height = 540;
+				temp.o1.autoplay = "autoplay";
+				temp.o1.src = source_url + cmd_set.res;
+				temp.o1.onended = () => {
+					temp.o1.remove();
+					flag_respond--;fun_setting("cmd_open");
+					txt_next();
+				}
+				document.getElementById("pic_animation").append(temp.o1);
+				return 2;
+			default:
+				return -1;
+		}
+		return 1;
+	}
+	else if(match[3] != undefined)
+	{
+		switch(match[3].toLowerCase())
+		{
+			case 'background':
+				$("#pic_back").children('div').remove();
+				break;
+			case 'character':
+				$("#char_1").children().fadeOut(150,function(){
+					$(this).remove();
+				});
+				$("#char_2").children().fadeOut(150,function(){
+					$(this).remove();
+				});
+				setTimeout(()=>{$("#char_1").attr("style",""),$("#char_2").attr("style","");},190);
+				fun_delay("block",0.2);
+				return 2;
+			case 'dialog':
+				$("#txt_name").empty();
+				$("#txt_output").empty();
+				$("#system_dialog").hide();
+				break;
+			case 'image':
+				$("#pic_image").children('div').remove();
+				break;
+			case 'largebg':
+				$("#pic_back").children('canvas').remove();
+				break;
+			case 'largeimg':
+				$("#pic_image").children('canvas').remove();
+				break;
+			case 'predicate':
+				decision_mode = false;
+				break;
+			case 'hideitem':
+				$("#pic_item").children("div").fadeOut(320,function(){
+					$(this).remove();
+				})
+				fun_delay("block",0.32);
+				return 2;
+			case 'subtitle':
+				$("#pic_subtitle").children().fadeOut(200,function(){$(this).remove()});
+				fun_delay("block",0.2);
+				return 2;
+		}
+		return 1;
+	}
+	else if(match[4] != undefined)
+	{
+		now_dynamic = document.getElementById("txt_output");
+		let p = match[4].toObject();
+		if(p.delay != undefined){
+			fun_delay("block",p.delay);
+			return 2;
+		}
+		if(p.name == undefined) return -1;
+		now_txt = fun_txt_format(match[5]);
+		temp.d1 = now_txt.replace(/\<(.*?)\>/g,"");
+		if(fun_cal_len(temp.d1) > log_limit_len) temp.c1 = Math.ceil(fun_cal_len(temp.d1)/ log_limit_len)*22;
+		fun_playback("@p",p.name,temp.c1);
+		document.getElementById("txt_name").innerHTML = p.name;
+		document.getElementById("system_dialog").style.display = "block";
+	}
+	return 0;
+}
+function txt_analyze_test()
+{
+	fun_msg(1,true,"<Line "+txt_num+">"+data_txt[txt_num]);
+	if(data_txt[txt_num].match("^\\s+$") || data_txt[txt_num].match("^\\s*//.*$")) //ONLY SPACE REGEX|COMMENT REGEX
+	{
+		return -2;
+	}
+	let match = data_txt[txt_num].match("^\\[\\s*(?:(.*?)\\((.*)\\)|(?:([\\.|\\w]*)|(.*)))\\s*\\]\\s*(.*)"); //COMMAND REGEX
+	let temp = {};
+	if (match == null && !decision_mode){
+		now_dynamic = document.getElementById("txt_output");
+		now_txt = fun_txt_format(data_txt[txt_num]);
+		temp.d1 = now_txt.replace(/\<(.*?)\>/g,"")
+		if(fun_cal_len(temp.d1) > log_limit_len) temp.c1 = Math.ceil(fun_cal_len(temp.d1)/ log_limit_len)*22;
+		fun_playback("@p","",temp.c1);
+		$("#txt_name").empty();
+		$("#system_dialog").show();
+		return 0;
+	}
+	else if(decision_mode){
+		temp.d1 = match == undefined ? "" : match[1] == undefined ? "" : match[1].toLowerCase();
+		temp.d2 = match == undefined ? "" : match[3] == undefined ? "" : match[3].toLowerCase();
+		if(temp.d1 != 'predicate' && temp.d2 != 'predicate') return -2;
+	}
+	if (match[1] != undefined){
+		let cmd_set = match[2].toObject();
+		switch (match[1].toLowerCase()){
+			case 'background':
+				temp.o1 = $('#pic_back');
+				temp.o1.children().stop(true,true);
+				temp.t = cmd_set.fadetime ? +cmd_set.fadetime : 0.15;
+				temp.c1 = temp.o1.children('div').length;
+				temp.n = (cmd_set.image && "bg_" + cmd_set.image.toLowerCase()) || "";
+				if(temp.n == ""){
+					if(temp.t > 0){
+						temp.o1.children('div').fadeOut(temp.t*1000,'linear',function(){$(this).remove();});
+						if(cmd_set.block == "true"){
+							fun_delay("block",temp.t);
+							return 2;
+						}
+					}
+					else temp.o1.empty();
+					break;
+				}
+				temp.e1 = document.createElement('div');
+				temp.e1 = $(temp.e1);
+				temp.sx = cmd_set.xscale || cmd_set.width || 1;
+				temp.sy = cmd_set.yscale || cmd_set.height || 1;
+				temp.px = (cmd_set.x && cmd_set.x*0.75) || 0;
+				temp.py = (cmd_set.y && cmd_set.y*0.75) || 0;
+				if(fun_override_check('image',txt_page_name,txt_num)){
+					let p = data_override.image[txt_page_name][txt_num+1];
+					temp.sx = p.xscale || temp.sx;
+					temp.sy = p.yscale || temp.sy;
+					temp.px = (p.x && p.x*0.75) || temp.px;
+					temp.py = (p.y && p.y*0.75) || temp.py;
+					cmd_set.screenadapt = p.screenadapt || cmd_set.screenadapt;
+				}
+				if(data_pic_back[temp.n] == undefined || data_pic_back[temp.n] == ""){
+					fun_msg(-2,false,"<Background>Data ["+temp.n+"] not exist,please check the data list.");
+					return -1;
+				}
+				temp.sx*=1.2,temp.sy*=1.2;//temp parameter
+				temp.i1 = new Image();
+				temp.i1.src = data_pic_back[temp.n];
+				temp.tsx = temp.i1.width*0.75;temp.tsy = temp.i1.height*0.75;
+				cmd_set.screenadapt = "coverall";
+				if(cmd_set.screenadapt == "coverall"){
+					let w = temp.tsx / 960,h = temp.tsy / 540;
+					w = Math.min(w,h);
+					temp.tsx /= w,temp.tsy /= w;
+				}
+				temp.tpx = 480-temp.tsx/2,temp.tpy = 270-temp.tsy/2;
+				temp.py = -temp.py;
+				fun_msg(1,true,"<Background>size_x="+temp.sx+",size_y="+temp.sy+",pos_x="+temp.px+"pos_y="+temp.py);
+				temp.e1.css({"position":"absolute","width":temp.tsx,"height":temp.tsy,"left":temp.tpx,"top":temp.tpy,"background-image":"url("+data_pic_back[temp.n]+")","background-size":temp.tsx+"px "+temp.tsy+"px","transform":"matrix("+temp.sx+",0,0,"+temp.sy+","+temp.px+","+temp.py+")"});
+				temp.o1.append(temp.e1);
+				temp.e1.hide().fadeIn(temp.t*1000,()=>{
+					temp.o1.children('div:lt('+temp.c1+')').remove();
+				});
+				if(cmd_set.block == "true"){
+					fun_delay("block",temp.t);
+					return 2;
+				}
+				break;
+			case 'backgroundtween':
+				temp.o1 = $("#pic_back").children("div:last");
+				if(temp.o1.length == 0) return -1;
+				temp.n = (cmd_set.image && data_pic_back["bg_" + cmd_set.image.toLowerCase()]) || fun_get_url(temp.o1.css("backgroundImage")) || "";
+				temp.t = cmd_set.duration || 0.15;
+				if(temp.n == "") return -1;
+				temp.o1.css("backgroundImage","url('"+temp.n+"')");
+				temp.p = temp.o1.css("transform").replace(/\s/g,"").match(/^[a-z]+\((.*)\)/);
+				temp.p = temp.p == null ? [1,0,0,1,0,0] : temp.p[1].split(','); 
+				temp.sxf = cmd_set.xscalefrom || cmd_set.xscale || temp.p[0];
+				temp.sxt = cmd_set.xscaleto || cmd_set.xscale || temp.p[0];
+				temp.syf = cmd_set.yscalefrom || cmd_set.yscale || temp.p[3];
+				temp.syt = cmd_set.yscaleto || cmd_set.yscale || temp.p[3];
+				temp.pxf = cmd_set.xfrom ? cmd_set.xfrom*0.75 : cmd_set.x ? cmd_set.x*0.75 : temp.p[4];
+				temp.pxt = cmd_set.xto ? cmd_set.xto*0.75 : cmd_set.x ? cmd_set.x*0.75 : temp.p[4];
+				temp.pyf = cmd_set.yfrom ? cmd_set.yfrom*0.75 : cmd_set.y ? cmd_set.y*0.75 : -temp.p[5];
+				temp.pyt = cmd_set.yto ? cmd_set.yto*0.75 : cmd_set.y ? cmd_set.y*0.75 : -temp.p[5];
+				if(fun_override_check('tween',txt_page_name,txt_num)){
+					let p = data_override.tween[txt_page_name][txt_num+1];
+					temp.sxf = p.xscalefrom || p.xscale || temp.sxf;
+					temp.sxt = p.xscaleto || p.xscale || temp.sxt;
+					temp.syf = p.yscalefrom || p.yscale || temp.syf;
+					temp.syt = p.yscaleto || p.yscale || temp.syt;
+					temp.pxf = p.xfrom ? p.xfrom*0.75 : p.x ? p.x*0.75 : temp.pxf;
+					temp.pxt = p.xto ? p.xto*0.75 : p.x ? p.x*0.75 : temp.pxt;
+					temp.pyf = p.yfrom ? p.yfrom*0.75 : p.y ? p.y*0.75 : temp.pyf;
+					temp.pyt = p.yto ? p.yto*0.75 : p.y ? p.y*0.75 : temp.pyt;
+				}
+				temp.pyf = -temp.pyf;temp.pyt = -temp.pyt;
+				fun_msg(1,true,"<BackgroundTween>From:xscale="+temp.sxf+",yscale="+temp.syf+",x="+temp.pxf+"y="+temp.pyf);
+				fun_msg(1,true,"<BackgroundTween>To:xscale="+temp.sxt+",yscale="+temp.syt+",x="+temp.pxt+",y="+temp.pyt);
+				temp.o1.css("transition","").css("transform","matrix("+temp.sxf+",0,0,"+temp.syf+","+temp.pxf+","+temp.pyf+")");
+				timer.create("backt_w",()=>temp.o1.css("transition","transform "+temp.t + "s linear").css("transform","matrix("+temp.sxt+",0,0,"+temp.syt+","+temp.pxt+","+temp.pyt+")"),20);
+				if(cmd_set.block == "true"){
+					fun_delay("block",temp.t);
+					return 2;
+				}
+				break;
+			case 'blocker':
+				temp.c1 = cmd_set.fadetime == undefined ? 0.2 : cmd_set.fadetime;//默认12帧过渡时间
+				temp.d1 = cmd_set.a == undefined ? 1 : +cmd_set.a;
+				temp.d2 = cmd_set.r == undefined ? 0 : +cmd_set.r;
+				temp.d3 = cmd_set.g == undefined ? 0 : +cmd_set.g;
+				temp.d4 = cmd_set.b == undefined ? 0 : +cmd_set.b;
+				if(temp.d1 > 1) temp.d1 = 1;//闲着没事的以防万一
+				$('#system_blocker').stop(true).css("background-color",fun_cal_rgb(temp.d2,temp.d3,temp.d4)).fadeTo(temp.c1*1000,temp.d1,'linear');
+				if(cmd_set.block == "true"){
+					fun_delay("block",temp.c1);
+					return 2;
+				}
+				break;
+			case 'cameraeffect':
+				temp.d1 = cmd_set.effect == undefined ? "" : cmd_set.effect.toLowerCase();
+				temp.d2 = cmd_set.amount == undefined ? 0 : cmd_set.amount;
+				temp.t = cmd_set.fadetime == undefined ? -1 : +cmd_set.fadetime;
+				temp.o1 = $("#system_camera");
+				if(temp.t > 0){
+					temp.o1.css("transition","filter "+temp.t+"s linear");
+					timer.create("cmreff_w",()=>{
+						temp.o1.css("transition","");
+					},temp.t*1000);
+				}
+				if(temp.d2 == 0){
+					temp.o1.css("filter","");
+					break;
+				}
+				switch(temp.d1){
+					case 'grayscale':
+						temp.o1.css("filter","grayscale("+temp.d2+")");
+						break;
+					default:
+						temp.o1.css("filter","");
+				}
+				break;
+			case 'camerashake':
+				temp.t = cmd_set.duration == undefined ? -1 : +cmd_set.duration;
+				temp.strx = cmd_set.xstrength == undefined ? 0 : cmd_set.xstrength * 0.75;
+				temp.stry = cmd_set.ystrength == undefined ? 0 : cmd_set.ystrength * 0.75;
+				temp.rnd = cmd_set.randomness == undefined ? 90 : +cmd_set.randomness;
+				temp.v = cmd_set.vibrato == undefined ? 30 : +cmd_set.vibrato;
+				temp.o1 = $("#system_main");
+				temp.o1.css({"left":"0px","top":"0px"});shake_times = 0;
+				timer.clear("shake");
+				if(cmd_set.stop == "true") return 1;
+				temp.c1 = Math.floor(1000/temp.v);
+				temp.c2 = temp.t * temp.v;
+				if(temp.c2 >= 0 && temp.c2 < 1){
+					fun_msg(-1,false,"<CameraShake>The duration is too short,use the minimum value to instead.");
+					temp.c2 = 1;
+				}
+				fun_msg(1,true,"<CameraShake>duration="+temp.t+",xstrength="+temp.strx+",ystrength="+temp.stry+",randomness="+temp.rnd+"vibrato="+temp.v);
+				temp.o1.css("transition-duration",(1/temp.v).toFixed(4) + "s");
+				timer.create("shake",()=>timer_shake(temp.strx,temp.stry,temp.rnd,temp.c2),temp.c1,true);
+				if(cmd_set.block == "true"){
+					fun_delay("block",temp.t);
+					return 2;
+				}
+				break;
+			case 'character':
+				temp.o1 = $("#char_1");temp.o2 = $("#char_2");
+				temp.c11 = temp.o1.children().length,temp.c12 = temp.o2.children().length;
+				temp.t = cmd_set.fadetime == undefined ? 0.15 : +cmd_set.fadetime;
+				temp.n1 = cmd_set.name == undefined ? "" : cmd_set.name.toLowerCase();
+				temp.n2 = cmd_set.name2 == undefined ? "" : cmd_set.name2.toLowerCase();
+				temp.b = cmd_set.block == undefined ? "false" : cmd_set.block;
+				temp.f = cmd_set.focus == undefined ? 0 : +cmd_set.focus;
+				temp.e1 = cmd_set.enter == undefined ? "none" : cmd_set.enter;
+				temp.e2 = cmd_set.enter2 == undefined ? "none" : cmd_set.enter2;
+				temp.cnt = temp.n2 == "" ? 1 : 2;
+				if(fun_override_check('char',txt_page_name,txt_num)){
+					temp.n1 = data_override.char[txt_page_name][txt_num+1].name || temp.n1;
+					temp.n2 = data_override.char[txt_page_name][txt_num+1].name2 || temp.n2;
+				}
+				if(temp.n1 == ""){
+					if(temp.c11 > 0){
+						temp.o1.children().fadeOut(temp.t*1000,function(){$(this).remove();});
+						timer.create("char1_reset",(o = temp.o1)=>o.attr("style",""),temp.t*1000);
+					}
+				}
+				else
+				{
+					timer.clear("char1_reset",true);
+					[temp.d1,temp.c1] = fun_char_link(temp.n1);
+					fun_msg(1,true,"<Character>name1="+temp.d1+"index1="+temp.c1);
+					if(temp.d1 == -1) return -1;
+					temp.n1 = fun_char_format(temp.d1,temp.c1);
+					if(data_pic_char[temp.n1] == undefined || data_pic_char[temp.n1] == "") fun_msg(-1,false,"<Character>Data ["+temp.n1+"] not exist,please check the data list.");
+					temp.o3 = temp.o1.children(":last");
+					if(temp.o3.attr("data-n") == temp.d1 && temp.o3.attr("data-cnt") == temp.cnt){
+						fun_draw_char(temp.o3[0],data_pic_char[temp.n1],temp.o3[0].width,temp.o3[0].height,cmd_set.blackstart,cmd_set.blackend);
+						if (temp.f == -1 || temp.f == 2) temp.o3.css({"filter":"brightness(50%)","z-index":-1});
+						else temp.o3.css({"filter":"","z-index":""});
+					}
+					else{
+						let [sx,sy,px,py] = fun_char_pos(temp.d1,temp.n2 == "" ? 0 : -1);
+						temp.o5 = $(document.createElement("canvas"));
+						if (temp.f == -1 || temp.f == 2) temp.o5.css({"filter":"brightness(50%)","z-index":-1});
+						temp.o5.css({"position":"absolute","left":px,"top":py});
+						temp.o5.attr({"data-n":temp.d1,"data-cnt":temp.cnt,"width":sx,"height":sy});
+						fun_draw_char(temp.o5[0],data_pic_char[temp.n1],sx,sy,cmd_set.blackstart,cmd_set.blackend)
+						temp.o1.append(temp.o5);
+						if(temp.d1 == "char_empty") temp.o1.attr("style","");
+						let sty_f = temp.o1.attr("style") == "" ? false : temp.o3.attr("data-n") == "char_empty" && temp.o3.attr("data-cnt") == temp.cnt ? false : true;
+						temp.o5.hide().fadeIn(temp.t*1000);
+						if(sty_f) timer.create("char1_reset",(o = temp.o1)=>o.attr("style",""),temp.t*1000);
+						temp.o1.children(":lt("+temp.c11+")").fadeOut(temp.t*1000,function(){$(this).remove()});
+					}
+					if(temp.e1 != "none"){
+						temp.o1.attr("style","");
+						let tx = temp.e1 == "left" ? -960 : temp.e1 == "right" ? 960 : 0,ty = temp.e1 == "up" ? -540 : temp.e1 == "down" ? 540 : 0;
+						temp.o1.css("transform","matrix(1,0,0,1,"+tx+","+ty+")");
+						timer.create("char1_w",(o = temp.o1,t = temp.t)=>o.css({"transition":"transform "+t+"s","transform":"matrix(1,0,0,1,0,0)"}),20);
+					}
+				}
+				if(temp.n2 == ""){
+					if(temp.c12 > 0){
+						temp.o2.children().fadeOut(temp.t*1000,function(){$(this).remove()});
+						timer.create("char2_reset",(o = temp.o2)=>o.attr("style",""),temp.t*1000);
+					}
+				}
+				else
+				{
+					timer.clear("char2_reset",true);
+					[temp.d2,temp.c2] = fun_char_link(temp.n2);
+					fun_msg(1,false,"<Character>name2="+temp.d2+"index="+temp.c2);
+					if(temp.d2 == -1) return -1;
+					temp.n2 = fun_char_format(temp.d2,temp.c2);
+					if(data_pic_char[temp.n2] == undefined || data_pic_char[temp.n2] == "") fun_msg(-1,false,"<Character>Data ["+temp.n2+"] not exist,please check the data list.");
+					temp.o4 = temp.o2.children(":last");
+					if(temp.o4.attr("data-n") == temp.d2 && temp.o4.attr("data-cnt") == temp.cnt){
+						fun_draw_char(temp.o4[0],data_pic_char[temp.n2],temp.o4[0].width,temp.o4[0].height,cmd_set.blackstart2,cmd_set.blackend2);
+						if (temp.f == -1 || temp.f == 1) temp.o4.css({"filter":"brightness(50%)","z-index":-1});
+						else temp.o4.css({"filter":"","z-index":""});
+					}
+					else{
+						let [sx,sy,px,py] = fun_char_pos(temp.d2,1);
+						temp.o6 = $(document.createElement("canvas"));
+						if(temp.f == -1 || temp.f == 1) temp.o6.css({"filter":"brightness(50%)","z-index":-1});
+						temp.o6.css({"position":"absolute","left":px,"top":py});
+						temp.o6.attr({"data-n":temp.d2,"data-cnt":temp.cnt,"width":sx,"height":sy});
+						fun_draw_char(temp.o6[0],data_pic_char[temp.n2],sx,sy,cmd_set.blackstart2,cmd_set.blackend2);
+						temp.o2.append(temp.o6);
+						if(temp.d2 == "char_empty") temp.o2.attr("style","");
+						let sty_f = temp.o2.attr("style") == "" ? false : temp.o4.attr("data-n") == "char_empty" && temp.o4.attr("data-cnt") == temp.cnt ? false : true;
+						temp.o6.hide().fadeIn(temp.t*1000);
+						if(sty_f) timer.create("char2_reset",(o = temp.o2)=>o.attr("style",""),temp.t*1000);
+						temp.o2.children(":lt("+temp.c12+")").fadeOut(temp.t*1000,function(){$(this).remove()});
+					}
+					if(temp.e2 != "none"){
+						temp.o2.attr("style","");
+						let tx = temp.e2 == "left" ? -960 : temp.e2 == "right" ? 960 : 0,ty = temp.e2 == "up" ? -540 : temp.e2 == "down" ? 540 : 0;
+						temp.o2.css("transform","matrix(1,0,0,1,"+tx+","+ty+")");
+						timer.create("char2_w",(o = temp.o2,t = temp.t)=>o.css({"transition":"transform "+t+"s","transform":"matrix(1,0,0,1,0,0)"}),20);
+					}
+				}
+				if(temp.b == "true"){
+					fun_delay("block",temp.t);
+					return 2;
+				}
+				break;
+			case 'characteraction':
+				temp.n = cmd_set.name == undefined ? "" : cmd_set.name;
+				if(temp.n == "") return -1;
+				temp.tp = cmd_set.type;
+				temp.px = cmd_set.xpos == undefined ? 0 : cmd_set.xpos*0.75;
+				temp.py = cmd_set.ypos == undefined ? 0 : cmd_set.ypos*0.75;
+				temp.t = cmd_set.duration == undefined ? cmd_set.fadetime == undefined ? 0.25 : +cmd_set.fadetime : +cmd_set.duration;
+				temp.p = cmd_set.power == undefined ? 0 : cmd_set.power*0.75;
+				temp.t3 = cmd_set.times == undefined ? 1 : +cmd_set.times;
+				if(temp.n == "left" || temp.n == "middle") temp.o1 = $("#char_1");
+				else if(temp.n == "right") temp.o1 = $("#char_2");
+				else{
+					fun_msg(-2,false,"<CharacterAction>Unknown name target:"+temp.n);
+					return -1;
+				}
+				temp.d1 = temp.o1[0].style.transform.replace(/\s/g,"").match(/^matrix\((.*)\);$/i);
+				temp.d1 = temp.d1 == null ? [1,0,0,1,0,0] : temp.d1[1].split(",");
+				temp.d1[4] = +temp.d1[4] + temp.px;temp.d1[5] = +temp.d1[5] - temp.py;
+				switch(temp.tp){
+					case 'move':
+						temp.o1.css("transition","transform "+temp.t+"s linear");
+						break;
+					case 'jump':
+						temp.tm = cmd_set.times == undefined ? 0 : +cmd_set.times;
+						for(let i=0;i<temp.tm;i++)
+						{
+							setTimeout(() => {
+								temp.o1.animate({"top":"-="+temp.p},temp.t/2,(o = temp.o1)=>{
+									o.animate({"top":0},temp.t/2);
+								});
+							}, temp.t*i*1000);
+						}
+						temp.o1.css("transition","transform "+temp.t+"s");
+						break;
+					case 'rotate':
+						temp.o1 = temp.o1.children();
+						temp.o1.css("transform","");
+						timer.clear(temp.n+"_rotate");
+						if(cmd_set.stop == "true") return 1;
+						temp.st = cmd_set.start == undefined ? 0 : cmd_set.start;
+						temp.tm = cmd_set.times == undefined ? -1 : +cmd_set.times;
+						temp.le = cmd_set.leftend == undefined ? -15 : -cmd_set.leftend;
+						temp.re = cmd_set.rightend == undefined ? 15 : cmd_set.rightend;
+						temp.o1.css({"transform-origin":"center","transition":"transform "+temp.t+"s ease-in-out","transform":"rotate("+temp.st+"deg)"});
+						temp.o1.attr({"data-r":0,"data-c":0,"data-cm":temp.tm});
+						timer.create(temp.n+"_rotate",()=>{
+							let d = temp.o1.attr("data-r"),c = temp.o1.attr("data-c"),t = temp.o1.attr("data-cm");
+							if(d == "0") temp.o1.css("transform","rotate(" + temp.le + "deg)");
+							else temp.o1.css("transform","rotate(" + temp.re + "deg)");
+							temp.o1.attr("data-r",d == "1" ? "0" : "1");
+							if(t == "-1") return;
+							if(++c > t){
+								temp.o1.css("transform","");
+								timer.clear(temp.n+"_rotate");
+							}
+							temp.o1.attr("data-c",c);
+						},temp.t*1000,true);
+						return 1;
+					case 'shake':
+						temp.n2 = "action_" + temp.n;
+						timer.clear(temp.n2);
+						shake_char[temp.n2] = 0;
+						temp.o1.css({"left":0,"top":0});
+						if(cmd_set.stop == "true") return 1;
+						temp.v = cmd_set.vibrato == undefined ? 30 : +cmd_set.vibrato;
+						temp.c1 = Math.floor(1000/temp.v);
+						timer.create(temp.n2,()=>timer_shake_char(temp.n,temp.p,cmd_set.randomness || 90,temp.t*temp.v),temp.c1,true);
+						return 1;
+					case 'exit':
+						temp.c1 = cmd_set.direction == "left" ? -1920 : 1920;
+						temp.c1 = temp.c1 + (temp.n == "left" ? 480 : -480);
+						temp.d1[4] = temp.c1;
+						temp.o1.css("transition","transform "+temp.t+"s linear");
+						break;
+					default:
+						fun_msg(-1,false,"<CharacterAction>:Unknown type data:"+temp.tp);
+						return -1;
+				}
+				timer.create("action_w",()=>temp.o1.css("transform","matrix("+temp.d1.toString()+")"),20);
+				if(cmd_set.isblock == "true"){
+					fun_delay("block",temp.t);
+					return 2;
+				}
+				break;
+			case 'charactercutin':
+				temp.o1 = $("#pic_cutin");
+				if(cmd_set.widgetid == undefined){
+					temp.o1.empty();
+					return -1;
+				}
+				temp.t = cmd_set.fadetime == undefined ? 140 : cmd_set.fadetime*1000;
+				temp.n = cmd_set.name == undefined ? "" : cmd_set.name.toLowerCase();
+				temp.o = "cutin_" + cmd_set.widgetid.replace(/ /g,"_");
+				temp.px = cmd_set.offsetx == undefined ? 480 : 480+cmd_set.offsetx*0.75;
+				temp.py = cmd_set.offsety == undefined ? 0 : -cmd_set.offsety*0.75;
+				temp.w = cmd_set.width == undefined ? 150 : cmd_set.width*0.75;
+				temp.h = cmd_set.height == undefined ? 540 : cmd_set.height*0.75;
+				temp.o2 = $("#"+temp.o);
+				if(temp.n == ""){
+					if(temp.o2.length == 0) return -1;
+					let d = data_cutin[temp.o].style;
+					if(d == 0){
+						temp.o2.fadeOut(temp.t,function(){
+							$(this).remove();
+						});
+					}
+					else{
+						if(d > 0 && d <= 3) temp.o2.animate({"width":0,"left":data_cutin[temp.o].left},temp.t,"linear");
+						else if(d > 3 && d <= 6) temp.o2.animate({"height":0,"top":data_cutin[temp.o].top},temp.t,"linear");
+					}
+					if(cmd_set.block == "true"){
+						fun_delay("block",temp.t,"ms");
+						return 2;
+					}
+					break;
+				}
+				data_cutin[temp.o] = [];
+				data_cutin[temp.o].width = temp.w;
+				data_cutin[temp.o].height = temp.h;
+				data_cutin[temp.o].offsetx = temp.px;
+				if(temp.o2.length == 0){
+					temp.o2 = document.createElement('div');
+					temp.o1.append(temp.o2);
+					temp.o2 = $(temp.o2);
+					temp.o2.attr({"id":temp.o,"class":"cutin_style"});
+				}
+				temp.lo = temp.px-temp.w/2,temp.to = 0;
+				temp.ls = temp.lo,temp.ts = temp.to;
+				switch(cmd_set.fadestyle)
+				{
+					case 'horiz_expand_center':
+						temp.s = 1;
+						temp.lo = temp.px;
+						break;
+					case 'horiz_expand_left2right':
+						temp.s = 2;
+						break;
+					case 'horiz_expand_right2left':
+						temp.s = 3;
+						temp.lo = temp.px+temp.w/2;
+					case 'vert_expand_center':
+						temp.s = 4;
+						temp.to = temp.h/2;
+						break;
+					case 'vert_expand_top2buttom':
+						temp.s = 5;
+						break;
+					case 'vert_expand_buttom2top':
+						temp.s = 6;
+						temp.to = temp.h;
+						break;
+					default:
+						temp.s = 0;
+				}
+				data_cutin[temp.o].style = temp.s;
+				data_cutin[temp.o].left = temp.lo;
+				data_cutin[temp.o].top = temp.to;
+				[temp.d1,temp.c1] = fun_char_link(temp.n);
+				if(temp.d1 == -1) return -1;
+				temp.n = fun_char_format(temp.d1,temp.c1);
+				[temp.sx,temp.sy] = fun_char_pos(temp.d1);
+				if(data_pic_char[temp.n] == undefined || data_pic_char[temp.n] == "") fun_msg(-1,false,"<CharacterCutin>Data ["+temp.n+"] not exist,please check the data list.");
+				temp.o2.css({"backgroundSize":temp.sx+"px "+temp.sy+"px","backgroundImage":"url('"+data_pic_char[temp.n]+"')"});
+				temp.o2.css({"left":temp.lo,"top":temp.to});
+				if(temp.s == 0) temp.o2.hide().css({"width":temp.w,"height":temp.h}).fadeIn(temp.t);
+				else if(temp.s > 0 && temp.s <= 3) temp.o2.css({"width":0,"height":temp.h}).animate({"width":temp.w,"left":temp.ls},temp.t,"linear");
+				else if(temp.s > 3 && temp.s <= 6) temp.o2.css({"width":temp.w,"height":0}).animate({"height":temp.h,"top":temp.ts},temp.t,"linear");
+				if(cmd_set.block == "true"){
+					fun_delay("block",temp.t,"ms");
+					return 2;
+				}
+				break;
+			case 'delay':
+				if (cmd_set.time == undefined) return -1;
+				fun_delay("block",cmd_set.time,"s");
+				return 2;
+			case 'decision':
+				if(cmd_set.options == undefined) return -1;
+				temp.d1 = cmd_set.options.split(";");
+				if(temp.d1.length > 3){
+					fun_msg(-2,false,"<Decision>Data Error:Illegal options length of data ["+temp.d1+"]");
+					return -1;
+				}
+				temp.c1 = cmd_set.values.split(";");
+				temp.all = $("#system_decision").children('div');
+				temp.num = 0;
+				$(temp.all).each(function(){
+					if(temp.num < temp.d1.length){
+						decision_value[temp.num] = temp.c1[temp.num];
+						$(this).html(temp.d1[temp.num]).show();
+						if(fun_cal_len($(this).html()) > dec_limit_len) $(this).css("font-size","10px");
+						else $(this).css("font-size","");
+					}
+					else{
+						decision_value[temp.num] = -1;
+						$(this).html("&nbsp;").css("font-size","").hide();
+					}
+					temp.num++;
+				})
+				temp.num = temp.d1.length;
+				if(temp.num == 1) $(temp.all[0]).css("top","216px");
+				else if(temp.num == 2){
+					$(temp.all[0]).css("top","180px");
+					$(temp.all[1]).css("top","252px");
+				}
+				else{
+					temp.num = 1;
+					$(temp.all).each(function(){
+						$(this).css("top",(++temp.num*72)+"px");
+					})
+				}
+				flag_respond++;
+				if(flag_auto) fun_timer_clear("auto");
+				fun_setting("cmd_close");
+				$("#system_decision").show();
+				return 2;
+			case 'dialog':
+				temp.t = cmd_set.fadetime == undefined ? 0 : cmd_set.fadetime;
+				temp.b = cmd_set.block == undefined ? "false" : cmd_set.block;
+				$("#system_dialog").fadeOut(temp.t*1000,'linear');
+				if(temp.b == "true"){
+					fun_delay("block",temp.t);
+					return 2;
+				}
+				break;
+			case 'dialogsetting':
+				txt_interval = cmd_set.interval == undefined ? 25 : +cmd_set.interval;
+				txt_delay_per = cmd_set.delay == undefined ? 100 : +cmd_set.delay;
+				txt_delay_all = cmd_set.delayall == undefined ? 1200 : +cmd_set.delayall;
+				temp.nc = cmd_set.namecolor == undefined ? "" : cmd_set.namecolor;
+				if(temp.nc != ""){
+					$("#txt_name").css("color",temp.nc);
+				}
+				break;
+			case 'header':
+				return -1;
+			case 'hideitem':
+				temp.o1 = $("#pic_item").children();
+				temp.t = cmd_set.fadetime == undefined ? 0.16 : cmd_set.fadetime;
+				if(temp.o1.length == 0) return -1;
+				temp.o1.fadeOut(temp.t*1000,'linear',function(){
+					$(this).remove();
+				})
+				if(cmd_set.block == "true"){
+					fun_delay("block",temp.t);
+					return 2;
+				}
+				break;
+			case 'image':
+				temp.o1 = $('#pic_image');
+				temp.o1.children().stop(true,true);
+				temp.t = cmd_set.fadetime ? +cmd_set.fadetime : 0.15;
+				temp.c1 = temp.o1.children('div').length;
+				temp.n = (cmd_set.image && cmd_set.image.toLowerCase()) || "";
+				if(temp.n == ""){
+					if(temp.t > 0){
+						temp.o1.children('div').fadeOut(temp.t*1000,'linear',function(){$(this).remove();});
+						if(cmd_set.block == "true"){
+							fun_delay("block",temp.t);
+							return 2;
+						}
+					}
+					else temp.o1.empty();
+					break;
+				}
+				temp.e1 = document.createElement('div');
+				temp.e1 = $(temp.e1);
+				temp.sx = cmd_set.xscale || cmd_set.width || 1;
+				temp.sy = cmd_set.yscale || cmd_set.height || 1;
+				temp.px = (cmd_set.x && cmd_set.x*0.75) || 0;
+				temp.py = (cmd_set.y && cmd_set.y*0.75) || 0;
+				if(fun_override_check('image',txt_page_name,txt_num)){
+					let p = data_override.image[txt_page_name][txt_num+1];
+					temp.sx = p.xscale || temp.sx;
+					temp.sy = p.yscale || temp.sy;
+					temp.px = (p.x && p.x*0.75) || temp.px;
+					temp.py = (p.y && p.y*0.75) || temp.py;
+					cmd_set.screenadapt = p.screenadapt || cmd_set.screenadapt;
+				}
+				if(data_pic_back[temp.n] == undefined || data_pic_back[temp.n] == ""){
+					fun_msg(-2,false,"<Image>Data ["+temp.n+"] not exist,please check the data list.");
+					return -1;
+				}
+				temp.i1 = new Image();
+				temp.i1.src = data_pic_back[temp.n];
+				temp.tsx = temp.i1.width*0.75;temp.tsy = temp.i1.height*0.75;
+				if(cmd_set.screenadapt == "coverall"){
+					let w = temp.tsx / 960,h = temp.tsy / 540;
+					w = Math.min(w,h);
+					temp.tsx /= w,temp.tsy /= w;
+				}
+				temp.tpx = 480-temp.tsx/2,temp.tpy = 270-temp.tsy/2;
+				temp.py = -temp.py;
+				fun_msg(1,true,"<Image>size_x="+temp.sx+",size_y="+temp.sy+",pos_x="+temp.px+"pos_y="+temp.py);
+				temp.e1.css({"position":"absolute","width":temp.tsx,"height":temp.tsy,"left":temp.tpx,"top":temp.tpy,"background-image":"url("+data_pic_back[temp.n]+")","background-size":temp.tsx+"px "+temp.tsy+"px","transform":"matrix("+temp.sx+",0,0,"+temp.sy+","+temp.px+","+temp.py+")"});
+				temp.o1.append(temp.e1);
+				temp.e1.hide().fadeIn(temp.t*1000,()=>{
+					temp.o1.children('div:lt('+temp.c1+')').remove();
+				});
+				if(cmd_set.block == "true"){
+					fun_delay("block",temp.t);
+					return 2;
+				}
+				break;
+			case 'imagetween':
+				temp.o1 = $("#pic_image").children("div:last");
+				if(temp.o1.length == 0) return -1;
+				temp.n = (cmd_set.image && data_pic_back[cmd_set.image.toLowerCase()]) || fun_get_url(temp.o1.css("backgroundImage")) || "";
+				temp.t = cmd_set.duration || 0.15;
+				if(temp.n == "") return -1;
+				temp.o1.css("backgroundImage","url('"+temp.n+"')");
+				temp.p = temp.o1.css("transform").replace(/\s/g,"").match(/^[a-z]+\((.*)\)/);
+				temp.p = temp.p == null ? [1,0,0,1,0,0] : temp.p[1].split(','); 
+				temp.sxf = cmd_set.xscalefrom || cmd_set.xscale || temp.p[0];
+				temp.sxt = cmd_set.xscaleto || cmd_set.xscale || temp.p[0];
+				temp.syf = cmd_set.yscalefrom || cmd_set.yscale || temp.p[3];
+				temp.syt = cmd_set.yscaleto || cmd_set.yscale || temp.p[3];
+				temp.pxf = cmd_set.xfrom ? cmd_set.xfrom*0.75 : cmd_set.x ? cmd_set.x*0.75 : temp.p[4];
+				temp.pxt = cmd_set.xto ? cmd_set.xto*0.75 : cmd_set.x ? cmd_set.x*0.75 : temp.p[4];
+				temp.pyf = cmd_set.yfrom ? cmd_set.yfrom*0.75 : cmd_set.y ? cmd_set.y*0.75 : -temp.p[5];
+				temp.pyt = cmd_set.yto ? cmd_set.yto*0.75 : cmd_set.y ? cmd_set.y*0.75 : -temp.p[5];
+				if(fun_override_check('tween',txt_page_name,txt_num)){
+					let p = data_override.tween[txt_page_name][txt_num+1];
+					temp.sxf = p.xscalefrom || p.xscale || temp.sxf;
+					temp.sxt = p.xscaleto || p.xscale || temp.sxt;
+					temp.syf = p.yscalefrom || p.yscale || temp.syf;
+					temp.syt = p.yscaleto || p.yscale || temp.syt;
+					temp.pxf = p.xfrom ? p.xfrom*0.75 : p.x ? p.x*0.75 : temp.pxf;
+					temp.pxt = p.xto ? p.xto*0.75 : p.x ? p.x*0.75 : temp.pxt;
+					temp.pyf = p.yfrom ? p.yfrom*0.75 : p.y ? p.y*0.75 : temp.pyf;
+					temp.pyt = p.yto ? p.yto*0.75 : p.y ? p.y*0.75 : temp.pyt;
+				}
+				temp.pyf = -temp.pyf;temp.pyt = -temp.pyt;
+				fun_msg(1,true,"<ImageTween>From:xscale="+temp.sxf+",yscale="+temp.syf+",x="+temp.pxf+"y="+temp.pyf);
+				fun_msg(1,true,"<ImageTween>To:xscale="+temp.sxt+",yscale="+temp.syt+",x="+temp.pxt+"y="+temp.pyt);
+				temp.o1.css("transform","matrix("+temp.sxf+",0,0,"+temp.syf+","+temp.pxf+","+temp.pyf+")");
+				timer.create("imaget_w",()=>temp.o1.css("transition","transform "+temp.t + "s linear").css("transform","matrix("+temp.sxt+",0,0,"+temp.syt+","+temp.pxt+","+temp.pyt+")"),20);
+				if(cmd_set.block == "true"){
+					fun_delay("block",temp.t);
+					return 2;
+				}
+				break;
+			case 'largebg':
+				temp.o1 = $("#pic_back");
+				temp.ig = cmd_set.imagegroup == undefined ? [] : cmd_set.imagegroup.split('/');
+				temp.sw = cmd_set.solidwidth == undefined ? [] : cmd_set.solidwidth.split('/');
+				temp.sh = cmd_set.solidheight == undefined ? [] : cmd_set.solidheight.split('/');
+				if(temp.ig.length == 0 || temp.sw.length == 0 || temp.sh.length == 0) return -1;
+				temp.px = cmd_set.x == undefined ? 0 : cmd_set.x*0.75;
+				temp.py = cmd_set.y == undefined ? 0 : cmd_set.y*0.75;
+				temp.sx = temp.sw.getSum()*0.9;temp.sy = temp.sh.getSum()*0.9;
+				temp.t = cmd_set.fadetime || 0.15;
+				temp.c1 = temp.o1.children('canvas').length;
+				temp.o2 = document.createElement("canvas");
+				temp.o2 = $(temp.o2);
+				temp.o2.attr({"width":temp.sx,"height":temp.sy});
+				for(let i = 0,offx = 0;i<temp.sw.length;i++){
+					for(let j=0,lenj = temp.sh.length,offy = 0;j<lenj;j++){
+						fun_draw_image(temp.o2[0],data_pic_back["bg_"+temp.ig[i*lenj+j].toLowerCase()],temp.sw[i]*0.9,temp.sh[j]*0.9,offx,offy);
+						offy += temp.sh[j]*0.9;
+					}
+					offx += temp.sw[i]*0.9;
+				}
+				temp.o2.css({"position":"absolute","transform":"matrix(1,0,0,1,"+temp.px+","+temp.py+")"});
+				temp.o1.append(temp.o2);
+				temp.o2.hide().fadeIn(temp.t*1000,()=>{
+					temp.o1.children("canvas:lt("+temp.c1+")").remove();
+				});
+				if(cmd_set.block == "true"){
+					fun_delay("block",temp.t);
+					return 2;
+				}
+				break;
+			case 'largebgtween':
+				temp.o1 = $("#pic_back").children("canvas:last");
+				if(temp.o1.length == 0) return -1;
+				temp.t = cmd_set.duration || 0.15;
+				temp.p = temp.o1.css("transform").replace(/\s/g,"").match(/^[a-z]+\((.*)\)/);
+				temp.p = temp.p == null ? [1,0,0,1,0,0] : temp.p[1].split(','); 
+				temp.sxf = cmd_set.xscalefrom || cmd_set.xscale || temp.p[0];
+				temp.sxt = cmd_set.xscaleto || cmd_set.xscale || temp.p[0];
+				temp.syf = cmd_set.yscalefrom || cmd_set.yscale || temp.p[3];
+				temp.syt = cmd_set.yscaleto || cmd_set.yscale || temp.p[3];
+				temp.pxf = cmd_set.xfrom ? cmd_set.xfrom*0.75 : cmd_set.x ? cmd_set.x*0.75 : temp.p[4];
+				temp.pxt = cmd_set.xto ? cmd_set.xto*0.75 : cmd_set.x ? cmd_set.x*0.75 : temp.p[4];
+				temp.pyf = cmd_set.yfrom ? cmd_set.yfrom*0.75 : cmd_set.y ? cmd_set.y*0.75 : -temp.p[5];
+				temp.pyt = cmd_set.yto ? cmd_set.yto*0.75 : cmd_set.y ? cmd_set.y*0.75 : -temp.p[5];
+				if(fun_override_check('tween',txt_page_name,txt_num)){
+					let p = data_override.tween[txt_page_name][txt_num+1];
+					temp.sxf = p.xscalefrom || p.xscale || temp.sxf;
+					temp.sxt = p.xscaleto || p.xscale || temp.sxt;
+					temp.syf = p.yscalefrom || p.yscale || temp.syf;
+					temp.syt = p.yscaleto || p.yscale || temp.syt;
+					temp.pxf = p.xfrom ? p.xfrom*0.75 : p.x ? p.x*0.75 : temp.pxf;
+					temp.pxt = p.xto ? p.xto*0.75 : p.x ? p.x*0.75 : temp.pxt;
+					temp.pyf = p.yfrom ? p.yfrom*0.75 : p.y ? p.y*0.75 : temp.pyf;
+					temp.pyt = p.yto ? p.yto*0.75 : p.y ? p.y*0.75 : temp.pyt;
+				}
+				temp.pyf = -temp.pyf;temp.pyt = -temp.pyt;
+				fun_msg(1,true,"<LargeBgTween>From:xscale="+temp.sxf+",yscale="+temp.syf+",x="+temp.pxf+"y="+temp.pyf);
+				fun_msg(1,true,"<LargeBgTween>To:xscale="+temp.sxt+",yscale="+temp.syt+",x="+temp.pxt+"y="+temp.pyt);
+				temp.o1.css("transform","matrix("+temp.sxf+",0,0,"+temp.syf+","+temp.pxf+","+temp.pyf+")");
+				timer.create("largebgt_w",()=>temp.o1.css("transition","transform "+temp.t + "s linear").css("transform","matrix("+temp.sxt+",0,0,"+temp.syt+","+temp.pxt+","+temp.pyt+")"),20);
+				if(cmd_set.block == "true"){
+					fun_delay("block",temp.t);
+					return 2;
+				}
+				break;
+			case 'largeimg':
+				break;
+			case 'largeimgtween':
+				break;
+			case 'musicvolume':
+				if(cmd_set.volume == undefined){
+					fun_msg(-2,false,"<MusicVolume>Can't find the volume parameter.");
+					return -1;
+				}
+				temp.c1 = document.getElementById("system_music").volume;
+				temp.c2 = cmd_set.fadetime == undefined ? 10 : cmd_set.fadetime*50;
+				if(temp.c2 == 0){
+					document.getElementById("system_music").volume = cmd_set.volume;
+					break;
+				}
+				temp.c3 = (temp.c1 - cmd_set.volume) / temp.c2;
+				timer.create("music_v",(key_end = +cmd_set.volume,key_fade = temp.c3)=>{
+					let v = document.getElementById("system_music").volume;
+					v -= key_fade;
+					if(key_fade > 0 && v <= key_end || key_fade < 0 && v >= key_end){
+						timer.clear("music_v");
+						v = key_end;
+					}
+					document.getElementById("system_music").volume = v;
+				},20,true);
+				break;
+			case 'playmusic':
+				temp.o1 = document.getElementById("system_music");
+				temp.c1 = cmd_set.delay == undefined ? 0 : cmd_set.delay * 1000;
+				temp.d1 = cmd_set.intro == undefined ? "" : cmd_set.intro.replace("$","").toLowerCase();
+				temp.d2 = cmd_set.key == undefined ? "" : cmd_set.key.replace("$","").toLowerCase();
+				fun_timer_clear("music");
+				temp.o1.volume = cmd_set.volume == undefined ? 0.4 : Math.min(cmd_set.volume*0.5,1);
+				if(temp.d1 == ""){
+					fun_msg(-1,false,"<PlayMusic>Music intro not applied.");
+					if(temp.d2 != "" && data_audio[temp.d2] != undefined){
+						temp.o1.src = data_audio[temp.d2];
+						temp.o1.loop = true;
+						timer.create("music_d",()=>temp.o1.play(),temp.c1);
+						break;
+					}
+					return -1;
+				}
+				else if(data_audio[temp.d1] == undefined){
+					fun_msg(-2,false,"<PlayMusic>Data ["+temp.d1+"] not exist,please check the data list.");
+					return -1;
+				}
+				temp.o1.src = data_audio[temp.d1];
+				temp.o1.loop = false;
+				timer.create("music_d",(o = temp.o1,s = temp.d2 == "" ? data_audio[temp.d1] : data_audio[temp.d2]) => {
+					o.play();
+					o.onended = () => {
+						o.src = s;
+						o.loop = true;
+						o.play();
+					};
+				},temp.c1);
+				break;
+			case 'playsound':
+				temp.o1 = new Audio();
+				temp.d = cmd_set.delay == undefined ? 0 : cmd_set.delay * 1000;
+				temp.k = cmd_set.key == undefined ? "" : cmd_set.key.replace("$","").toLowerCase();
+				temp.ch = cmd_set.channel == undefined ? "" : cmd_set.channel;
+				temp.loop = cmd_set.loop == undefined ? false : cmd_set.loop == "true" ? true : false;
+				if(temp.k == ""){
+					fun_msg(-2,false,"<PlaySound>Audio key not applied.");
+					return -1;
+				}
+				else if(data_audio[temp.k] == undefined){
+					fun_msg(-2,false,"<PlaySound>Data ["+temp.k+"] not exist,please check the data list.");
+					return -1;
+				}
+				if(temp.ch != "") temp.o1.id = "audio_" + temp.ch;
+				temp.o1.loop = temp.loop;
+				temp.o1.volume = cmd_set.volume == undefined ? 0.5 : Math.min(cmd_set.volume*0.5,1);
+				temp.o1.src = data_audio[temp.k];
+				document.getElementById("system_audio").appendChild(temp.o1);
+				timer.create("sound_d",(o = temp.o1,f = temp.loop) => {
+					o.play();
+					if(!f) o.onended = () => {o.pause();o.remove();}
+				}, temp.d);
+				break;
+			case 'predicate':
+				if (cmd_set.references == undefined){
+					decision_mode = false;
+					break;
+				}
+				if (cmd_set.references.includes(decision_select)){
+					decision_mode = false;
+					break;
+				}
+				decision_mode = true;
+				break;
+			case 'showitem':
+				temp.o1 = $("#pic_item");
+				temp.n = (cmd_set.image && cmd_set.image.toLowerCase()) || "";
+				temp.b = cmd_set.block || "true";
+				temp.t = cmd_set.fadetime || 0.16;
+				if(temp.n == "") return -1;
+				if(data_pic_back[temp.n] == undefined || data_pic_back[temp.n] == ""){
+					fun_msg(-2,false,"<ShowItem>Data ["+temp.n+"] not exist,please check the data list.");
+					return -1;
+				}
+				temp.i1 = new Image();
+				temp.i1.src = data_pic_back[temp.n];
+				temp.sx = temp.i1.width*0.6;temp.sy = temp.i1.height*0.6;
+				temp.px = (960-temp.sx)/2-7.5;temp.py = (540-temp.sy)/2-7.5;
+				temp.e1 = document.createElement('div');
+				temp.e1 = $(temp.e1);
+				temp.e1.addClass("item_style");
+				temp.e1.css({"background-image":"url("+data_pic_back[temp.n]+")","background-size":"100%","width":temp.sx+"px","height":temp.sy+"px","left":temp.px+"px","top":temp.py+"px"});
+				fun_msg(1,true,"<ShowItem>fadetime="+temp.t+",width="+temp.sx+",height="+temp.sy+",left="+temp.px+"top="+temp.py);
+				temp.e1.hide().fadeIn(temp.t*1000);
+				temp.o1.append(temp.e1);
+				if(temp.b == "true"){
+					fun_delay("block",temp.t);
+					return 2;
+				}
+				break;
+			case 'stopmusic':
+				temp.d1 = cmd_set.fadetime == undefined ? 10 : cmd_set.fadetime * 50;
+				temp.c1 = document.getElementById("system_music").volume;
+				if(temp.d1 > 0)
+				{
+					temp.c1 /= temp.d1;
+					timer.create("music_f",(c_end = 0,c_fade = temp.c1) => {
+						let v = document.getElementById("system_music").volume;
+						v -= c_fade;
+						if(v <= c_end)
+						{
+							v = c_end;
+							timer.clear("music_f");
+							fun_stop_audio("music");
+						}
+						document.getElementById("system_music").volume = v;
+					}, 20,true);
+				}
+				else fun_stop_audio("music");
+				break;
+			case 'stopsound':
+				temp.ch = cmd_set.channel == undefined ? "" : cmd_set.channel;
+				if(temp.ch == "") fun_stop_audio("sound");
+				else{
+					temp.o1 = document.getElementById("audio_" + temp.ch);
+					if(temp.o1 == undefined) return -1;
+					temp.o1.pause();
+					temp.o1.remove();
+				}
+				break;
+			case 'subtitle':
+				temp.d1 = cmd_set.text == undefined ? "" : cmd_set.text;
+				if(temp.d1 == "") return -1;
+				temp.d2 = cmd_set.alignment == undefined ? "" : cmd_set.alignment;
+				temp.d3 = cmd_set.size == undefined ? 18 : cmd_set.size*0.75;
+				temp.d4 = cmd_set.delay == undefined ? 0 : +cmd_set.delay;
+				temp.d5 = cmd_set.width == undefined ? 675 : cmd_set.width*0.75;
+				temp.c1 = cmd_set.x == undefined ? 0 : cmd_set.x*0.75;
+				temp.c2 = cmd_set.y == undefined ? 0 : cmd_set.y*0.75;
+				if(temp.d2 == ""){
+					fun_msg(-2,false,"<Subtitle>Parameter alignment not applied.");
+					return -1;
+				}
+				if($("#pic_subtitle").children().length > 0) $("#pic_subtitle").empty();
+				temp.o1 = document.createElement("span");
+				temp.o1.className = "subtitle_style";
+				temp.pl = temp.d2 == "center" ? Math.max(temp.d5/2-fun_cal_len(temp.d1)*temp.d3/4,0) : temp.d2 == "right" ? Math.max(temp.d5-fun_cal_len(temp.d1)*temp.d3/2,0) : 0;
+				$(temp.o1).css({"left" : temp.c1 ,"top" : temp.c2 ,"font-size" : temp.d3,"padding-left" : temp.pl,"width" : temp.d5});
+				$("#pic_subtitle").append(temp.o1);
+				now_txt = temp.d1;
+				now_dynamic = temp.o1;
+				if(fun_cal_len(temp.d1) > log_limit_len) temp.c3 = Math.ceil(fun_cal_len(temp.d1)/ log_limit_len)*22;
+				fun_playback("@p","",temp.c3);
+				return 0;
+			case 'theater':
+				temp.d1 = cmd_set.mode == undefined ? "false" : cmd_set.mode;
+				if(temp.d1 == "true"){
+					skip_wait = 0;//强制停止skip模式
+					theater_mode = true;
+					$("#button_playback").hide();
+					$("#button_auto").hide();
+					if(!flag_auto) timer_id.auto = -1;
+				}
+				else if(temp.d1 == "false"){
+					theater_mode = false;
+					$("#button_playback").show();
+					$("#button_auto").show();
+					if(!flag_auto) delete timer_id.auto;
+				}
+				break;
+			case 'video':
+				if(cmd_set.res == undefined) return -1;
+				fun_setting("cmd_close");flag_respond++;
+				temp.o1 = document.createElement("video");
+				$(temp.o1).attr({"width":960,"heigth":540,"autoplay":"autoplay","src":source_url + cmd_set.res});
+				temp.o1.onended = () => {
+					temp.o1.remove();
+					flag_respond--;fun_setting("cmd_open");
+					txt_next();
+				}
+				$("#pic_animation").append(temp.o1);
+				return 2;
+			default:
+				fun_msg(-1,true,"Unknown command:"+match[1]);
+				return -1;
+		}
+		return 1;
+	}
+	else if(match[3] != undefined)
+	{
+		switch(match[3].toLowerCase())
+		{
+			case 'background':
+				$("#pic_back").children('div').remove();
+				break;
+			case 'character':
+				$("#char_1").children().fadeOut(150,function(){
+					$(this).remove();
+				});
+				$("#char_2").children().fadeOut(150,function(){
+					$(this).remove();
+				});
+				setTimeout(()=>{$("#char_1").attr("style",""),$("#char_2").attr("style","");},190);
+				fun_delay("block",0.2);
+				return 2;
+			case 'dialog':
+				$("#txt_name").empty();
+				$("#txt_output").empty();
+				$("#system_dialog").hide();
+				break;
+			case 'dialogsetting':
+				txt_interval = 25;
+				txt_delay_per = 100;
+				txt_delay_all = 1200;
+				$("#txt_name").removeAttr("style");
+				break;
+			case 'image':
+				$("#pic_image").children('canvas').remove();
+				break;
+			case 'largebg':
+				$("#pic_back").children('canvas').remove();
+				break;
+			case 'largetimg':
+				$("#pic_image").children('canvas').remove();
+				break;
+			case 'predicate':
+				decision_mode = false;
+				break;
+			case 'hideitem':
+				$("#pic_item").children("div").fadeOut(320,function(){
+					$(this).remove();
+				})
+				fun_delay("block",0.32);
+				return 2;
+			case 'subtitle':
+				$("#pic_subtitle").children().fadeOut(200,function(){$(this).remove()});
+				fun_delay("block",0.2);
+				return 2;
+		}
+		return 1;
+	}
+	else if(match[4] != undefined)
+	{
+		let p = match[4].toObject();
+		now_dynamic = document.getElementById("txt_output");
+		if(p.delay != undefined){
+			fun_delay("block",p.delay);
+			return 2;
+		}
+		/*if(p.bind != undefined){
+			temp.o1 = new Audio();
+			temp.o1.volume = 0.5;
+			temp.o1.src = data_audio[p.bind];
+			temp.o1.id = "audio_dialog";
+			$("#system_audio").append(temp.o1);
+			temp.o1.play();
+			temp.o1.onended = ()=>temp.o1.remove();
+		}*/
+		if(p.name == undefined) return -1;
+		now_txt = fun_txt_format(match[5]);
+		temp.d1 = now_txt.replace(/\<(.*?)\>/g,"")
+		if(fun_cal_len(temp.d1) > log_limit_len) temp.c1 = Math.ceil(fun_cal_len(temp.d1)/log_limit_len)*22;
+		fun_playback("@p",p,temp.c1);
+		$("#txt_name").html(p.name);
+		$("#txt_name").css("color",p.color == undefined ? "" : p.color);
+		$("#system_dialog").show();
+	}
+	return 0;
+}
+function txt_click()
+{
+	if(theater_mode) return;
+	if(flag_auto) fun_auto_stop();
+	if(!click_enabled)
+	{
+		fun_msg(0,true,"Click didn't passed.");
+		return;
+	}
+	fun_msg(0,true,"Click passed.");
+	if(txt_num == 0) fun_setting("pre");
+	if(!reset_enabled)
+	{
+		reset_enabled = true;
+		document.getElementById("button_reset").style.color = "";
+	}
+	if(timer_id.dynamic != undefined)
+	{
+		txt_stop();
+		now_dynamic.innerHTML = now_txt;
+		return;
+	}
+	txt_next();
+}
+function txt_decision(choice)
+{
+	let e = document.createElement('li');
+	let d = [];
+	for (let i = 1;i < 4;i++)
+	{
+		let v = document.getElementById("decision_" + i).innerHTML;
+		if(v == "&nbsp;") continue;
+		if(i == choice + 1) d.push("<span class='log_decision' style='color:skyblue'>【" + v + "】</span>");
+		else d.push("<span class='log_decision'>【" + v + "】</span>");
+	}
+	e.style = "height:" + (d.length * 22) + "px";
+	for(let v of d) e.innerHTML += v;
+	document.getElementById("playback_result").append(e);
+	let a = new Audio();
+	a.src = "/images/1/1a/G_ui_btn_n.mp3";
+	document.getElementById("system_audio").appendChild(a);
+	a.onended = () => a.remove();
+	a.play();
+	decision_select = decision_value[choice];
+	flag_respond--;
+	fun_setting("cmd_open");
+	document.getElementById("system_decision").style.display = "none";
+	if(flag_auto && timer_id.auto == undefined) timer_id.auto = setInterval("timer_auto()",400);
+	txt_next();
+}
+function txt_fullscreen()
+{
+	if(!click_enabled && txt_max == 0) return 0;
+	let e1 = document.getElementById("system_fullscreen");
+	let key = document.getElementById("button_fullscreen").classList.contains("button_return") ? "exit" : "enter";
+	if(key == "enter"){
+		if(e1.requestFullscreen) e1.requestFullscreen();
+		else if(e1.mozRequestFullScreen) e1.mozRequestFullScreen();
+		else if(e1.webkitRequestFullscreen) e1.webkitRequestFullscreen();//new webkit
+		else if(e1.webkitRequestFullScreen) e1.webkitRequestFullScreen();//old webkit
+		else if(e1.msRequestFullscreen) e1.msRequestFullscreen();
+	}
+	else if(key == "exit"){
+		if(fun_fullscreen_check()){
+			if(document.exitFullscreen) document.exitFullscreen();
+			else if(document.mozCancelFullScreen) document.mozCancelFullScreen();
+			else if(document.webkitExitFullscreen) document.webkitExitFullscreen();//new webkit
+			else if(document.webkitCancelFullScreen) document.webkitCancelFullScreen();//old webkit
+			else if(document.msExitFullscreen) document.msExitFullscreen();
+		}
+	}
+}
+function txt_next()
+{
+//before
+	if (txt_num == txt_max){
+		fun_msg(1,true,"txt_num="+txt_num+",txt_max="+txt_max);
+		if(timer_id.auto != undefined) fun_auto_stop();
+		fun_setting("reset");
+		document.getElementById("txt_output").innerHTML = "Đã hết, nhấn lần nữa để trờ lại";
+		return;
+	}
+	//if(flag_respond > 0) return;	//有待响应操作时阻止一切继续播放的行为
+//check
+	let ret = 0;
+	if (isdebug){
+		if (data_txt[txt_num] == "") ret = -2;
+		else ret = txt_analyze_test();
+	}
+	else{
+		if (data_txt[txt_num] == "") ret = -2;
+		else ret = txt_analyze();
+	}
+	if(ret == -2){
+		fun_msg(0,true,"Has skipped the space or unused part.");
+		txt_num++;
+		txt_next();
+		return;
+	}
+	else if(ret == -1){
+		fun_msg(0,true,"Has skipped the error part.");
+		txt_num++;
+		txt_next();
+		return;
+	}
+	else if(ret == 1){
+		fun_msg(0,true,"Data analyze complete.");
+		txt_num++;
+		txt_next();
+		return;
+	}
+	else if(ret == 2){
+		fun_msg(0,true,"Break and wait.");
+		txt_num++;
+		return;
+	}
+	if(txt_num < txt_max && txt_num >= 0){
+		let interval = skip_wait >= wait_trigger ? 1 : isdebug ? txt_interval : 25;
+		now_txt_max = now_txt.length;
+		if(timer_id.dynamic == undefined)
+		{
+			timer_id.dynamic = setInterval(() => {
+				timer_dialog();
+			},interval);
+		}
+	}
+}
+function txt_playback(temp_o1,temp_o2,flag_all = false)
+{
+	temp_o1 = document.getElementById(temp_o1),temp_o2 = document.getElementById(temp_o2);
+	let key_state = temp_o2.classList.contains("button_return") ? "show" : "hide";
+	if(key_state == "hide"){
+		if(flag_auto && flag_respond == 0 && !flag_all) fun_timer_clear("auto");
+		temp_o1.style.display = "block";
+		if(flag_all) temp_o2.classList.remove("playback_all_normal");
+		else {
+			temp_o1.scrollTop = temp_o1.scrollHeight-540;
+			temp_o2.classList.remove("playback_normal");
+		}
+		temp_o2.classList.add("button_return");
+		temp_o2.innerHTML = "◀";
+		flag_respond++;
+	}
+	else if(key_state == "show"){
+		if (flag_auto && flag_respond == 1 && !flag_all){
+			timer_id.auto = setInterval("timer_auto()",400);
+			if(timer_id.txt == undefined) txt_next();
+		}
+		temp_o1.style.display = "none";
+		if(flag_all) temp_o2.classList.add("playback_all_normal");
+		else temp_o2.classList.add("playback_normal");
+		temp_o2.classList.remove("button_return");
+		temp_o2.innerHTML = "";
+		flag_respond--;
+	}
+}
+function txt_stop()
+{
+	let temp_c1 = 100,temp_c2 = 1200;
+	if(isdebug) temp_c1 = txt_delay_per;temp_c2 = txt_delay_all;
+	if(skip_wait >= wait_trigger){
+		temp_c1 = 0;temp_c2 = 0;
+	}
+	fun_timer_clear("txt",false);
+	timer_id.txt = setTimeout(() => {
+		if(timer_id.auto != undefined) txt_next();
+		fun_timer_clear("txt",false);
+	},now_txt_max*temp_c1+temp_c2);
+	fun_timer_clear("dynamic");
+	now_txt_num = 0;
+	now_txt_temp = "";
+	txt_num++;
+}
+function timer_auto()
+{
+	let ele = document.getElementById("button_auto");
+	switch (auto_num)
+	{
+		case 1:
+			ele.innerHTML = "Tự động▶";
+			break;
+		case 2:
+			ele.innerHTML = "Tự động▶▶";
+			break;
+		case 3:
+			ele.innerHTML = "Tự động▶▶▶";
+			auto_num=0;
+			break;
+	}
+	auto_num++;
+}
+function timer_dialog()
+{
+	let temp_tag = "";
+	if (now_txt_num < now_txt_max){
+		if(now_txt.substr(now_txt_num,1) == "<"){
+			let i;
+			for(i = now_txt_num + 1;i < now_txt_max;i++) if(now_txt.substr(i,1) == ">") break;
+			if(now_txt.substr(now_txt_num,2) != "</"){
+				let res = now_txt.match(/^(?:.*?)<(.*?)[ >](?:.*)$/);
+				temp_tag = res == null ? "" : "</" + res[1] + ">"
+			}
+			fun_msg(1,true,"<TimerDialog>tag="+temp_tag);
+			now_txt_temp = now_txt_temp + now_txt.slice(now_txt_num,i + 1);
+			now_txt_num = i + 1;
+		}
+		else if(now_txt.substr(now_txt_num,2) == "&#" && now_txt.match(/&#\d{4};/)){
+			now_txt_temp = now_txt_temp + now_txt.slice(now_txt_num,now_txt_num+7);
+			now_txt_num += 7;
+		}
+		now_txt_temp = now_txt_temp + now_txt.substr(now_txt_num,1);
+		now_dynamic.innerHTML = now_txt_temp + temp_tag;
+		now_txt_num++;
+		return;
+	}
+	txt_stop();
+}
+function timer_shake(str_x,str_y,ran_n,max_t)
+{
+	let o = $("#system_main");
+	let c = parseInt(Math.random()*99) + 1;
+	fun_msg(1,true,"<TimerShake>rnd:"+c);
+	let str_x2 = str_y == 0 ? str_x : str_x * 0.707,str_y2 = str_x == 0 ? str_y : str_y * 0.707;
+	let d1 = [0,-str_x,-str_x2,0,str_x2,str_x,str_x2,0,-str_x2];
+	let d2 = [0,0,-str_y2,-str_y,-str_y2,0,str_y2,str_y,str_y2];
+	c = c < ran_n ? parseInt(Math.random()*7) + 1 : 0
+	o.css({"left":d1[c],"top":d2[c]});
+	if(max_t < 0 || ++shake_times <= max_t) return;
+	fun_timer_clear("shake");
+	timer.clear("shake");
+	o.css({"left":0,"top":0,"transform-duration":""});
+	shake_times = 0;
+}
+function timer_shake_char(key_tar,pow,ran_n,max_t)
+{
+	let o = key_tar == "right" ? $("#char_2") : $("#char_1");
+	let rx = parseInt(Math.random()*99) + 1,ry = parseInt(Math.random()*99) + 1;
+	fun_msg(1,true,"<TimerShakeChar>rnd_x:"+rx+",rnd_y:"+ry);
+	let pow2 = pow*0.707;
+	let d = [0,-pow2,-pow,pow2,pow];
+	rx = rx < ran_n ? parseInt(Math.random()*4) + 1 : 0;
+	ry = ry < ran_n ? parseInt(Math.random()*4) + 1 : 0;
+	o.css({"left":d[rx],"top":d[ry]});
+	if(max_t < 0 || ++shake_char[key_tar] <= max_t) return;
+	fun_timer_clear("action_"+key_tar);
+	o.css({"left":0,"top":0});
+	shake_char[key_tar] = 0;
+}
+function fun_auto_stop()
+{
+	fun_timer_clear("auto");
+	document.getElementById("button_auto").innerHTML = "Tự động▶";
+	flag_auto = false;
+}
+function fun_cal_len(key)
+{
+	key = key.replace(/[\u2013-\u201d\u2026\u3001-\u3015\u3040-\u30ff\u31f0-\u31ff\u4e00-\u9fa5\uff01-\uff1f]/g,"00");
+	key = key.replace(/\.\./g,"0");
+	return key.length;
+}
+function fun_cal_rgb(c_r,c_g,c_b)
+{
+	c_r = Math.max(0,c_r);c_g = Math.max(0,c_g);c_b = Math.max(0,c_b);
+	let d = [c_r,c_g,c_b];
+	for (let i = 0;i < 3;i++)
+	{
+		if(d[i] <= 1) d[i]*=255;
+		d[i] = d[i].toString(16);
+		if(d[i] < 0x10) d[i] = "0" + d[i];
+	}
+	return "#" + d[0] + d[1] + d[2];
+}
+function fun_char_link(key_data)
+{
+	let n,i;
+	if(key_data.trim() == "" || key_data == undefined)
+	{
+		fun_msg(-2,false,"The input parameter is empty,has skipped the data.");
+		return [-1,-1];
+	}
+	let m = key_data.match(/^([^@#$]+)(?:([@#$])([a-z\d]+)|#(\d+)\$(\d+))?$/);
+	fun_msg(0,true,"regex match:",m);
+	if(m == null)
+	{
+		fun_msg(-2,false,"Can't get key from the input parameter,has skipped the data.");
+		return [-1,-1];
+	}
+	n = m[1],i = m[3];
+	if(data_link[n] == undefined)
+	{
+		fun_msg(-2,false,"The appointed key ["+n+"] not exist,has skipped the data.");
+		return [-1,-1];
+	}
+	if(m[2] == '$' || (m[4] && m[5])){
+		let g = '$' + (m[5] || i);//group
+		i = m[4] || i;
+		let ps = data_link[n].array.findIndex((v)=>v.name.endsWith(g)),pe = data_link[n].array.findIndex((v,vi)=>!v.name.endsWith(g) && vi>ps);
+		if(ps == -1){
+			fun_msg(-1,false,"The analyze key ["+n+":"+i+"] not exist,use the default char to instead.");
+			return [n,0];
+		}
+		pe = pe == -1 ? data_link[n].array.length - 1 : pe - 1;
+		if(m[2]) return [n,ps];
+		try{
+			i--;
+		}
+		catch(err){
+			fun_msg(-1,false,"Data analyze error,use the default char to instead.");
+			i = ps;
+		}
+		if(i > pe-ps){
+			fun_msg(-1,false,"The analyze key ["+n+":"+i+"] is out of range,use the default char to instead.");
+			i = ps;
+		}
+		return[n,i+ps];
+	}
+	else if(m[2] == "#"){
+		try{
+			i--;
+		}
+		catch(err){
+			fun_msg(-1,false,"Data analyze error,use the default char to instead.");
+			i = 0;
+		}
+		if(i >= data_link[n].array.length)
+		{
+			fun_msg(-1,false,"The analyze key ["+n+":"+i+"] is out of range,use the default char to instead.");
+			i = 0;
+		}
+		return [n,i];
+	}
+	else if(m[2] == '@'){
+		for(let idx = 0;idx<data_link[n].array.length;idx++) if(data_link[n].array[idx].alias == i) return [n,idx];
+		fun_msg(-1,false,"Data analyze error,use the default char to instead.");
+		return [n,0];
+	}	
+	return [n,0];
+}
+function fun_char_format(key,idx){
+	if(data_link[key] == undefined){
+		fun_msg(-2,false,"Character key ["+key+"] not exist,please check the link list.");
+		return key;
+	}
+	return data_link[key].array[idx].name;
+}
+function fun_char_pos(key,pos = 0){
+	let px,py,sx,sy;
+	px=data_link[key].pos.x*0.75;
+	py=data_link[key].pos.y*0.75;
+	sx=data_link[key].size.x*0.75;
+	sy=data_link[key].size.y*0.75;
+	switch(pos){
+		case -1:
+			px = 330-sx/2+px;
+			break;
+		case 0:
+			px = 480-sx/2+px;
+			break;
+		case 1:
+			px = 630-sx/2+px;
+			break;
+	}
+	py = 540-sy/2-py;
+	return [sx,sy,px,py];
+}
+function fun_debug_analyze(txt,forcefun = 0){
+	let d = data_txt[txt_num],r;
+	data_txt[txt_num] = txt;
+	if((isdebug && !forcefun) || forcefun == -1) r = txt_analyze_test();
+	else if((!isdebug && !forcefun) || forcefun == 1) r = txt_analyze();
+	else{
+		fun_msg(-2,false,"Error parameter value.");
+	}
+	data_txt[txt_num] = d;
+	fun_msg(1,false,"text data try analyze complete.return code:["+r+"]");
+}
+function fun_delay(key_cmd,key_time,key_type = "s")
+{
+	if(key_type == "s") key_time *= 1000;
+	if(key_cmd == "block")
+	{
+		fun_setting("cmd_close");
+		timer_id.wait = setTimeout(() => {
+			fun_timer_clear("wait",false);
+			fun_setting("cmd_open");
+			txt_next();
+		},key_time);
+	}
+}
+/**
+ * @param {HTMLCanvasElement} can
+ * @param {String} url
+ * @param {Number} w
+ * @param {Number} h
+ * @param {Number[]} black
+ **/
+function fun_draw_char(can,url,w,h,...black)
+{
+	var img = new Image();
+	img.src = url;
+	if(can.width != w || can.height != h)
+	{
+		can.width = w;
+		can.height = h;
+	}
+	fun_msg(1,true,"<DrawChar>img_w="+img.width+"img_h="+img.height);
+	var ctx = can.getContext("2d");
+	ctx.clearRect(0,0,w,h);
+	if(ctx.globalCompositeOperation == "source-atop") ctx.globalCompositeOperation = "source-over";
+	ctx.drawImage(img,0,0,w,h);
+	if(black.length == 0 || black[0] == undefined || black[1] == undefined) return;
+	//draw black cover
+	var gri = ctx.createLinearGradient(0,h*black[0],0,h*black[1]);
+	gri.addColorStop(0,"black");gri.addColorStop(1,"rgba(0,0,0,0)");
+	ctx.fillStyle = gri;
+	ctx.globalCompositeOperation = "source-atop";
+    ctx.fillRect(0,0,w,h*black[1]);
+}
+function fun_draw_image(can,url,w,h,x,y){
+	var img = new Image();
+	img.src = url;
+	fun_msg(1,true,"<DrawImage>img_w="+img.width+"img_h="+img.height);
+	var ctx = can.getContext("2d");
+	ctx.clearRect(x,y,w,h);
+	ctx.drawImage(img,x,y,w,h);
+}
+function fun_fullscreen(){
+	let _width = screen.width,_height = screen.height;
+	let c_scale = Math.min(_width/base_width,_height/base_height),width_offset=(_width-base_width*c_scale)/2,height_offset=(_height-base_height*c_scale)/2;
+	fun_msg(1,true,"screen.width="+screen.width+",screen.height="+screen.height+"scale="+c_scale);
+	fun_msg(1,true,"screen.availWidth="+screen.availWidth+",screen.availHeight="+screen.availHeight+",width_offset="+width_offset+"height_offset="+height_offset);
+	let temp_o1 = document.getElementById("system_main"),temp_o2=document.getElementById("button_fullscreen"),temp_o3=document.getElementById("system_offset");
+	if(fun_fullscreen_check()){
+		temp_o1.style.transform = "scale(" + c_scale + ")";
+		temp_o3.style.left = width_offset+"px";temp_o3.style.top = height_offset+"px";
+		temp_o2.classList.remove("fullscreen_normal");
+		temp_o2.classList.add("button_return");
+		temp_o2.innerHTML = "◀";
+	}
+	else{
+		temp_o1.style.transform = "";
+		temp_o3.style = "";
+		temp_o2.classList.add("fullscreen_normal");
+		temp_o2.classList.remove("button_return");
+		temp_o2.innerHTML = "";
+	}
+}
+function fun_fullscreen_check(){
+	return !!(document.fullscreen || document.mozFullScreen || document.webkitIsFullScreen || document.webkitFullScreen || document.msFullScreen);
+}
+function fun_fullscreen_support(){
+	//if(!isdebug && (user_client == "mobile" || user_type == "vert")) return false;
+	let temp = document.documentElement
+	return 'requestFullscreen' in temp || 'webkitRequestFullScreen' in temp || ('mozRequestFullScreen' in temp && document.mozFullScreenEnabled) || false
+}
+function fun_get_url(n)
+{
+	return n.replace(/^url\(["']|["']\)$/g,"")
+}
+/**
+ * 向控制台输出一条带有时间信息的数据 
+ * @function 向控制台输出信息
+ * @description 向控制台输出一条带有时间信息的数据
+ * @param msgs {String} 需要输出的消息
+ * @param msg_type {Number} 消息类型:Info=0,Debug=1,Warn=-1,Error=-2;Special color Info=2+
+ * @param msg_debug {Boolean} 是否只在debug状态下输出消息:true(默认)=仅在debug状态下输出消息,false=无论何时都会输出消息
+ * @return void
+ * @author Krliov
+*/
+function fun_msg(msg_type,msg_debug,...msgs)
+{
+	if(msg_debug && !isdebug) return;
+	let t = new Date();
+	let t_txt = t.getFullYear() + "-" + (t.getMonth()+1) + "-" + t.getDate() + " " + t.getHours() + ":" + t.getMinutes() + ":" + t.getSeconds();
+	if(msgs.length == 1) msgs = msgs[0];
+	switch(msg_type){
+		case -2:
+			console.error("[%s][Error]:",t_txt,msgs);
+			break;
+		case -1:
+			console.warn("[%s][Warn]:",t_txt,msgs);
+			break;
+		case 0:
+			console.log("[%s][Info]:",t_txt,msgs);
+			break;
+		case 1:
+			console.log("%c[%s][Debug]:","background-color:orange;",t_txt,msgs);
+			break;
+		case 2:
+			console.log("%c[%s][Info]:","color:#0080ff",t_txt,msgs);
+			break;
+		case 3:
+			console.log("%c[%s][Info]:","color:#0080ff",t_txt,msgs);
+			break;
+	}
+}
+function fun_override_check(sub,key,line)
+{
+	let ret = false;
+	line++;
+	switch(sub)
+	{
+		case 'char':
+			if(data_override.char[key] != undefined && data_override.char[key][line] != undefined) ret = true;
+			break;
+		case 'image':
+			if(data_override.image[key] != undefined && data_override.image[key][line] != undefined) ret = true;
+			break;
+		case 'override':
+			if(data_override.override[key] != undefined && data_override.override[key][line] != undefined) ret = true;
+			break;
+		case 'tween':
+			if(data_override.tween[key] != undefined && data_override.tween[key][line] != undefined) ret = true;
+			break;
+	}
+	return ret;
+}
+function fun_playback(key_target,p,key_height,key_txt = now_txt){
+	let o = document.createElement("li");
+	let n = typeof p === "object" ? p.name : p;
+	if(n == undefined) return;
+	switch(key_target){
+		case 'playback':
+		case '@p':
+			key_target = "playback_result";
+			break;
+		case 'playback_all':
+		case '@pa':
+			if(decision_mode) key_target = dec_element;
+			else key_target = "playback_all_result";
+			break;
+	}
+	if(key_height != undefined) o.style.height = key_height + "px";
+	o.innerHTML = n.trim() == "" ? "<span>" + key_txt + "</span>" : "<em>" + n + "</em><span>" + key_txt + "</span>";
+	if(fun_cal_len(n) > 12) o.childNodes[0].style.fontSize = "12px";
+	if(typeof p === "object" && p.color != undefined) o.childNodes[0].style.color = p.color;
+	if(typeof key_target === "string") key_target = document.getElementById(key_target);
+	key_target.append(o);
+}
+function fun_setting(key_cmd)
+{
+	if(key_cmd == "pre")
+	{
+		if (isdebug) txt_max = data_txt.length;
+		else if(txt_max == 0) txt_max = data_txt.length;
+		fun_msg(1,true,"txt_max="+txt_max);
+		reset_enabled = true;
+		document.getElementById("txt_name").innerHTML = "";
+		document.getElementById("txt_output").innerHTML = "";
+		document.getElementById("playback_result").innerHTML = "";
+		document.getElementById("system_dialog").style.display = "none";
+		document.getElementById("button_reset").style.color = "";
+		document.getElementById("system_blocker").style.opacity = 0;
+	}
+	else if(key_cmd == "reset")
+	{
+		fun_stop_audio("all");
+		fun_timer_clear("all");
+		document.getElementById("pic_animation").innerHTML = "";
+		document.getElementById("pic_subtitle").innerHTML = "";
+		document.getElementById("pic_back").innerHTML = "";
+		document.getElementById("pic_image").innerHTML = "";
+		$("#pic_char").children().empty().attr("style","");
+		document.getElementById("pic_item").innerHTML = "";
+		document.getElementById("pic_cutin").innerHTML = "";
+		document.getElementById("system_decision").style.display = "none";
+		document.getElementById("system_camera").style.filter = "";
+		document.getElementById("system_audio").innerHTML = "";
+		document.getElementById("system_blocker").style = "";
+		document.getElementById("txt_name").style = "";
+		document.getElementById("txt_name").innerHTML = "Arknights Story Player";
+		document.getElementById("system_dialog").style.display = "block";
+		reset_enabled = false;
+		if(theater_mode){
+			theater_mode = false;
+			document.getElementById("button_playback").style.display = "block";
+			document.getElementById("button_auto").style.display = "block";
+		}
+		fun_setting("cmd_open");
+		document.getElementById("button_reset").style.color = "#808080"
+		txt_num = 0,now_txt_max = 0,now_dynamic = "",flag_respond = 0;
+	}
+	else if(key_cmd == "cmd_close") click_enabled = false;
+	else if(key_cmd == "cmd_open") click_enabled = true;
+	
+}
+function fun_stop_audio(key_cmd)
+{
+	if(key_cmd == "all" || key_cmd == "music")
+	{
+		let e = document.getElementById("system_music");
+		e.onended = "";
+		e.pause();
+		e.currentTime = 0;
+		e.loop = false;
+		e.src = "";
+	}
+	if(key_cmd == "all" || key_cmd == "sound") document.getElementById("system_audio").innerHTML = "";
+}
+function fun_skip_start()
+{
+	if(txt_num == 0 || flag_respond > 0) return 0;
+	if(timer_id.skip != undefined) fun_skip_stop();//防止意外导致的加速无法停止
+	timer_id.skip = setInterval(()=>{
+		skip_wait += 1;
+		if(skip_wait >= wait_trigger){
+			if(flag_auto) fun_auto_stop();
+			fun_timer_clear("skip");
+			timer_id.auto = -1;
+			txt_next();
+		}
+	},10);
+}
+function fun_skip_stop()
+{
+	if(txt_num == 0) return;
+	if(skip_wait == wait_trigger) delete timer_id.auto;
+	else fun_timer_clear("skip");
+	skip_wait = 0;
+}
+function fun_timer_clear(key_id,is_interval = true)
+{
+	if(key_id == "all"){
+		for(let j in timer_id){
+			if(timer_id[j] == undefined) continue;
+			clearInterval(timer_id[j]);
+			clearTimeout(timer_id[j]);
+			delete timer_id[j];
+		}
+		return;
+	}
+	if(timer_id[key_id] != undefined)
+	{
+		if(is_interval){
+			clearInterval(timer_id[key_id]);
+			delete timer_id[key_id];
+		}
+		else {
+			clearTimeout(timer_id[key_id]);
+			delete timer_id[key_id];
+		}
+	}
+}
+function fun_txt_format(key_txt){
+	let t = key_txt.trim().replace(/{@nickname}/ig,data_nickname).replace("<color=","<font color=").replace("</color>","</font>");
+	t = t.replace(/{@s}/g,"")
+	if(isdebug) t = t.replace(/(\W+)\s(\W+?)/g,"$1<br/>$2");
+	return t;
+}
+</script>
+<script class="navigation-not-searchable">
+	try{
+		$(document).ready(()=>{
+			$(document).on('webkitfullscreenchange mozfullscreenchange fullscreenchange',(e)=>{
+				fun_fullscreen();
+			});
+			$("#button_fullscreen").click(()=>{
+				txt_fullscreen();
+			});
+			$("#system_blocker").click(()=>{
+				txt_click();
+			});
+			$("#system_dialog").click(()=>{
+				txt_click();
+			});
+		});
+	}
+	catch(err){
+		fun_msg(-2,false,err);
+		document.addEventListener('fullscreenchange',(e)=>{
+			fun_fullscreen();
+		});
+		document.addEventListener('webkitfullscreenchange',(e)=>{
+			fun_fullscreen();
+		});
+		document.addEventListener('mozfullscreenchange',(e)=>{
+			fun_fullscreen();
+		});
+		document.getElementById("button_fullscreen").addEventListener("click",()=>{
+			txt_fullscreen();
+		});
+		document.getElementById("system_blocker").addEventListener("click",()=>{
+			txt_click();
+		});
+		document.getElementById("system_dialog").addEventListener("click",()=>{
+			txt_click();
+		});
+	}
+	finally{
+		let blocker = document.getElementById("system_main");
+		document.getElementById("button_auto").addEventListener("click",()=>{
+			if((!click_enabled && txt_max == 0) || theater_mode) return 0;
+			if(!reset_enabled){
+				reset_enabled = true;
+				document.getElementById("button_reset").style.color = "";
+			}
+			if(!flag_auto){
+				flag_auto = true;
+				if(txt_num == 0) fun_setting("pre");
+				fun_timer_clear("auto");
+				auto_num = 1;
+				timer_id.auto = setInterval(() => timer_auto(),400);
+				if(click_enabled && timer_id.dynamic == undefined && timer_id.txt == undefined) txt_next();
+			}
+			else if(flag_auto) fun_auto_stop();
+			return 0;
+		});
+		document.getElementById("button_playback").addEventListener("click",()=>{
+			txt_playback("system_playback","button_playback");
+		});
+		document.getElementById("button_playback_all").addEventListener("click",()=>{
+			txt_playback("system_playback_all","button_playback_all",true);
+		});
+		document.getElementById("button_reset").addEventListener("click",()=>{
+			if(!reset_enabled){
+				fun_msg(0,true,"reset didn't pass.");
+				return;
+			}
+			fun_msg(0,true,"reset passed.");
+			if(timer_id.auto != undefined) fun_auto_stop();
+			if(timer_id.dynamic != undefined) txt_stop();
+			fun_setting("reset");
+			document.getElementById("txt_output").innerHTML = "Đã Skip, nhấn chuột để quay lại";
+			return 0;
+		});
+		blocker.addEventListener("mousedown",()=>fun_skip_start());
+		blocker.addEventListener("mouseup",()=>fun_skip_stop());
+		blocker.addEventListener("mouseleave",()=>fun_skip_stop());
+		blocker.addEventListener("touchstart",()=>fun_skip_start());
+		blocker.addEventListener("touchend",()=>fun_skip_stop());
+		blocker.addEventListener("touchleave",()=>fun_skip_stop());
+		blocker.addEventListener("mousemove",()=>{
+			blocker.style.cursor = "default";
+			if(!fun_fullscreen_check()) return;
+			timer.clear("mousehide");
+			timer.create("mousehide",()=>{
+				blocker.style.cursor = "none";
+			},1500);
+		});
+	}
+</script>
+<script class="navigation-not-searchable">
+const dec_limit_len = 50,log_limit_len = 82,wait_trigger = 150,base_width = 960,base_height = 540;
+const public_disabled = false;
+const queue = new createjs.LoadQueue(false);
+const source_url = "https://static.prts.wiki/";
+var timer = new Timer();
+var isdebug = document.URL.includes("&debug=true");
+var txt_max = 0,txt_num = 0,now_txt = "",now_txt_max = 0,now_txt_num = 0,now_txt_temp = "",now_dynamic;
+var timer_id = {},skip_wait = 0;
+var flag_auto = false,flag_error = false,flag_respond = 0;
+var data_cutin = {};
+var shake_times = 0,shake_char = {};
+var reset_enabled = false,click_enabled = false,theater_mode = false;
+var auto_num = 0;
+var data_temp = "";
+var data_nickname = document.getElementById("datas_name").innerHTML;
+var decision_value = [-1,-1,-1];
+var decision_mode = false,decision_select = 1,dec_stack = [],dec_element;
+dec_stack.options = [];
+var data_txt = [];
+var data_pic_back = {};
+var data_pic_char = {};
+var data_override = {};
+data_override.title = {},data_override.char = {},data_override.image = {},data_override.tween = {},data_override.override = {};
+var data_audio = {};
+var data_link;
+//debug setting
+var txt_interval = 25,txt_delay_per = 100,txt_delay_all = 1200;
+data_temp = document.getElementById("datas_override").innerHTML;
+for (let str of data_temp.split("\n"))
+{
+	if(str == "" || str.match("^\\s+$") || str.match("^\\s*//.*$")) continue;
+	let match = str.match("(.*?)\\:(.*)");
+	if(match == undefined || match[2] == undefined) continue;
+	let d1,d2,d3,d4;//临时数据变量
+	let arr = [],obj = {};
+	switch(match[1].toLowerCase())
+	{
+		case 'title':
+			[d1,d2] = match[2].split("=");
+			if(d2 == undefined) continue;
+			data_override.title[d1] = d2;
+			break;
+		case 'char':
+			[d1,d2] = match[2].split(";");
+			[d3,d4] = d1.split(",");
+			arr = d4.split(".");
+			if(arr.length == 0 || d2 == undefined) continue;
+			if(data_override.char[d3] == undefined) data_override.char[d3] = {};
+			for(let d of d2.split(",")){
+				let [p,v] = d.split("=");
+				obj[p] = v;
+			}
+			for(let d of arr) data_override.char[d3][d] = obj;
+			break;
+		case 'image':
+			[d1,d2] = match[2].split(";");
+			[d3,d4] = d1.split(",");
+			arr = d4.split(".");
+			if(arr.length == 0 || d2 == undefined) continue;
+			if(data_override.image[d3] == undefined) data_override.image[d3] = {};
+			for(let d of d2.split(",")){
+				let [p,v] = d.split("=");
+				obj[p] = v;
+			}
+			for(let d of arr) data_override.image[d3][d] = obj;
+			break;
+		case 'tween':
+			[d1,d2] = match[2].split(";");
+			[d3,d4] = d1.split(",");
+			arr = d4.split(".");
+			if(arr.length == 0 || d2 == undefined) continue;
+			if(data_override.tween[d3] == undefined) data_override.tween[d3] = {};
+			for(let d of d2.split(",")){
+				let [p,v] = d.split("=");
+				obj[p] = v;
+			}
+			for(let d of arr) data_override.tween[d3][d] = obj;
+			break;
+		case 'override':
+			[d1,d2] = match[2].split(";");
+			[d3,d4] = d1.split(",");
+			if(d4 == undefined) continue;
+			if(data_override.override[d3] == undefined) data_override.override[d3] = {};
+			if(d2 == undefined) d2 = "";
+			data_override.override[d3][d4] = d2;
+	}
+}
+console.log(data_override);
+const user_client = document.getElementById("firstHeading") == undefined ? "mobile" : "desktop";
+const user_type = screen.availWidth * 0.7 < screen.availHeight ? "vert" : "horiz";
+data_temp = user_client == "desktop" ? "firstHeading" : "section_0";
+const txt_page_name = document.getElementById(data_temp).innerHTML;
+if(data_override.title[txt_page_name] != undefined){
+	document.title = document.title.replace(txt_page_name,data_override.title[txt_page_name]);
+	document.getElementById(data_temp).innerHTML = data_override.title[txt_page_name];
+}
+else{
+	document.title = document.title.replace("/BEG"," 行动前").replace("/END"," 行动后").replace(/\/NBT/,"");
+	document.getElementById(data_temp).innerHTML = document.getElementById(data_temp).innerHTML.replace("/BEG"," 行动前").replace("/END"," 行动后").replace(/\/NBT/,"");
+}
+data_temp = document.getElementById("datas_txt").innerHTML;
+data_txt = data_temp.split("\n");
+data_temp = document.getElementById("datas_back").innerHTML;
+for (let d of data_temp.split("\n"))
+{
+	let [p,v] = d.split(",");
+	data_pic_back[p] = v;
+}
+data_temp = document.getElementById("datas_char").innerHTML;
+for (let d of data_temp.split("\n"))
+{
+	let [p,v] = d.split(",");
+	data_pic_char[p] = v;
+}
+data_temp = document.getElementById("datas_audio").innerHTML.toLowerCase();
+let temp_c1 = data_temp.search(/,\s+\}$/);
+if(temp_c1 != -1) {
+	fun_msg(0,false,"The inner code has been executed.");
+	data_temp = data_temp.substr(0,temp_c1) + "}";//防止背刺
+}
+data_temp = JSON.parse(data_temp);
+for(let idx in data_temp){
+	if(data_temp[idx].toString().indexOf("sound_beta_2") == -1) continue;
+	data_audio[idx] = data_temp[idx].replace("sound_beta_2",source_url + "music") + ".mp3";
+}
+data_temp = document.getElementById("datas_link").innerHTML.toLowerCase();
+data_link = JSON.parse(data_temp);
+var data_need = new Set();
+decision_mode = false;//临时使用
+for (let i = 0;i < data_txt.length;i++)
+{
+	if(fun_override_check('override',txt_page_name,i)) data_txt[i] = data_override.override[txt_page_name][i+1];
+	if(data_txt[i] == "" || data_txt[i].match("^\\s+$") || data_txt[i].match("^\\s*//.*$")) continue;
+	let match = data_txt[i].match("^\\[\\s*(?:(.*?)\\((.*)\\)|(?:([\\.|\\w]*)|(.*)))\\s*\\]\\s*(.*)");
+	let temp = {};
+	if (match == null) {
+		temp.d1 = fun_txt_format(data_txt[i]);
+		temp.d2 = temp.d1.replace(/\<(.*?)\>/g,"");
+		temp.c2 = decision_mode ? log_limit_len-2 : log_limit_len;
+		if(fun_cal_len(temp.d2) > temp.c2) temp.c1 = Math.ceil(fun_cal_len(temp.d2) / temp.c2)*22;
+		fun_playback("@pa","",temp.c1,temp.d1);
+		continue;
+	};
+	if (match[1] != undefined)
+	{
+		let cmd_set = match[2].toObject();
+		switch (match[1].toLowerCase())
+		{
+			case 'background':
+				temp.n = cmd_set.image ? "bg_"+cmd_set.image.toLowerCase() : "";
+				if(temp.n == "") continue;
+				else if(data_pic_back[temp.n] == undefined || data_pic_back[temp.n] == ""){
+					fun_msg(-2,false,"<Background>Data ["+temp.n+"] not exist,please check the data list.");
+					continue;
+				}
+				data_need.add(data_pic_back[temp.n]);
+				break;
+			case 'character':
+				temp.n1 = cmd_set.name ? cmd_set.name.toLowerCase() : "";
+				temp.n2 = cmd_set.name2 ? cmd_set.name2.toLowerCase() : "";
+				if(fun_override_check('char',txt_page_name,i)){
+					temp.n1 = data_override.char[txt_page_name][i+1].name || temp.n1;
+					temp.n2 = data_override.char[txt_page_name][i+1].name2 || temp.n2;
+				}
+				if (temp.n1 != ""){
+					[temp.d1,temp.c1] = fun_char_link(temp.n1);
+					if(temp.d1 == -1) continue;
+					temp.n1 = fun_char_format(temp.d1,temp.c1);
+					if(data_pic_char[temp.n1] == undefined || data_pic_char[temp.n1] == ""){
+						fun_msg(-2,false,"<Character>Data ["+temp.n1+"] not exist,please check the data list.");
+						continue;
+					}
+					data_need.add(data_pic_char[temp.n1]);
+				}
+				if (temp.n2 != "")
+				{
+					[temp.d2,temp.c2] = fun_char_link(temp.n2);
+					if(temp.d2 == -1) continue;
+					temp.n2 = fun_char_format(temp.d2,temp.c2);
+					if(data_pic_char[temp.n2] == undefined || data_pic_char[temp.n2] == ""){
+						fun_msg(-2,false,"<Character>Data ["+temp.n2+"] not exist,please check the data list.");
+						continue;
+					}
+					data_need.add(data_pic_char[temp.n2]);
+				}
+				break;
+			case 'charactercutin':
+				temp.n = cmd_set.name ? cmd_set.name.toLowerCase() : "";
+				if(temp.n != "")
+				{
+					[temp.d1,temp.c1] = fun_char_link(temp.n)
+					if(temp.d1 == -1) continue;
+					temp.n = fun_char_format(temp.d1,temp.c1);
+					if(data_pic_char[temp.n] == undefined || data_pic_char[temp.n] == ""){
+						fun_msg(-2,false,"<Charactercutin>Data ["+temp.n+"] not exist,please check the data list.");
+						continue;
+					}
+					data_need.add(data_pic_char[temp.n]);
+				}
+				break;
+			case 'decision':
+				temp.d1 = cmd_set.options == undefined ? "" : cmd_set.options.split(';');
+    			temp.d2 = cmd_set.values == undefined ? "" : cmd_set.values.split(';');
+				if(temp.d1 == "") continue;
+    			temp.o1 = document.createElement('div');
+				temp.o1.className = 'log_decision';
+				temp.o2 = document.createElement("li");
+				temp.d3 = "";
+				for (let i of temp.d1){
+					temp.d3 += "<span class='log_decision'>【" + i + "】</span>";
+				}
+				temp.o2.innerHTML = temp.d3;
+				temp.o2.style = "height:"+(temp.d1.length*22)+"px";
+				temp.o1.append(temp.o2);
+				for(let i=0;i<temp.d1.length;i++) dec_stack.options[temp.d2[i]] = temp.d1[i];
+				if(dec_stack.length > 0 && dec_stack.options.length-1 == dec_stack[dec_stack.length-1].values.length){
+					dec_stack.pop()
+					if(dec_stack.length == 0){
+						decision_mode = false;
+						document.getElementById("playback_all_result").append(data_temp);
+					}
+				}
+    			if(!decision_mode){
+					data_temp = temp.o1;
+					decision_mode = true;
+				}
+    			else dec_element.append(temp.o1);
+    			dec_element = temp.o1;
+    			dec_stack.push({values:temp.d2,selected:[]});
+				break;
+			case 'image':
+				temp.n = cmd_set.image ? cmd_set.image.toLowerCase() : "";
+				if(temp.n != ""){
+					if(data_pic_back[temp.n] == undefined || data_pic_back[temp.n] == ""){
+						fun_msg(-2,false,"<Image>Data ["+temp.n+"] not exist,please check the data list.");
+						continue;
+					}
+					data_need.add(data_pic_back[temp.n]);
+				}
+				break;
+			case 'largebg':
+				temp.ig = cmd_set.imagegroup ? cmd_set.imagegroup.split("/") : [];
+				for(let i = 0;i< temp.ig.length;i++){
+					let n = "bg_" + temp.ig[i].toLowerCase();
+					if(data_pic_back[n] == undefined || data_pic_back[n] == ""){
+						fun_msg(-2,false,"<LargeBg>Data ["+n+"] not exist,please check the data list.");
+						continue;
+					}
+					data_need.add(data_pic_back[n]);
+				}
+				break;
+			case 'largeimg':
+				temp.ig = cmd_set.imagegroup ? cmd_set.imagegroup.split("/") : [];
+				for(let i=0;i<temp.ig.length;i++){
+					let n = temp.ig[i].toLowerCase();
+					if(data_pic_back[n] == undefined || data_pic_back[n] == ""){
+						fun_msg(-2,false,"<LargeBg>Data ["+n+"] not exist,please check the data list.");
+						continue;
+					}
+					data_need.add(data_pic_back[n]);
+				}
+				break;
+			case 'playmusic':
+				temp.d1 = cmd_set.intro == undefined ? "" : cmd_set.intro.replace('$',"").toLowerCase();
+				temp.d2 = cmd_set.key == undefined ? "" : cmd_set.key.replace('$',"").toLowerCase();
+				if(temp.d1 != "")
+				{
+					if(data_audio[temp.d1] == undefined || data_audio[temp.d1] == ""){
+						fun_msg(-2,false,"<PlayMusic>Data ["+temp.d1+"] not exist,please check the data list.");
+						continue;
+					}
+					data_need.add(data_audio[temp.d1]);
+				}
+				if(temp.d2 != "")
+				{
+					if(data_audio[temp.d2] == undefined || data_audio[temp.d2] == ""){
+						fun_msg(-2,false,"<PlayMusic>Data ["+temp.d2+"] not exist,please check the data list.");
+						continue;
+					}
+					data_need.add(data_audio[temp.d2]);
+				}
+				break;
+			case 'playsound':
+				temp.d1 = cmd_set.key == undefined ? "" : cmd_set.key.replace('$',"").toLowerCase();
+				if(temp.d1 == "") continue;
+				else if(data_audio[temp.d1] == undefined || data_audio[temp.d1] == ""){
+					fun_msg(-2,false,"<PlaySound>Data ["+temp.d1+"] not exist,please check the data list.");
+					continue;
+				}
+				data_need.add(data_audio[temp.d1]);
+				break;
+			case 'predicate':
+				temp.d1 = cmd_set.references == undefined ? "" : cmd_set.references.split(';');
+    			temp.c1 = dec_stack.length - 1;
+    			if(temp.c1 < 0) {
+        			fun_msg(-1,false,"<Predicate>Irregular dec_stack length.Has skipped the data.");
+        			continue;
+    			}
+				temp.c2 = dec_stack[temp.c1].values.length;
+    			if(temp.d1 == "") temp.d1 = dec_stack[temp.c1].values;
+    			if(temp.d1.length > temp.c2) dec_stack = [];
+				else if(temp.d1.length == temp.c2 || dec_stack[temp.c1].selected.length == temp.c2){
+					temp.d2 = dec_stack.pop();
+					if(dec_stack.length > 0) temp.c2 = dec_stack[temp.c1-1].values.length;
+				}
+				if(dec_stack.length == 0){
+        			decision_mode = false;
+					dec_stack.options = [];
+					document.getElementById('playback_all_result').append(data_temp);
+					continue;
+    			}
+    			else if(dec_stack.length == temp.c1){
+					dec_element = dec_element.parentElement;
+					temp.c1--;
+				}
+    			if(dec_stack[temp.c1].selected.length < temp.c2){
+    			    temp.o1 = document.createElement('div');
+    			    temp.o1.className = 'log_predicate';
+					dec_element.parentElement == undefined ? dec_element.append(temp.o1) :dec_element.parentElement.append(temp.o1);
+					dec_element = temp.o1;
+					for(let i of temp.d1){
+        				if(dec_stack.options[i] == undefined){
+							fun_msg(-1,false,"<Predicate>Can't find the options data of the value ["+i+"].");
+							continue;
+						}
+        				temp.o2 = document.createElement('span');
+        				temp.o2.innerHTML = "【"+dec_stack.options[i]+"】";
+        				if(!dec_stack[temp.c1].selected.includes(i)) dec_stack[temp.c1].selected.push(i);
+        				dec_element.append(temp.o2);
+    				}
+    			}
+				break;
+			case 'showitem':
+				temp.d1 = cmd_set.image == undefined ? "" : cmd_set.image.toLowerCase();
+				if(temp.d1 == "") continue;
+				else if(data_pic_back[temp.d1] == undefined || data_pic_back[temp.d1] == ""){
+					fun_msg(-2,false,"<ShowItem>Data ["+temp.d1+"] not exist,please check the data list.");
+					continue;
+				}
+				data_need.add(data_pic_back[temp.d1]);
+				break;
+			case 'subtitle':
+				temp.d1 = cmd_set.text == undefined ? "" : cmd_set.text;
+				if(temp.d1 == "") continue;
+				temp.c2 = decision_mode ? log_limit_len-2 : log_limit_len;
+				if(fun_cal_len(temp.d1) > temp.c2) temp.c1 = Math.ceil(fun_cal_len(temp.d1) / temp.c2)*22;
+				fun_playback("@pa","",temp.c1,temp.d1);
+				break;
+			case 'video':
+				temp.d1 = cmd_set.res == undefined ? "" : cmd_set.res.toLowerCase();
+				if(temp.d1 == "") continue;
+				temp.d1 = source_url + temp.d1;
+				data_need.add(temp.d1);
+				break;
+			default:
+				break;
+		}
+		continue;
+	}
+	else if(match[3] != undefined){
+		switch(match[3].toLowerCase()){
+			case 'predicate':
+				dec_stack = [],dec_stack.options = [];
+				decision_mode = false;
+        		document.getElementById('playback_all_result').append(data_temp);
+				break;
+		}
+		continue;
+	}
+	else if(match[4] != undefined)
+	{
+		temp.p = match[4].toObject();
+		if(temp.p == null || temp.p.name == undefined) continue;
+		temp.d1 = fun_txt_format(match[5]);
+		temp.d2 = temp.d1.replace(/\<(.*?)\>/g,"");
+		temp.c2 = decision_mode ? log_limit_len-2 : log_limit_len;
+		if(fun_cal_len(temp.d2) > temp.c2) temp.c1 = Math.ceil(fun_cal_len(temp.d2) / temp.c2)*22;
+		fun_playback("@pa",temp.p,temp.c1,temp.d1);
+	}
+}
+decision_mode = false;//临时使用完毕
+for (let i of data_need){
+	queue.loadFile(i,false);
+}
+console.log(data_txt);
+console.log(data_pic_back);
+console.log(data_pic_char);
+console.log(data_audio);
+console.log(data_link);
+fun_msg(2,false,"Source start loading...");
+queue.load();
+queue.on("fileload",(e)=>{
+	fun_msg(0,true,"Source Loaded:",e.item.src);
+	document.getElementById("txt_output").innerHTML = "Đang tải tài nguyên:"+e.item.src.getValue("/");
+});
+queue.on("complete",() => {
+	fun_msg(2,false,"All source loaded complete.");
+	click_enabled = true;
+	document.getElementById("button_auto").style.color = "";
+	document.getElementById("txt_output").innerHTML = "Tải hoàn tất, nhấn chuột để bắt đầu";
+	document.getElementById("button_playback_all").style.display = "block";
+	if(fun_fullscreen_support()) document.getElementById("button_fullscreen").style.display = "block";
+	else document.getElementById("button_fullscreen").remove();
+},this,true);
+</script>
+</includeonly>
